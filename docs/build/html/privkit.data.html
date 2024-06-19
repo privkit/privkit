@@ -1,0 +1,1185 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>privkit.data package &#8212; Privkit 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e031e9a9"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'privkit.data';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="privkit.datasets package" href="privkit.datasets.html" />
+    <link rel="prev" title="User Guide" href="privkit.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_grey_word.svg" class="logo__image only-light" alt="privkit homepage"/>
+    <script>document.write(`<img src="_static/logo_white_word.svg" class="logo__image only-dark" alt="privkit homepage"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="privkit.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+                        Github
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+                        Web Version
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="privkit.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+                        Github
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+                        Web Version
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">privkit.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privkit.datasets.html">privkit.datasets package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privkit.ppms.html">privkit.ppms package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privkit.attacks.html">privkit.attacks sub-package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privkit.metrics.html">privkit.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privkit.utils.html">privkit.utils package</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="privkit.html" class="nav-link">User Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">privkit.data package</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="module-privkit.data">
+<span id="privkit-data-package"></span><h1>privkit.data package<a class="headerlink" href="#module-privkit.data" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.data.DataType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.data.</span></span><span class="sig-name descname"><span class="pre">DataType</span></span><a class="headerlink" href="#privkit.data.DataType" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>DataType is an abstract class for a generic type of data. Defines a series of methods common to all data types.
+Provides basic functions to load, process, and save data.
+Requires the definition of the DATA_TYPE_ID, DATA_TYPE_NAME, and DATA_TYPE_INFO.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="privkit.data.DataType.DATA_TYPE_ID">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.data.DataType.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd><p>Identifier of the data type</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="privkit.data.DataType.DATA_TYPE_INFO">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATA_TYPE_INFO</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.data.DataType.DATA_TYPE_INFO" title="Permalink to this definition">#</a></dt>
+<dd><p>Information of the data type, specifically the format of the files to be read</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="privkit.data.DataType.DATA_TYPE_NAME">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATA_TYPE_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.data.DataType.DATA_TYPE_NAME" title="Permalink to this definition">#</a></dt>
+<dd><p>Name of the data type</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.DataType.load_data">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.DataType.load_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Loads data. This is specific to the data type</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.DataType.process_data">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.DataType.process_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Performs data processing or returns data processing methods. This is specific to the data type</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.DataType.save_data">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.DataType.save_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Saves data to a file. This is specific to the data type</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.data.FacialData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.data.</span></span><span class="sig-name descname"><span class="pre">FacialData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.data.DataType" title="privkit.data.data_type.DataType"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataType</span></code></a></p>
+<p>FacialData is a privkit.DataType to handle facial data. Facial data is defined as a collection of points in
+3D space, where each point is represented by its coordinates (x, y, z) and, optionally, additional attributes
+like color or normal vectors. It is stored as an Open3D data structure with the PointCloud class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.FacialData.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'facial_data'</span></em><a class="headerlink" href="#privkit.data.FacialData.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.FacialData.DATA_TYPE_INFO">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Facial</span> <span class="pre">data</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">imported</span> <span class="pre">through</span> <span class="pre">an</span> <span class="pre">Open3D</span> <span class="pre">data</span> <span class="pre">structure</span> <span class="pre">or</span> <span class="pre">read</span> <span class="pre">by</span> <span class="pre">a</span> <span class="pre">PLY</span> <span class="pre">file.</span> <span class="pre">To</span> <span class="pre">be</span> <span class="pre">supported,</span> <span class="pre">data</span> <span class="pre">should</span> <span class="pre">contain</span> <span class="pre">at</span> <span class="pre">least</span> <span class="pre">one</span> <span class="pre">point</span> <span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z).'</span></em><a class="headerlink" href="#privkit.data.FacialData.DATA_TYPE_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.FacialData.DATA_TYPE_NAME">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Facial</span> <span class="pre">Data'</span></em><a class="headerlink" href="#privkit.data.FacialData.DATA_TYPE_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.crop_pcd">
+<span class="sig-name descname"><span class="pre">crop_pcd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ymax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.crop_pcd" title="Permalink to this definition">#</a></dt>
+<dd><p>Segment the point cloud with a bounding box</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xmin</strong> (<em>float</em>) – minimum x-coordinate of the bounding box</p></li>
+<li><p><strong>xmax</strong> (<em>float</em>) – maximum x-coordinate of the bounding box</p></li>
+<li><p><strong>ymin</strong> (<em>float</em>) – minimum y-coordinate of the bounding box</p></li>
+<li><p><strong>ymax</strong> (<em>float</em>) – maximum y-coordinate of the bounding box</p></li>
+<li><p><strong>zmin</strong> (<em>float</em>) – minimum z-coordinate of the bounding box</p></li>
+<li><p><strong>zmax</strong> (<em>float</em>) – maximum z-coordinate of the bounding box</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.FacialData.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#privkit.data.FacialData.data" title="Permalink to this definition">#</a></dt>
+<dd><p>Facial data is stored as an Open3D data structure</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.fp_downsample">
+<span class="sig-name descname"><span class="pre">fp_downsample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.fp_downsample" title="Permalink to this definition">#</a></dt>
+<dd><p>Downsample the point cloud with the Farthest Point Sampling technique</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>N</strong> (<em>int</em>) – number of point of the sampled point cloud</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.get_color">
+<span class="sig-name descname"><span class="pre">get_color</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.get_color" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a boolean value indicating whether the point cloud has color
+:return: True if the point cloud has color, False otherwise</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.get_number_of_points">
+<span class="sig-name descname"><span class="pre">get_number_of_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.get_number_of_points" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the number of points of the point cloud
+:return: number of points of the point cloud</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.get_point_mean_std">
+<span class="sig-name descname"><span class="pre">get_point_mean_std</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.get_point_mean_std" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the average coordinate of the point cloud points along with the standard deviation
+:return: Average point cloud coordinate and standard deviation</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.get_point_median">
+<span class="sig-name descname"><span class="pre">get_point_median</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.get_point_median" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the median coordinate of the point cloud points
+:return: median point cloud coordinate</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.FacialData.id_name">
+<span class="sig-name descname"><span class="pre">id_name</span></span><a class="headerlink" href="#privkit.data.FacialData.id_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Identifier name of this facial data instance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pcd_or_filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PointCloud</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.load_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Loads facial data from a PointCloud, an array with dimensions (#dim, 3) or a file that can be read using Open3D’s read_point_cloud() method.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pcd_or_filepath</strong> (<em>DataFrame</em><em> or </em><em>str</em><em> or </em><em>Path</em>) – either a PointCloud instance, a file path to a point cloud, or an array with the points coordinates</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.print_data_summary">
+<span class="sig-name descname"><span class="pre">print_data_summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.print_data_summary" title="Permalink to this definition">#</a></dt>
+<dd><p>Prints data summary, specifying the number of points, and color availability</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.process_data">
+<span class="sig-name descname"><span class="pre">process_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.process_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Performs data processing or returns data processing methods. This is specific to the data type</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.remove_outliers_statistical">
+<span class="sig-name descname"><span class="pre">remove_outliers_statistical</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_neighbors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">std_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.remove_outliers_statistical" title="Permalink to this definition">#</a></dt>
+<dd><p>Remove outlier from the point cloud based on neighboring distance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nb_neighbors</strong> (<em>float</em>) – number of neighbors for outlier detection</p></li>
+<li><p><strong>std_ratio</strong> (<em>float</em>) – standard deviation for threshold computation</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.remove_points_outside_sphere">
+<span class="sig-name descname"><span class="pre">remove_points_outside_sphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.remove_points_outside_sphere" title="Permalink to this definition">#</a></dt>
+<dd><p>Segment the point cloud with a sphere</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>center</strong> (<em>ndarray</em>) – coordinates of the center of the sphere</p></li>
+<li><p><strong>radius</strong> (<em>float</em>) – radius of the sphere</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.FacialData.save_data">
+<span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./input/data/'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ply'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.FacialData.save_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Saves data to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>str</em>) – path where data should be saved.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – name of the file to be saved.</p></li>
+<li><p><strong>extension</strong> (<em>str</em>) – extension of the format of how the file should be saved. The default value is <cite>‘ply’</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.data.LocationData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.data.</span></span><span class="sig-name descname"><span class="pre">LocationData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.data.DataType" title="privkit.data.data_type.DataType"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataType</span></code></a></p>
+<p>LocationData is a privkit.DataType to handle location data. Location data is defined by a &lt;latitude, longitude&gt;
+coordinates (and optionally datetime) and is stored as a Pandas DataFrame.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.LocationData.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'location_data'</span></em><a class="headerlink" href="#privkit.data.LocationData.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.LocationData.DATA_TYPE_INFO">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Location</span> <span class="pre">data</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">imported</span> <span class="pre">through</span> <span class="pre">a</span> <span class="pre">Pandas</span> <span class="pre">dataframe</span> <span class="pre">or</span> <span class="pre">a</span> <span class="pre">read</span> <span class="pre">by</span> <span class="pre">a</span> <span class="pre">delimited</span> <span class="pre">file,</span> <span class="pre">a</span> <span class="pre">file-like</span> <span class="pre">object</span> <span class="pre">or</span> <span class="pre">an</span> <span class="pre">object.</span> <span class="pre">To</span> <span class="pre">be</span> <span class="pre">supported,</span> <span class="pre">data</span> <span class="pre">should</span> <span class="pre">contain</span> <span class="pre">at</span> <span class="pre">least</span> <span class="pre">one</span> <span class="pre">point</span> <span class="pre">(latitude,</span> <span class="pre">longitude).</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.data.LocationData.DATA_TYPE_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.LocationData.DATA_TYPE_NAME">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Location</span> <span class="pre">Data'</span></em><a class="headerlink" href="#privkit.data.LocationData.DATA_TYPE_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.average_update_rate">
+<span class="sig-name descname"><span class="pre">average_update_rate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.average_update_rate" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the average of update rate (i.e. timedelta between subsequent points)
+:return: average update rate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.compute_timedelta">
+<span class="sig-name descname"><span class="pre">compute_timedelta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boxplot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span></span></span><a class="headerlink" href="#privkit.data.LocationData.compute_timedelta" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the timedelta between the datetime of the trajectory points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time_unit</strong> (<em>str</em>) – time unit (e.g. seconds, minutes or hours). The default is <cite>s</cite> (seconds).</p></li>
+<li><p><strong>boxplot</strong> (<em>bool</em>) – if <cite>True</cite>, a boxplot is generated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of timedelta values</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.create_grid">
+<span class="sig-name descname"><span class="pre">create_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_lat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_lat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_lon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_lon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestamp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.create_grid" title="Permalink to this definition">#</a></dt>
+<dd><p>Discretizes the space defined by the min and max latitude and longitude of the location data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_lat</strong> (<em>float</em>) – minimum latitude coordinate</p></li>
+<li><p><strong>max_lat</strong> (<em>float</em>) – maximum latitude coordinate</p></li>
+<li><p><strong>min_lon</strong> (<em>float</em>) – minimum longitude coordinate</p></li>
+<li><p><strong>max_lon</strong> (<em>float</em>) – maximum longitude coordinate</p></li>
+<li><p><strong>spacing</strong> (<em>float</em>) – grid cell spacing in meters</p></li>
+<li><p><strong>timestamp</strong> (<em>int</em>) – time interval</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.LocationData.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#privkit.data.LocationData.data" title="Permalink to this definition">#</a></dt>
+<dd><p>Location data is stored as a pd.DataFrame</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.divide_data">
+<span class="sig-name descname"><span class="pre">divide_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.divide_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Divides data into train and test
+:param test_size: size of test data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.filter_by_distance">
+<span class="sig-name descname"><span class="pre">filter_by_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">2000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.filter_by_distance" title="Permalink to this definition">#</a></dt>
+<dd><p>Filters trajectories by distance to avoid either extremely long or short trajectories</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_distance</strong> (<em>float</em>) – minimum distance that the trajectory must have. The default is <cite>0 meters</cite>.</p></li>
+<li><p><strong>max_distance</strong> (<em>float</em>) – maximum distance that the trajectory must have. The default is <cite>2000 meters = 2 km</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.filter_by_duration">
+<span class="sig-name descname"><span class="pre">filter_by_duration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">60</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">7200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.filter_by_duration" title="Permalink to this definition">#</a></dt>
+<dd><p>Filters trajectories by duration to avoid either extremely long or short trajectories</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_duration</strong> (<em>float</em>) – minimum duration that the trajectory must have. The default is <cite>60 seconds</cite>.</p></li>
+<li><p><strong>max_duration</strong> (<em>float</em>) – maximum duration that the trajectory must have. The default is <cite>2 hours = 2x3600 seconds</cite>.</p></li>
+<li><p><strong>time_unit</strong> (<em>str</em>) – time unit (e.g. seconds, minutes or hours). The default is <cite>s</cite> (seconds).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.filter_by_timedelta">
+<span class="sig-name descname"><span class="pre">filter_by_timedelta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timedelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'s'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.filter_by_timedelta" title="Permalink to this definition">#</a></dt>
+<dd><p>Filters trajectories by timedelta to avoid discontinuity between points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timedelta</strong> (<em>float</em>) – defines the maximum timedelta between subsequent points</p></li>
+<li><p><strong>time_unit</strong> (<em>str</em>) – time unit (e.g. seconds, minutes or hours). The default is <cite>s</cite> (seconds).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.filter_outside_points">
+<span class="sig-name descname"><span class="pre">filter_outside_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.filter_outside_points" title="Permalink to this definition">#</a></dt>
+<dd><p>Filters all location points that fall outside the given latitude/longitude grid/bounding-box. Note: this can produce time gaps</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_latitude</strong> (<em>float</em>) – minimum latitude coordinate</p></li>
+<li><p><strong>max_latitude</strong> (<em>float</em>) – maximum latitude coordinate</p></li>
+<li><p><strong>min_longitude</strong> (<em>float</em>) – minimum longitude coordinate</p></li>
+<li><p><strong>max_longitude</strong> (<em>float</em>) – maximum longitude coordinate</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.generate_ground_truth">
+<span class="sig-name descname"><span class="pre">generate_ground_truth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mechanism</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MultiDiGraph</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">6.86</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.69</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">13.35</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.generate_ground_truth" title="Permalink to this definition">#</a></dt>
+<dd><p>Generates ground truth by applying a mechanism.</p>
+<p>For the Map-Matching mechanism, the following references were used:</p>
+<p>[1] <cite>Goh, C. Y., Dauwels, J., Mitrovic, N., Asif, M. T., Oran, A., &amp; Jaillet, P. (2012, September). Online
+map-matching based on hidden markov model for real-time traffic sensing applications. In 2012 15th
+International IEEE Conference on Intelligent Transportation Systems (pp. 776-781). IEEE.</cite></p>
+<p>[2] <cite>Jagadeesh, G. R., &amp; Srikanthan, T. (2017). Online map-matching of noisy and sparse location data with hidden
+Markov and route choice models. IEEE Transactions on Intelligent Transportation Systems, 18(9), 2423-2434.</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mechanism</strong> (<em>str</em>) – mechanism identifier that should be used to generate ground truth data</p></li>
+<li><p><strong>G</strong> (<em>networkx.MultiDiGraph</em>) – road network represented as a directed graph</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – standard deviation of the location measurement noise in meters. The default value is <cite>6.86</cite> [1].</p></li>
+<li><p><strong>error_range</strong> (<em>float</em>) – defines the range to search for states for each observation point. The default value is <cite>50</cite> [1].</p></li>
+<li><p><strong>lambda_y</strong> (<em>float</em>) – multiplier of circuitousness used to compute the probability of transition. The default value is <cite>0.69</cite> [2].</p></li>
+<li><p><strong>lambda_z</strong> (<em>float</em>) – multiplier of temporal implausibility used to compute the probability of transition. The default value is <cite>13.35</cite> [2].</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.get_bounding_box_range">
+<span class="sig-name descname"><span class="pre">get_bounding_box_range</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.get_bounding_box_range" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the minimum and maximum latitude/longitude cover by data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>min_latitude, max_latitude, min_longitude, max_longitude</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.get_datetime_range">
+<span class="sig-name descname"><span class="pre">get_datetime_range</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.get_datetime_range" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the data range of datatime
+:return: minimum datetime, maximum datetime</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.get_number_of_trajectories">
+<span class="sig-name descname"><span class="pre">get_number_of_trajectories</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.get_number_of_trajectories" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the number of trajectories
+:return: number of trajectories</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.get_number_of_users">
+<span class="sig-name descname"><span class="pre">get_number_of_users</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.get_number_of_users" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the number of users
+:return: number of users</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.get_test_data">
+<span class="sig-name descname"><span class="pre">get_test_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.get_test_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns test data
+:return: test data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.get_train_data">
+<span class="sig-name descname"><span class="pre">get_train_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.get_train_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns train data
+:return: train data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.get_trajectories">
+<span class="sig-name descname"><span class="pre">get_trajectories</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.get_trajectories" title="Permalink to this definition">#</a></dt>
+<dd><p>Gets trajectories from the given location data grouped by trajectory id and/or user id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> (<em>int</em>) – user identifier whose trajectories should be returned.</p></li>
+<li><p><strong>trajectory_id</strong> (<em>int</em>) – trajectory identifier to return</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>trajectories</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pd.DataFrameGroupBy</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.get_trajectory_statistics">
+<span class="sig-name descname"><span class="pre">get_trajectory_statistics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.get_trajectory_statistics" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns trajectory statistics, specifically the total number of points, trajectory with the minimum and maximum
+number of points, and the average of points per trajectory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>total_number_of_points, min_number_of_points, max_number_of_points, average_number_of_points</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.LocationData.id_name">
+<span class="sig-name descname"><span class="pre">id_name</span></span><a class="headerlink" href="#privkit.data.LocationData.id_name" title="Permalink to this definition">#</a></dt>
+<dd><p>Identifier name of this location data instance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_to_load</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'lat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'lon'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">datetime</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'datetime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'uid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'tid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.load_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Loads location data from a pd.DataFrame or a file that can be read by a Pandas read() method.
+The definition of the parameters came from the parameters of Pandas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_to_load</strong> (<em>DataFrame</em><em> or </em><em>str</em><em> or </em><em>Path</em><em> or </em><em>object</em>) – either a Pandas Dataframe, a path to a file (str or Path) or any object that can be read from pandas read() methods.</p></li>
+<li><p><strong>latitude</strong> (<em>str</em><em> or </em><em>int</em>) – the position or the name of the column containing the latitude. The default is <cite>constants.LATITUDE</cite>.</p></li>
+<li><p><strong>longitude</strong> (<em>str</em><em> or </em><em>int</em>) – the position or the name of the column containing the longitude. The default is <cite>constants.LONGITUDE</cite>.</p></li>
+<li><p><strong>datetime</strong> (<em>str</em><em> or </em><em>int</em>) – the position or the name of the column containing the datetime. The default is <cite>constants.DATETIME</cite>.</p></li>
+<li><p><strong>user_id</strong> (<em>str</em><em> or </em><em>int</em>) – the position or the name of the column containing the user id. The default is <cite>constants.UID</cite>.</p></li>
+<li><p><strong>trajectory_id</strong> (<em>str</em><em> or </em><em>int</em>) – the position or the name of the column containing the trajectory id. The default is <cite>constants.TID</cite>.</p></li>
+<li><p><strong>save</strong> (<em>bool</em>) – if <cite>True</cite>, data is saved to a file. The default is <cite>False</cite>.</p></li>
+<li><p><strong>kwargs</strong> – parameters for the Pandas read methods.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.mm_data_processing">
+<span class="sig-name descname"><span class="pre">mm_data_processing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MultiDiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">6.86</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.69</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">13.35</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.mm_data_processing" title="Permalink to this definition">#</a></dt>
+<dd><p>Applies map-matching as a pre-processing method to generate the ground thruth. The default values came from
+the following papers:</p>
+<p>[1] <cite>Goh, C. Y., Dauwels, J., Mitrovic, N., Asif, M. T., Oran, A., &amp; Jaillet, P. (2012, September). Online
+map-matching based on hidden markov model for real-time traffic sensing applications. In 2012 15th
+International IEEE Conference on Intelligent Transportation Systems (pp. 776-781). IEEE.</cite></p>
+<p>[2] <cite>Jagadeesh, G. R., &amp; Srikanthan, T. (2017). Online map-matching of noisy and sparse location data with hidden
+Markov and route choice models. IEEE Transactions on Intelligent Transportation Systems, 18(9), 2423-2434.</cite></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>G</strong> (<em>networkx.MultiDiGraph</em>) – road network represented as a directed graph</p></li>
+<li><p><strong>sigma</strong> (<em>float</em>) – standard deviation of the location measurement noise in meters. The default value is <cite>6.86</cite> [1].</p></li>
+<li><p><strong>error_range</strong> (<em>float</em>) – defines the range to search for states for each observation point. The default value is <cite>50</cite> [1].</p></li>
+<li><p><strong>lambda_y</strong> (<em>float</em>) – multiplier of circuitousness used to compute the probability of transition. The default value is <cite>0.69</cite> [2].</p></li>
+<li><p><strong>lambda_z</strong> (<em>float</em>) – multiplier of temporal implausibility used to compute the probability of transition. The default value is <cite>13.35</cite> [2].</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.LocationData.original_data">
+<span class="sig-name descname"><span class="pre">original_data</span></span><a class="headerlink" href="#privkit.data.LocationData.original_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Original location data is stored as a pd.DataFrame</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.print_data_summary">
+<span class="sig-name descname"><span class="pre">print_data_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.print_data_summary" title="Permalink to this definition">#</a></dt>
+<dd><p>Prints data summary, specifying the number of users, trajectories, and other statistics</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dataset_name</strong> (<em>str</em>) – dataset name (optional). The default value is <cite>None</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.print_statistics_by_user">
+<span class="sig-name descname"><span class="pre">print_statistics_by_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.print_statistics_by_user" title="Permalink to this definition">#</a></dt>
+<dd><p>Prints statistics of data by user, specifying the number of trajectories, points, and other statistics per user</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dataset_name</strong> (<em>str</em>) – dataset name (optional). The default value is <cite>None</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.process_data">
+<span class="sig-name descname"><span class="pre">process_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.process_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Performs location data processing.
+The <cite>first step</cite> consists of sorting location data by datetime (if user id and trajectory id are
+columns of the dataframe, it first sorts location data by uid and/or tid).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.resample">
+<span class="sig-name descname"><span class="pre">resample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.resample" title="Permalink to this definition">#</a></dt>
+<dd><p>Given two indexes, calculates the center coordinates as the mean of all report within the interval given by the
+indexes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user_id</strong> (<em>int</em>) – user which reports are being resampled</p></li>
+<li><p><strong>start_index</strong> – starting index of the time interval</p></li>
+<li><p><strong>end_index</strong> – ending index of the time interval</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>mean of the reports in the range of the two given indexes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.resample_by_time">
+<span class="sig-name descname"><span class="pre">resample_by_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">R</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.resample_by_time" title="Permalink to this definition">#</a></dt>
+<dd><p>Resample the location reports on the time axis to solve the non-uniformity distribution over time.
+Within each resampling interval R, calculates the center coordinates as the mean of all reports
+within that interval.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>R</strong> (<em>int</em>) – resampling interval in minutes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.save_data">
+<span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./input/data/'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pkl'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.save_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Saves data to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>str</em>) – path where data should be saved.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – name of the file to be saved.</p></li>
+<li><p><strong>extension</strong> (<em>str</em>) – extension of the format of how the file should be saved. The default value is <cite>‘pkl’</cite>.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.subsample_data">
+<span class="sig-name descname"><span class="pre">subsample_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_timedelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_subsampled_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.subsample_data" title="Permalink to this definition">#</a></dt>
+<dd><p>Subsamples data according to a minimum timedelta between subsequent points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_timedelta</strong> (<em>float</em>) – minimum timedelta between subsequent points</p></li>
+<li><p><strong>save_subsampled_data</strong> (<em>bool</em>) – if <cite>True</cite>, subsampled data is saved to a file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="privkit.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">User Guide</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="privkit.datasets.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">privkit.datasets package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.DataType"><code class="docutils literal notranslate"><span class="pre">DataType</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.DataType.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">DataType.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.DataType.DATA_TYPE_INFO"><code class="docutils literal notranslate"><span class="pre">DataType.DATA_TYPE_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.DataType.DATA_TYPE_NAME"><code class="docutils literal notranslate"><span class="pre">DataType.DATA_TYPE_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.DataType.load_data"><code class="docutils literal notranslate"><span class="pre">DataType.load_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.DataType.process_data"><code class="docutils literal notranslate"><span class="pre">DataType.process_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.DataType.save_data"><code class="docutils literal notranslate"><span class="pre">DataType.save_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData"><code class="docutils literal notranslate"><span class="pre">FacialData</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">FacialData.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.DATA_TYPE_INFO"><code class="docutils literal notranslate"><span class="pre">FacialData.DATA_TYPE_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.DATA_TYPE_NAME"><code class="docutils literal notranslate"><span class="pre">FacialData.DATA_TYPE_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.crop_pcd"><code class="docutils literal notranslate"><span class="pre">FacialData.crop_pcd()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.data"><code class="docutils literal notranslate"><span class="pre">FacialData.data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.fp_downsample"><code class="docutils literal notranslate"><span class="pre">FacialData.fp_downsample()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.get_color"><code class="docutils literal notranslate"><span class="pre">FacialData.get_color()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.get_number_of_points"><code class="docutils literal notranslate"><span class="pre">FacialData.get_number_of_points()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.get_point_mean_std"><code class="docutils literal notranslate"><span class="pre">FacialData.get_point_mean_std()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.get_point_median"><code class="docutils literal notranslate"><span class="pre">FacialData.get_point_median()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.id_name"><code class="docutils literal notranslate"><span class="pre">FacialData.id_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.load_data"><code class="docutils literal notranslate"><span class="pre">FacialData.load_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.print_data_summary"><code class="docutils literal notranslate"><span class="pre">FacialData.print_data_summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.process_data"><code class="docutils literal notranslate"><span class="pre">FacialData.process_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.remove_outliers_statistical"><code class="docutils literal notranslate"><span class="pre">FacialData.remove_outliers_statistical()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.remove_points_outside_sphere"><code class="docutils literal notranslate"><span class="pre">FacialData.remove_points_outside_sphere()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.FacialData.save_data"><code class="docutils literal notranslate"><span class="pre">FacialData.save_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData"><code class="docutils literal notranslate"><span class="pre">LocationData</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">LocationData.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.DATA_TYPE_INFO"><code class="docutils literal notranslate"><span class="pre">LocationData.DATA_TYPE_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.DATA_TYPE_NAME"><code class="docutils literal notranslate"><span class="pre">LocationData.DATA_TYPE_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.average_update_rate"><code class="docutils literal notranslate"><span class="pre">LocationData.average_update_rate()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.compute_timedelta"><code class="docutils literal notranslate"><span class="pre">LocationData.compute_timedelta()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.create_grid"><code class="docutils literal notranslate"><span class="pre">LocationData.create_grid()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.data"><code class="docutils literal notranslate"><span class="pre">LocationData.data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.divide_data"><code class="docutils literal notranslate"><span class="pre">LocationData.divide_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.filter_by_distance"><code class="docutils literal notranslate"><span class="pre">LocationData.filter_by_distance()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.filter_by_duration"><code class="docutils literal notranslate"><span class="pre">LocationData.filter_by_duration()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.filter_by_timedelta"><code class="docutils literal notranslate"><span class="pre">LocationData.filter_by_timedelta()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.filter_outside_points"><code class="docutils literal notranslate"><span class="pre">LocationData.filter_outside_points()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.generate_ground_truth"><code class="docutils literal notranslate"><span class="pre">LocationData.generate_ground_truth()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.get_bounding_box_range"><code class="docutils literal notranslate"><span class="pre">LocationData.get_bounding_box_range()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.get_datetime_range"><code class="docutils literal notranslate"><span class="pre">LocationData.get_datetime_range()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.get_number_of_trajectories"><code class="docutils literal notranslate"><span class="pre">LocationData.get_number_of_trajectories()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.get_number_of_users"><code class="docutils literal notranslate"><span class="pre">LocationData.get_number_of_users()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.get_test_data"><code class="docutils literal notranslate"><span class="pre">LocationData.get_test_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.get_train_data"><code class="docutils literal notranslate"><span class="pre">LocationData.get_train_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.get_trajectories"><code class="docutils literal notranslate"><span class="pre">LocationData.get_trajectories()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.get_trajectory_statistics"><code class="docutils literal notranslate"><span class="pre">LocationData.get_trajectory_statistics()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.id_name"><code class="docutils literal notranslate"><span class="pre">LocationData.id_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.load_data"><code class="docutils literal notranslate"><span class="pre">LocationData.load_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.mm_data_processing"><code class="docutils literal notranslate"><span class="pre">LocationData.mm_data_processing()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.original_data"><code class="docutils literal notranslate"><span class="pre">LocationData.original_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.print_data_summary"><code class="docutils literal notranslate"><span class="pre">LocationData.print_data_summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.print_statistics_by_user"><code class="docutils literal notranslate"><span class="pre">LocationData.print_statistics_by_user()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.process_data"><code class="docutils literal notranslate"><span class="pre">LocationData.process_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.resample"><code class="docutils literal notranslate"><span class="pre">LocationData.resample()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.resample_by_time"><code class="docutils literal notranslate"><span class="pre">LocationData.resample_by_time()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.save_data"><code class="docutils literal notranslate"><span class="pre">LocationData.save_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.subsample_data"><code class="docutils literal notranslate"><span class="pre">LocationData.subsample_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/privkit.data.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Privkit.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

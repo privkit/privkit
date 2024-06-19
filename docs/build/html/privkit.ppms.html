@@ -1,0 +1,1734 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>privkit.ppms package &#8212; Privkit 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e031e9a9"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'privkit.ppms';</script>
+    <link rel="icon" href="_static/favicon.svg"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="privkit.attacks sub-package" href="privkit.attacks.html" />
+    <link rel="prev" title="privkit.datasets package" href="privkit.datasets.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_grey_word.svg" class="logo__image only-light" alt="privkit homepage"/>
+    <script>document.write(`<img src="_static/logo_white_word.svg" class="logo__image only-dark" alt="privkit homepage"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="privkit.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+                        Github
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+                        Web Version
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item">
+<nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="privkit.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+                        Github
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+                        Tutorials
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+                        Web Version
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="privkit.data.html">privkit.data package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privkit.datasets.html">privkit.datasets package</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">privkit.ppms package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privkit.attacks.html">privkit.attacks sub-package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privkit.metrics.html">privkit.metrics package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="privkit.utils.html">privkit.utils package</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="privkit.html" class="nav-link">User Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">privkit.ppms package</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="module-privkit.ppms">
+<span id="privkit-ppms-package"></span><h1>privkit.ppms package<a class="headerlink" href="#module-privkit.ppms" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">AdaptiveGeoInd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ws</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delta2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>Adaptive Geo-indistinguishability class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Al-Dhubhani, R., &amp; Cazalas, J. M. (2018). An adaptive geo-indistinguishability mechanism
+for continuous LBS queries. Wireless Networks, 24(8), 3221-3239.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd.METRIC_ID">
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['quality_loss']</span></em><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'adaptive_geo_ind'</span></em><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">adaptive</span> <span class="pre">geo-indistinguishability</span> <span class="pre">uses</span> <span class="pre">the</span> <span class="pre">Planar</span> <span class="pre">Laplace</span> <span class="pre">mechanism</span> <span class="pre">as</span> <span class="pre">baseline,</span> <span class="pre">but</span> <span class="pre">dynamically</span> <span class="pre">adapts</span> <span class="pre">the</span> <span class="pre">privacy</span> <span class="pre">parameter</span> <span class="pre">epsilon</span> <span class="pre">according</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">correlation</span> <span class="pre">between</span> <span class="pre">the</span> <span class="pre">current</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">past</span> <span class="pre">locations.</span> <span class="pre">This</span> <span class="pre">correlation</span> <span class="pre">is</span> <span class="pre">measured</span> <span class="pre">by</span> <span class="pre">using</span> <span class="pre">a</span> <span class="pre">simple</span> <span class="pre">linear</span> <span class="pre">regression.</span> <span class="pre">The</span> <span class="pre">parameters</span> <span class="pre">of</span> <span class="pre">this</span> <span class="pre">mechanism</span> <span class="pre">are</span> <span class="pre">the</span> <span class="pre">privacy</span> <span class="pre">parameter</span> <span class="pre">epsilon,</span> <span class="pre">two</span> <span class="pre">estimation</span> <span class="pre">error</span> <span class="pre">thresholds</span> <span class="pre">Δ1</span> <span class="pre">and</span> <span class="pre">Δ2,</span> <span class="pre">and</span> <span class="pre">two</span> <span class="pre">privacy</span> <span class="pre">parameter</span> <span class="pre">multiplication</span> <span class="pre">factors</span> <span class="pre">α</span> <span class="pre">and</span> <span class="pre">β.</span> <span class="pre">The</span> <span class="pre">thresholds</span> <span class="pre">define</span> <span class="pre">if</span> <span class="pre">the</span> <span class="pre">mechanism</span> <span class="pre">increases</span> <span class="pre">either</span> <span class="pre">privacy</span> <span class="pre">or</span> <span class="pre">utility</span> <span class="pre">by</span> <span class="pre">adjusting</span> <span class="pre">the</span> <span class="pre">privacy</span> <span class="pre">parameter</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">multiplication</span> <span class="pre">factors.</span> <span class="pre">This</span> <span class="pre">mechanism</span> <span class="pre">is</span> <span class="pre">suitable</span> <span class="pre">for</span> <span class="pre">continuous</span> <span class="pre">scenarios.'</span></em><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Adaptive</span> <span class="pre">Geo-indistinguishability'</span></em><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Al-Dhubhani,</span> <span class="pre">R.,</span> <span class="pre">&amp;</span> <span class="pre">Cazalas,</span> <span class="pre">J.</span> <span class="pre">M.</span> <span class="pre">(2018).</span> <span class="pre">An</span> <span class="pre">adaptive</span> <span class="pre">geo-indistinguishability</span> <span class="pre">mechanism</span> <span class="pre">for</span> <span class="pre">continuous</span> <span class="pre">LBS</span> <span class="pre">queries.</span> <span class="pre">Wireless</span> <span class="pre">Networks,</span> <span class="pre">24(8),</span> <span class="pre">3221-3239.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd.estimation_error">
+<span class="sig-name descname"><span class="pre">estimation_error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prev_dates</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_latitudes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prev_longitudes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_date</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime64</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curr_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd.estimation_error" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the estimation error between the current point and the previous location points</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prev_dates</strong> (<em>List</em>) – previous dates</p></li>
+<li><p><strong>prev_latitudes</strong> (<em>List</em>) – previous latitudes</p></li>
+<li><p><strong>prev_longitudes</strong> (<em>List</em>) – previous longitudes</p></li>
+<li><p><strong>curr_date</strong> (<em>np.datetime64</em>) – current date</p></li>
+<li><p><strong>curr_latitude</strong> (<em>float</em>) – current latitude</p></li>
+<li><p><strong>curr_longitude</strong> (<em>float</em>) – current longitude</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>estimation error</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the Adaptive Geo-Ind mechanism to the data given as parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – location data where the planar laplace should be executed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>location data with obfuscated latitude and longitude and the quality loss metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd.get_obfuscated_point">
+<span class="sig-name descname"><span class="pre">get_obfuscated_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd.get_obfuscated_point" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a geo-indistinguishable single point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> (<em>int</em>) – timestamp</p></li>
+<li><p><strong>trajectory</strong> (<em>pd.DataFrame</em>) – trajectory to be obfuscated</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obfuscated latitude, longitude, and quality loss</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd.linear_regression">
+<span class="sig-name descname"><span class="pre">linear_regression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_train</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_test</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime64</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd.linear_regression" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the linear regression</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_train</strong> (<em>List</em>) – data to train</p></li>
+<li><p><strong>y_train</strong> (<em>List</em>) – data to train</p></li>
+<li><p><strong>x_test</strong> (<em>np.datetime64</em>) – data to test</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>model prediction value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.AdaptiveGeoInd.transpose">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transpose</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">to_transpose</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.AdaptiveGeoInd.transpose" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.CentroidVoxel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">CentroidVoxel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voxel_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.CentroidVoxel" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>CentroidVoxel class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Ricardo Andrade. 2023
+Privacy-Preserving Face Detection: A Comprehensive Analysis of Face Anonymization Techniques.
+Master’s Thesis. Universidade do Porto.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.CentroidVoxel.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.ppms.CentroidVoxel.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.CentroidVoxel.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'centroid_voxel'</span></em><a class="headerlink" href="#privkit.ppms.CentroidVoxel.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.CentroidVoxel.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">CentroidVoxel</span> <span class="pre">operation</span> <span class="pre">voxelizes</span> <span class="pre">facial</span> <span class="pre">points</span> <span class="pre">into</span> <span class="pre">regularly</span> <span class="pre">spaced</span> <span class="pre">cubic</span> <span class="pre">elements,</span> <span class="pre">known</span> <span class="pre">as</span> <span class="pre">voxels.</span> <span class="pre">Each</span> <span class="pre">voxel</span> <span class="pre">is</span> <span class="pre">represented</span> <span class="pre">by</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">point</span> <span class="pre">with</span> <span class="pre">centroid</span> <span class="pre">coordinates,</span> <span class="pre">and</span> <span class="pre">its</span> <span class="pre">color</span> <span class="pre">is</span> <span class="pre">determined</span> <span class="pre">by</span> <span class="pre">averaging</span> <span class="pre">the</span> <span class="pre">colors</span> <span class="pre">of</span> <span class="pre">all-encompassed</span> <span class="pre">points.</span> <span class="pre">The</span> <span class="pre">voxel</span> <span class="pre">size</span> <span class="pre">governs</span> <span class="pre">information</span> <span class="pre">compression</span> <span class="pre">on</span> <span class="pre">each</span> <span class="pre">voxel</span> <span class="pre">point,</span> <span class="pre">influencing</span> <span class="pre">data</span> <span class="pre">loss.'</span></em><a class="headerlink" href="#privkit.ppms.CentroidVoxel.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.CentroidVoxel.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CentroidVoxel'</span></em><a class="headerlink" href="#privkit.ppms.CentroidVoxel.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.CentroidVoxel.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;Ricardo</span> <span class="pre">Andrade.</span> <span class="pre">2023</span> <span class="pre">Privacy-Preserving</span> <span class="pre">Face</span> <span class="pre">Detection:</span> <span class="pre">A</span> <span class="pre">Comprehensive</span> <span class="pre">Analysis</span> <span class="pre">of</span> <span class="pre">Face</span> <span class="pre">Anonymization</span> <span class="pre">Techniques.</span> <span class="pre">Master's</span> <span class="pre">Thesis.</span> <span class="pre">Universidade</span> <span class="pre">do</span> <span class="pre">Porto.&quot;</span></em><a class="headerlink" href="#privkit.ppms.CentroidVoxel.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.CentroidVoxel.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">facial_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.FacialData" title="privkit.data.facial_data.FacialData"><span class="pre">FacialData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.CentroidVoxel.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the CentroidVoxel mechanism to the data given as a parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>facial_data</strong> (<em>privkit.FacialData</em>) – facial data where the CentroidVoxel should be executed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obfuscated facial data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.ClusteringGeoInd">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">ClusteringGeoInd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.ClusteringGeoInd" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>Clustering Geo-indistinguishability class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Cunha, M., Mendes, R., &amp; Vilela, J. P. (2019, October). Clustering Geo-Indistinguishability
+for Privacy of Continuous Location Traces. In 2019 4th International Conference on Computing, Communications and
+Security (ICCCS) (pp. 1-8). IEEE.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.ClusteringGeoInd.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.ppms.ClusteringGeoInd.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.ClusteringGeoInd.METRIC_ID">
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['quality_loss']</span></em><a class="headerlink" href="#privkit.ppms.ClusteringGeoInd.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.ClusteringGeoInd.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'clustering_geo_ind'</span></em><a class="headerlink" href="#privkit.ppms.ClusteringGeoInd.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.ClusteringGeoInd.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Clustering</span> <span class="pre">geo-indistinguishability</span> <span class="pre">consists</span> <span class="pre">of</span> <span class="pre">creating</span> <span class="pre">obfuscation</span> <span class="pre">clusters</span> <span class="pre">to</span> <span class="pre">aggregate</span> <span class="pre">nearby</span> <span class="pre">locations</span> <span class="pre">into</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">obfuscated</span> <span class="pre">location.</span> <span class="pre">This</span> <span class="pre">obfuscated</span> <span class="pre">location</span> <span class="pre">is</span> <span class="pre">produced</span> <span class="pre">by</span> <span class="pre">Planar</span> <span class="pre">Laplace.</span> <span class="pre">The</span> <span class="pre">parameters</span> <span class="pre">of</span> <span class="pre">this</span> <span class="pre">mechanism</span> <span class="pre">are</span> <span class="pre">the</span> <span class="pre">privacy</span> <span class="pre">parameter</span> <span class="pre">epsilon</span> <span class="pre">defined</span> <span class="pre">as</span> <span class="pre">ε=l/r</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">obfuscation</span> <span class="pre">radius</span> <span class="pre">r</span> <span class="pre">used</span> <span class="pre">to</span> <span class="pre">define</span> <span class="pre">epsilon.</span> <span class="pre">This</span> <span class="pre">mechanism</span> <span class="pre">is</span> <span class="pre">suitable</span> <span class="pre">for</span> <span class="pre">sporadic</span> <span class="pre">and</span> <span class="pre">continuous</span> <span class="pre">scenarios.'</span></em><a class="headerlink" href="#privkit.ppms.ClusteringGeoInd.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.ClusteringGeoInd.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Clustering</span> <span class="pre">Geo-indistinguishability'</span></em><a class="headerlink" href="#privkit.ppms.ClusteringGeoInd.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.ClusteringGeoInd.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cunha,</span> <span class="pre">M.,</span> <span class="pre">Mendes,</span> <span class="pre">R.,</span> <span class="pre">&amp;</span> <span class="pre">Vilela,</span> <span class="pre">J.</span> <span class="pre">P.</span> <span class="pre">(2019,</span> <span class="pre">October).</span> <span class="pre">Clustering</span> <span class="pre">Geo-Indistinguishability</span> <span class="pre">for</span> <span class="pre">Privacy</span> <span class="pre">of</span> <span class="pre">Continuous</span> <span class="pre">Location</span> <span class="pre">Traces.</span> <span class="pre">In</span> <span class="pre">2019</span> <span class="pre">4th</span> <span class="pre">International</span> <span class="pre">Conference</span> <span class="pre">on</span> <span class="pre">Computing,</span> <span class="pre">Communications</span> <span class="pre">and</span> <span class="pre">Security</span> <span class="pre">(ICCCS)</span> <span class="pre">(pp.</span> <span class="pre">1-8).</span> <span class="pre">IEEE.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.ppms.ClusteringGeoInd.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.ClusteringGeoInd.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.ClusteringGeoInd.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the Clustering Geo-Ind mechanism to the data given as parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – location data where the planar laplace should be executed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>location data with obfuscated latitude and longitude and the quality loss metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.ClusteringGeoInd.get_obfuscated_point">
+<span class="sig-name descname"><span class="pre">get_obfuscated_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.ppms.ClusteringGeoInd.get_obfuscated_point" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a geo-indistinguishable single point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latitude</strong> (<em>float</em>) – original latitude</p></li>
+<li><p><strong>longitude</strong> (<em>float</em>) – original longitude</p></li>
+<li><p><strong>i</strong> (<em>int</em>) – timestamp</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obfuscated point (latitude, longitude) and distance between original and obfuscation point</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.Merge2Faces">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">Merge2Faces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pcd_new</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PointCloud</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voxel_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Merge2Faces" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>Merge2Faces class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Ricardo Andrade. 2023
+Privacy-Preserving Face Detection: A Comprehensive Analysis of Face Anonymization Techniques.
+Master’s Thesis. Universidade do Porto.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Merge2Faces.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.ppms.Merge2Faces.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Merge2Faces.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'merge_two_faces'</span></em><a class="headerlink" href="#privkit.ppms.Merge2Faces.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Merge2Faces.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;The</span> <span class="pre">Merge2Faces</span> <span class="pre">method</span> <span class="pre">combines</span> <span class="pre">attributes</span> <span class="pre">from</span> <span class="pre">two</span> <span class="pre">facial</span> <span class="pre">point</span> <span class="pre">clouds</span> <span class="pre">through</span> <span class="pre">a</span> <span class="pre">two-stage</span> <span class="pre">process.</span> <span class="pre">Initially,</span> <span class="pre">the</span> <span class="pre">original</span> <span class="pre">and</span> <span class="pre">new</span> <span class="pre">faces</span> <span class="pre">undergo</span> <span class="pre">registration,</span> <span class="pre">starting</span> <span class="pre">with</span> <span class="pre">a</span> <span class="pre">global</span> <span class="pre">registration</span> <span class="pre">using</span> <span class="pre">the</span> <span class="pre">Random</span> <span class="pre">Sample</span> <span class="pre">Consensus</span> <span class="pre">(RANSAC)</span> <span class="pre">algorithm,</span> <span class="pre">followed</span> <span class="pre">by</span> <span class="pre">refinement</span> <span class="pre">using</span> <span class="pre">a</span> <span class="pre">local</span> <span class="pre">registration</span> <span class="pre">method</span> <span class="pre">called</span> <span class="pre">Point-to-Plane</span> <span class="pre">ICP.</span> <span class="pre">The</span> <span class="pre">second</span> <span class="pre">stage</span> <span class="pre">involves</span> <span class="pre">weighted</span> <span class="pre">averaging</span> <span class="pre">of</span> <span class="pre">coordinates</span> <span class="pre">and</span> <span class="pre">colors</span> <span class="pre">for</span> <span class="pre">each</span> <span class="pre">point</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">original</span> <span class="pre">face</span> <span class="pre">with</span> <span class="pre">their</span> <span class="pre">corresponding</span> <span class="pre">closest</span> <span class="pre">point</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">new</span> <span class="pre">face.</span> <span class="pre">Dissimilarity</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">original</span> <span class="pre">point</span> <span class="pre">cloud</span> <span class="pre">is</span> <span class="pre">regulated</span> <span class="pre">by</span> <span class="pre">both</span> <span class="pre">the</span> <span class="pre">new</span> <span class="pre">face</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">assigned</span> <span class="pre">weight.</span> <span class="pre">The</span> <span class="pre">registration</span> <span class="pre">process</span> <span class="pre">code</span> <span class="pre">is</span> <span class="pre">based</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">open3d's</span> <span class="pre">documentation</span> <span class="pre">for</span> <span class="pre">global_registration</span> <span class="pre">[https://www.open3d.org/docs/release/tutorial/pipelines/global_registration.html].&quot;</span></em><a class="headerlink" href="#privkit.ppms.Merge2Faces.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Merge2Faces.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Merge2Faces'</span></em><a class="headerlink" href="#privkit.ppms.Merge2Faces.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Merge2Faces.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;Ricardo</span> <span class="pre">Andrade.</span> <span class="pre">2023</span> <span class="pre">Privacy-Preserving</span> <span class="pre">Face</span> <span class="pre">Detection:</span> <span class="pre">A</span> <span class="pre">Comprehensive</span> <span class="pre">Analysis</span> <span class="pre">of</span> <span class="pre">Face</span> <span class="pre">Anonymization</span> <span class="pre">Techniques.</span> <span class="pre">Master's</span> <span class="pre">Thesis.</span> <span class="pre">Universidade</span> <span class="pre">do</span> <span class="pre">Porto.&quot;</span></em><a class="headerlink" href="#privkit.ppms.Merge2Faces.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.Merge2Faces.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">facial_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.FacialData" title="privkit.data.facial_data.FacialData"><span class="pre">FacialData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Merge2Faces.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the Merge2Faces mechanism to the data given as a parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>facial_data</strong> (<em>privkit.FacialData</em>) – facial data where the Merge2Faces should be executed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obfuscated facial data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.Merge2Faces.execute_global_registration">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute_global_registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_down</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PointCloud</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_down</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PointCloud</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_fpfh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_fpfh</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Feature</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voxel_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Merge2Faces.execute_global_registration" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the global registration result using RANSANC</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_down</strong> (<em>PointCloud</em>) – downsampled source point cloud</p></li>
+<li><p><strong>target_down</strong> (<em>PointCloud</em>) – downsampled target point cloud</p></li>
+<li><p><strong>source_fpfh</strong> (<em>open3d.cpu.pybind.pipelines.registration.Feature</em>) – FPFH feature of downsampled source point cloud</p></li>
+<li><p><strong>target_fpfh</strong> (<em>open3d.cpu.pybind.pipelines.registration.Feature</em>) – FPFH feature of downsampled target point cloud</p></li>
+<li><p><strong>voxel_size</strong> (<em>float</em>) – voxel size</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>RANSANC global registration result</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.Merge2Faces.prepare_dataset">
+<span class="sig-name descname"><span class="pre">prepare_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PointCloud</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PointCloud</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voxel_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Merge2Faces.prepare_dataset" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the voxel downsapled point cloud and its FPFH feature of the point clouds source and target</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<em>PointCloud</em>) – a point cloud</p></li>
+<li><p><strong>target</strong> (<em>PointCloud</em>) – a point cloud</p></li>
+<li><p><strong>voxel_size</strong> (<em>float</em>) – voxel size</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>point cloud, voxel downsampled point cloud, FPFH feature of the two point clouds</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.Merge2Faces.preprocess_point_cloud">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">preprocess_point_cloud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pcd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PointCloud</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voxel_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Merge2Faces.preprocess_point_cloud" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a voxel-downsampled point cloud and the FPFH feature for each point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pcd</strong> (<em>PointCloud</em>) – point cloud to be downsampled</p></li>
+<li><p><strong>voxel_size</strong> (<em>float</em>) – size of each downsampling voxel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>point cloud with voxel downsampling and the FPFH feature for each point.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.Merge2Faces.refine_registration">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">refine_registration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PointCloud</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PointCloud</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voxel_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">result_ransac</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">RegistrationResult</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Merge2Faces.refine_registration" title="Permalink to this definition">#</a></dt>
+<dd><p>Return the local registration result using Point-to-Plane ICP</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<em>PointCloud</em>) – a point cloud</p></li>
+<li><p><strong>target</strong> (<em>PointCloud</em>) – a point cloud</p></li>
+<li><p><strong>voxel_size</strong> (<em>float</em>) – voxel size</p></li>
+<li><p><strong>result_ransac</strong> (<em>open3d.cpu.pybind.pipelines.registration.RegistrationResult</em>) – global registration result</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Point-to-Plane ICP local registration result</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.PPM">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">PPM</span></span><a class="headerlink" href="#privkit.ppms.PPM" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
+<p>PPM is an abstract class for a generic Privacy-Preserving Mechanism (PPM). Defines a series of methods common to all PPMs.
+Provides a general method to execute the PPM.
+Requires the definition of a PPM_ID, PPM_NAME, PPM_INFO, PPM_REF, DATA_TYPE_ID (of the data types this mechanism
+can be applied to), and METRIC_ID (of the metric that can be used to assess this PPM).</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="privkit.ppms.PPM.DATA_TYPE_ID">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#privkit.ppms.PPM.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd><p>Identifiers of the data types that the PPM is applied to</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="privkit.ppms.PPM.METRIC_ID">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#privkit.ppms.PPM.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<dd><p>Identifiers of the metrics that can be used to assess the PPM</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="privkit.ppms.PPM.PPM_ID">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.ppms.PPM.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd><p>Identifier of the PPM</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="privkit.ppms.PPM.PPM_INFO">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.ppms.PPM.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd><p>Information about the PPM and how it works</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="privkit.ppms.PPM.PPM_NAME">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.ppms.PPM.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd><p>Name of the PPM</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="privkit.ppms.PPM.PPM_REF">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.ppms.PPM.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd><p>Reference to the work that proposes this PPM</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PPM.execute">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PPM.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the privacy-preserving mechanism. This is specific to the mechanism</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">PlanarLaplace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PlanarLaplace" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>Planar Laplace class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Andrés, M. E., Bordenabe, N. E., Chatzikokolakis, K., &amp; Palamidessi, C. (2013, November).
+Geo-indistinguishability: Differential privacy for location-based systems. In Proceedings of the 2013 ACM SIGSAC
+conference on Computer &amp; communications security (pp. 901-914).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.ppms.PlanarLaplace.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.METRIC_ID">
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['quality_loss']</span></em><a class="headerlink" href="#privkit.ppms.PlanarLaplace.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'planar_laplace'</span></em><a class="headerlink" href="#privkit.ppms.PlanarLaplace.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">geo-indistinguishable</span> <span class="pre">Planar</span> <span class="pre">Laplace</span> <span class="pre">(PL)</span> <span class="pre">consists</span> <span class="pre">of</span> <span class="pre">adding</span> <span class="pre">2-dimensional</span> <span class="pre">Laplacian</span> <span class="pre">noise</span> <span class="pre">centred</span> <span class="pre">at</span> <span class="pre">the</span> <span class="pre">exact</span> <span class="pre">user</span> <span class="pre">location.</span> <span class="pre">The</span> <span class="pre">Laplacian</span> <span class="pre">distribution</span> <span class="pre">depends</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">privacy</span> <span class="pre">parameter</span> <span class="pre">epsilon</span> <span class="pre">defined</span> <span class="pre">as</span> <span class="pre">ε=l/r,</span> <span class="pre">which</span> <span class="pre">means</span> <span class="pre">that</span> <span class="pre">a</span> <span class="pre">privacy</span> <span class="pre">level</span> <span class="pre">l</span> <span class="pre">is</span> <span class="pre">guaranteed</span> <span class="pre">within</span> <span class="pre">a</span> <span class="pre">radius</span> <span class="pre">r.</span> <span class="pre">This</span> <span class="pre">mechanism</span> <span class="pre">is</span> <span class="pre">suitable</span> <span class="pre">for</span> <span class="pre">sporadic</span> <span class="pre">scenarios</span> <span class="pre">(i.e.</span> <span class="pre">single</span> <span class="pre">queries).'</span></em><a class="headerlink" href="#privkit.ppms.PlanarLaplace.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Planar</span> <span class="pre">Laplace'</span></em><a class="headerlink" href="#privkit.ppms.PlanarLaplace.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Andrés,</span> <span class="pre">M.</span> <span class="pre">E.,</span> <span class="pre">Bordenabe,</span> <span class="pre">N.</span> <span class="pre">E.,</span> <span class="pre">Chatzikokolakis,</span> <span class="pre">K.,</span> <span class="pre">&amp;</span> <span class="pre">Palamidessi,</span> <span class="pre">C.</span> <span class="pre">(2013,</span> <span class="pre">November).</span> <span class="pre">Geo-indistinguishability:</span> <span class="pre">Differential</span> <span class="pre">privacy</span> <span class="pre">for</span> <span class="pre">location-based</span> <span class="pre">systems.</span> <span class="pre">In</span> <span class="pre">Proceedings</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">2013</span> <span class="pre">ACM</span> <span class="pre">SIGSAC</span> <span class="pre">conference</span> <span class="pre">on</span> <span class="pre">Computer</span> <span class="pre">&amp;</span> <span class="pre">communications</span> <span class="pre">security</span> <span class="pre">(pp.</span> <span class="pre">901-914).'</span></em><a class="headerlink" href="#privkit.ppms.PlanarLaplace.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PlanarLaplace.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the Planar Laplace mechanism to the data given as parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – location data where the planar laplace should be executed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>location data with obfuscated latitude and longitude and the quality loss metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.expected_error">
+<span class="sig-name descname"><span class="pre">expected_error</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.ppms.PlanarLaplace.expected_error" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the expected error calculated by 2/epsilon</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>expected error</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.get_obfuscated_point">
+<span class="sig-name descname"><span class="pre">get_obfuscated_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.utils.html#privkit.utils.discrete_utils.GridMap" title="privkit.utils.discrete_utils.GridMap"><span class="pre">GridMap</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.ppms.PlanarLaplace.get_obfuscated_point" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns a geo-indistinguishable single point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>latitude</strong> (<em>float</em>) – original latitude</p></li>
+<li><p><strong>longitude</strong> (<em>float</em>) – original longitude</p></li>
+<li><p><strong>grid</strong> (<a class="reference internal" href="privkit.utils.html#privkit.utils.discrete_utils.GridMap" title="privkit.utils.discrete_utils.GridMap"><em>GridMap</em></a>) – grid discretization, so it repeats this step if the obfuscated points falls outside the grid</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obfuscated point (latitude, longitude) and distance between original and obfuscation point</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.inverse_cumulative_gamma">
+<span class="sig-name descname"><span class="pre">inverse_cumulative_gamma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.ppms.PlanarLaplace.inverse_cumulative_gamma" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the inverse cumulative gamma of Laplacian Distribution function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>p</strong> (<em>float</em>) – random variable in [0,1)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>inverse cumulative gamma</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.laplace_distribution">
+<span class="sig-name descname"><span class="pre">laplace_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">point1:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">point2:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.ppms.PlanarLaplace.laplace_distribution" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the laplacian distribution value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point1</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>]</em>) – cartesian coordinates x and y</p></li>
+<li><p><strong>point2</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>]</em>) – cartesian coordinates x and y</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>laplacian distribution value</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PlanarLaplace.planar_laplace_distribuition">
+<span class="sig-name descname"><span class="pre">planar_laplace_distribuition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">point:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">G:</span> <span class="pre">~privkit.utils.discrete_utils.GridMap</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PlanarLaplace.planar_laplace_distribuition" title="Permalink to this definition">#</a></dt>
+<dd><p>Returns the Planar Laplace distribution</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>]</em>) – cartesian coordinates x and y</p></li>
+<li><p><strong>G</strong> (<a class="reference internal" href="privkit.utils.html#privkit.utils.discrete_utils.GridMap" title="privkit.utils.discrete_utils.GridMap"><em>GridMap</em></a>) – grid map discretization</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Planar Laplace distribution</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.PointMeshPoint">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">PointMeshPoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PointMeshPoint" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>Point-mesh-point class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Ricardo Andrade. 2023
+Privacy-Preserving Face Detection: A Comprehensive Analysis of Face Anonymization Techniques.
+Master’s Thesis. Universidade do Porto.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PointMeshPoint.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.ppms.PointMeshPoint.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PointMeshPoint.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'point_mesh_point'</span></em><a class="headerlink" href="#privkit.ppms.PointMeshPoint.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PointMeshPoint.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">Point-Mesh-Point</span> <span class="pre">algorithm</span> <span class="pre">involves</span> <span class="pre">two</span> <span class="pre">main</span> <span class="pre">steps:</span> <span class="pre">it</span> <span class="pre">first</span> <span class="pre">transforms</span> <span class="pre">the</span> <span class="pre">point</span> <span class="pre">cloud</span> <span class="pre">into</span> <span class="pre">an</span> <span class="pre">alpha-shape</span> <span class="pre">mesh,</span> <span class="pre">and</span> <span class="pre">subsequently,</span> <span class="pre">it</span> <span class="pre">reverts</span> <span class="pre">this</span> <span class="pre">alpha-shape</span> <span class="pre">mesh</span> <span class="pre">back</span> <span class="pre">into</span> <span class="pre">a</span> <span class="pre">point</span> <span class="pre">cloud.</span> <span class="pre">The</span> <span class="pre">alpha</span> <span class="pre">value</span> <span class="pre">serves</span> <span class="pre">as</span> <span class="pre">a</span> <span class="pre">parameter</span> <span class="pre">controlling</span> <span class="pre">the</span> <span class="pre">level</span> <span class="pre">of</span> <span class="pre">detail</span> <span class="pre">in</span> <span class="pre">facial</span> <span class="pre">features,</span> <span class="pre">and</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">further</span> <span class="pre">influenced</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">points</span> <span class="pre">defined</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">final</span> <span class="pre">cloud.'</span></em><a class="headerlink" href="#privkit.ppms.PointMeshPoint.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PointMeshPoint.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Point-Mesh-Point'</span></em><a class="headerlink" href="#privkit.ppms.PointMeshPoint.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PointMeshPoint.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;Ricardo</span> <span class="pre">Andrade.</span> <span class="pre">2023</span> <span class="pre">Privacy-Preserving</span> <span class="pre">Face</span> <span class="pre">Detection:</span> <span class="pre">A</span> <span class="pre">Comprehensive</span> <span class="pre">Analysis</span> <span class="pre">of</span> <span class="pre">Face</span> <span class="pre">Anonymization</span> <span class="pre">Techniques.</span> <span class="pre">Master's</span> <span class="pre">Thesis.</span> <span class="pre">Universidade</span> <span class="pre">do</span> <span class="pre">Porto.&quot;</span></em><a class="headerlink" href="#privkit.ppms.PointMeshPoint.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PointMeshPoint.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">facial_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.FacialData" title="privkit.data.facial_data.FacialData"><span class="pre">FacialData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PointMeshPoint.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the Point-mesh-point mechanism to the data given as a parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>facial_data</strong> (<em>privkit.FacialData</em>) – facial data where the Point-mesh-point should be executed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obfuscated facial data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">PrivacyAwareRemapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">r</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_space</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'circle'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>Privacy-Aware Remapping class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Guilherme Duarte, Mariana Cunha, and João P. Vilela. 2024. A Privacy-Aware Remapping
+Mechanism for Location Data. In The 39th ACM/SIGAPP Symposium on Applied Computing (Avila, Spain) (SAC ’24).
+Association for Computing Machinery, New York, NY, USA, 8 pages.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping.METRIC_ID">
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['quality_loss']</span></em><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'privacy_aware_remapping'</span></em><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;The</span> <span class="pre">Privacy-Aware</span> <span class="pre">Remapping</span> <span class="pre">Mechanism</span> <span class="pre">takes</span> <span class="pre">in</span> <span class="pre">location</span> <span class="pre">data</span> <span class="pre">which</span> <span class="pre">had</span> <span class="pre">the</span> <span class="pre">Planar</span> <span class="pre">Laplace</span> <span class="pre">mechanism</span>&#160; <span class="pre">applied</span> <span class="pre">a</span> <span class="pre">priori.</span> <span class="pre">For</span> <span class="pre">each</span> <span class="pre">cell</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">grid</span> <span class="pre">discretization</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">data,</span> <span class="pre">it</span> <span class="pre">finds</span> <span class="pre">the</span> <span class="pre">cell</span> <span class="pre">which</span> <span class="pre">minimizes</span> <span class="pre">the</span> <span class="pre">weighted</span> <span class="pre">quality</span> <span class="pre">loss</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">distance</span> <span class="pre">between</span> <span class="pre">the</span> <span class="pre">ground-truth</span> <span class="pre">locations</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">obfuscated</span> <span class="pre">report.</span> <span class="pre">The</span> <span class="pre">cell</span> <span class="pre">must</span> <span class="pre">be</span> <span class="pre">at</span> <span class="pre">a</span> <span class="pre">distance</span> <span class="pre">bounded</span> <span class="pre">by</span> <span class="pre">a</span> <span class="pre">function</span> <span class="pre">between</span> <span class="pre">the</span> <span class="pre">privacy</span> <span class="pre">parameter</span> <span class="pre">of</span> <span class="pre">PL</span> <span class="pre">mechanism</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">cell's</span> <span class="pre">spacing,</span> <span class="pre">in</span> <span class="pre">order</span> <span class="pre">to</span> <span class="pre">take</span> <span class="pre">into</span> <span class="pre">account</span> <span class="pre">the</span> <span class="pre">noise</span> <span class="pre">added</span> <span class="pre">by</span> <span class="pre">Planar</span> <span class="pre">Laplace.</span> <span class="pre">The</span> <span class="pre">new</span> <span class="pre">obfuscated</span> <span class="pre">locations</span> <span class="pre">are</span> <span class="pre">then</span> <span class="pre">given</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">center</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">cell</span> <span class="pre">which</span> <span class="pre">the</span> <span class="pre">original</span> <span class="pre">cell</span> <span class="pre">got</span> <span class="pre">remapped</span> <span class="pre">into.&quot;</span></em><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Privacy-Aware</span> <span class="pre">Remapping'</span></em><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Guilherme</span> <span class="pre">Duarte,</span> <span class="pre">Mariana</span> <span class="pre">Cunha,</span> <span class="pre">and</span> <span class="pre">João</span> <span class="pre">P.</span> <span class="pre">Vilela.</span> <span class="pre">2024.</span> <span class="pre">A</span> <span class="pre">Privacy-Aware</span> <span class="pre">Remapping</span> <span class="pre">Mechanism</span> <span class="pre">for</span> <span class="pre">Location</span> <span class="pre">Data.</span> <span class="pre">In</span> <span class="pre">The</span> <span class="pre">39th</span> <span class="pre">ACM/SIGAPP</span> <span class="pre">Symposium</span> <span class="pre">on</span> <span class="pre">Applied</span> <span class="pre">Computing</span> <span class="pre">(Avila,</span> <span class="pre">Spain)</span> <span class="pre">(SAC</span> <span class="pre">’24).</span> <span class="pre">Association</span> <span class="pre">for</span> <span class="pre">Computing</span> <span class="pre">Machinery,</span> <span class="pre">New</span> <span class="pre">York,</span> <span class="pre">NY,</span> <span class="pre">USA,</span> <span class="pre">8</span> <span class="pre">pages.'</span></em><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping.apply_remapping_function_to_point">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">apply_remapping_function_to_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">obf_latitude:</span> <span class="pre">float,</span> <span class="pre">obf_longitude:</span> <span class="pre">float,</span> <span class="pre">R:</span> <span class="pre">dict,</span> <span class="pre">grid:</span> <span class="pre">~privkit.utils.discrete_utils.GridMap,</span> <span class="pre">grid_size:</span> <span class="pre">[&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping.apply_remapping_function_to_point" title="Permalink to this definition">#</a></dt>
+<dd><p>Applies the R remapping function to the cell where the given point is contained.
+:param obf_latitude: obfuscated latitude
+:param obf_longitude: obfuscated longitude
+:param R: Remapping function
+:param grid: grid discretization
+:param grid_size: size of the grid
+:returns: updated obfuscated location</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_pl</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Applies the Remapping Mechanism to the obfuscated data given as parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – location data where the Privacy-Aware Remap should be applied</p></li>
+<li><p><strong>apply_pl</strong> (<em>bool</em>) – boolean to specify if Planar Laplace should be applied or if it is applied a priori. By default, it is True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>location data with remapped latitude and longitude through the Remapping function which minimizes the
+weighted quality loss</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping.generate_cells_weights">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">generate_cells_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">location_data,</span> <span class="pre">grid_size:</span> <span class="pre">[&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping.generate_cells_weights" title="Permalink to this definition">#</a></dt>
+<dd><p>Creates a map which associates a cell ID from a grid map to the number of reports which lay on the cell</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – location data where cells reports will get counted</p></li>
+<li><p><strong>grid_size</strong> – number of rows and columns on the grid</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary which maps cell’s ID into their weights</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping.get_cell_remap">
+<span class="sig-name descname"><span class="pre">get_cell_remap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">c:</span> <span class="pre">int,</span> <span class="pre">w:</span> <span class="pre">dict,</span> <span class="pre">grid:</span> <span class="pre">~privkit.utils.discrete_utils.GridMap,</span> <span class="pre">grid_size:</span> <span class="pre">[&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;],</span> <span class="pre">r_offsets:</span> <span class="pre">[&lt;class</span> <span class="pre">'int'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping.get_cell_remap" title="Permalink to this definition">#</a></dt>
+<dd><p>Calculates the remapped cell which minimizes the weighted quality loss of a given cell</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>c</strong> (<em>int</em>) – current cell</p></li>
+<li><p><strong>w</strong> (<em>dict</em>) – Map between cell ID’s and respective weights</p></li>
+<li><p><strong>grid</strong> (<a class="reference internal" href="privkit.utils.html#privkit.utils.discrete_utils.GridMap" title="privkit.utils.discrete_utils.GridMap"><em>GridMap</em></a>) – map discretization</p></li>
+<li><p><strong>grid_size</strong> – grid dimensions</p></li>
+<li><p><strong>r_offsets</strong> – search space centered at the cell c</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.PrivacyAwareRemapping.get_remapping_function">
+<span class="sig-name descname"><span class="pre">get_remapping_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.PrivacyAwareRemapping.get_remapping_function" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the Remapping function to the data given as parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – location data where the Privacy-Aware Remapping should be executed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Remapping function R which maps individual cells within a grid to themselves</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.SmoothKNN">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">SmoothKNN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.SmoothKNN" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>Smooth k-nearest neighbors class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Ricardo Andrade. 2023
+Privacy-Preserving Face Detection: A Comprehensive Analysis of Face Anonymization Techniques.
+Master’s Thesis. Universidade do Porto.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.SmoothKNN.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.ppms.SmoothKNN.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.SmoothKNN.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'smooth_knn'</span></em><a class="headerlink" href="#privkit.ppms.SmoothKNN.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.SmoothKNN.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">SmoothKNN</span> <span class="pre">operation</span> <span class="pre">involves</span> <span class="pre">replacing</span> <span class="pre">each</span> <span class="pre">point</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">facial</span> <span class="pre">point</span> <span class="pre">cloud</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">mean</span> <span class="pre">coordinates</span> <span class="pre">and</span> <span class="pre">color</span> <span class="pre">attributes</span> <span class="pre">of</span> <span class="pre">its</span> <span class="pre">k-nearest</span> <span class="pre">neighbors.</span> <span class="pre">The</span> <span class="pre">degree</span> <span class="pre">of</span> <span class="pre">smoothing</span> <span class="pre">is</span> <span class="pre">controlled</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">neighboring</span> <span class="pre">points</span> <span class="pre">considered.'</span></em><a class="headerlink" href="#privkit.ppms.SmoothKNN.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.SmoothKNN.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SmoothKNN'</span></em><a class="headerlink" href="#privkit.ppms.SmoothKNN.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.SmoothKNN.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;Ricardo</span> <span class="pre">Andrade.</span> <span class="pre">2023</span> <span class="pre">Privacy-Preserving</span> <span class="pre">Face</span> <span class="pre">Detection:</span> <span class="pre">A</span> <span class="pre">Comprehensive</span> <span class="pre">Analysis</span> <span class="pre">of</span> <span class="pre">Face</span> <span class="pre">Anonymization</span> <span class="pre">Techniques.</span> <span class="pre">Master's</span> <span class="pre">Thesis.</span> <span class="pre">Universidade</span> <span class="pre">do</span> <span class="pre">Porto.&quot;</span></em><a class="headerlink" href="#privkit.ppms.SmoothKNN.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.SmoothKNN.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">facial_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.FacialData" title="privkit.data.facial_data.FacialData"><span class="pre">FacialData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.SmoothKNN.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the SmoothKNN mechanism to the data given as a parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>facial_data</strong> (<em>privkit.FacialData</em>) – facial data where the SmoothKNN should be executed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obfuscated facial data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.Tapering">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">Tapering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">k_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_tapering</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Tapering" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>Tapering class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Ricardo Andrade. 2023
+Privacy-Preserving Face Detection: A Comprehensive Analysis of Face Anonymization Techniques.
+Master’s Thesis. Universidade do Porto.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Tapering.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.ppms.Tapering.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Tapering.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tapering'</span></em><a class="headerlink" href="#privkit.ppms.Tapering.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Tapering.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tapering</span> <span class="pre">applies</span> <span class="pre">a</span> <span class="pre">non-linear</span> <span class="pre">tapering</span> <span class="pre">deformation</span> <span class="pre">to</span> <span class="pre">facial</span> <span class="pre">points</span> <span class="pre">using</span> <span class="pre">a</span> <span class="pre">transformation</span> <span class="pre">matrix</span> <span class="pre">guided</span> <span class="pre">by</span> <span class="pre">a</span> <span class="pre">tapering</span> <span class="pre">function.</span> <span class="pre">The</span> <span class="pre">shape</span> <span class="pre">and</span> <span class="pre">intensity</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">deformation</span> <span class="pre">are</span> <span class="pre">regulated</span> <span class="pre">by</span> <span class="pre">both</span> <span class="pre">the</span> <span class="pre">tapering</span> <span class="pre">function</span> <span class="pre">and</span> <span class="pre">its</span> <span class="pre">restricted</span> <span class="pre">domain.</span> <span class="pre">The</span> <span class="pre">outcome</span> <span class="pre">is</span> <span class="pre">linked</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">coordinate</span> <span class="pre">values</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">points</span> <span class="pre">designated</span> <span class="pre">for</span> <span class="pre">anonymization.'</span></em><a class="headerlink" href="#privkit.ppms.Tapering.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Tapering.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tapering'</span></em><a class="headerlink" href="#privkit.ppms.Tapering.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Tapering.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;Ricardo</span> <span class="pre">Andrade.</span> <span class="pre">2023</span> <span class="pre">Privacy-Preserving</span> <span class="pre">Face</span> <span class="pre">Detection:</span> <span class="pre">A</span> <span class="pre">Comprehensive</span> <span class="pre">Analysis</span> <span class="pre">of</span> <span class="pre">Face</span> <span class="pre">Anonymization</span> <span class="pre">Techniques.</span> <span class="pre">Master's</span> <span class="pre">Thesis.</span> <span class="pre">Universidade</span> <span class="pre">do</span> <span class="pre">Porto.&quot;</span></em><a class="headerlink" href="#privkit.ppms.Tapering.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.Tapering.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">facial_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.FacialData" title="privkit.data.facial_data.FacialData"><span class="pre">FacialData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Tapering.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the Tapering mechanism to the data given as a parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>facial_data</strong> (<em>privkit.FacialData</em>) – facial data where the Tapering should be executed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obfuscated facial data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.Tapering.tapering_function">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tapering_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Tapering.tapering_function" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.UniformNoise">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">UniformNoise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a_z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b_z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.UniformNoise" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>UniformNoise class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Ricardo Andrade. 2023
+Privacy-Preserving Face Detection: A Comprehensive Analysis of Face Anonymization Techniques.
+Master’s Thesis. Universidade do Porto.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.UniformNoise.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.ppms.UniformNoise.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.UniformNoise.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uniform_noise'</span></em><a class="headerlink" href="#privkit.ppms.UniformNoise.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.UniformNoise.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;UniformNoise</span> <span class="pre">applies</span> <span class="pre">random</span> <span class="pre">values</span> <span class="pre">from</span> <span class="pre">a</span> <span class="pre">uniform</span> <span class="pre">distribution</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">3D</span> <span class="pre">coordinates</span> <span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span> <span class="pre">of</span> <span class="pre">facial</span> <span class="pre">points.</span> <span class="pre">Each</span> <span class="pre">dimension</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">point</span> <span class="pre">is</span> <span class="pre">independently</span> <span class="pre">altered</span> <span class="pre">by</span> <span class="pre">sampling</span> <span class="pre">noise</span> <span class="pre">from</span> <span class="pre">three</span> <span class="pre">uniform</span> <span class="pre">distributions.</span> <span class="pre">To</span> <span class="pre">realign</span> <span class="pre">the</span> <span class="pre">face</span> <span class="pre">with</span> <span class="pre">its</span> <span class="pre">original</span> <span class="pre">position,</span> <span class="pre">the</span> <span class="pre">coordinates</span> <span class="pre">of</span> <span class="pre">each</span> <span class="pre">point</span> <span class="pre">are</span> <span class="pre">adjusted</span> <span class="pre">by</span> <span class="pre">subtracting</span> <span class="pre">the</span> <span class="pre">mean</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">corresponding</span> <span class="pre">uniform</span> <span class="pre">distribution.</span> <span class="pre">The</span> <span class="pre">intensity</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">noise</span> <span class="pre">is</span> <span class="pre">regulated</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">parameters</span> <span class="pre">'a'</span> <span class="pre">and</span> <span class="pre">'b',</span> <span class="pre">representing</span> <span class="pre">the</span> <span class="pre">lower</span> <span class="pre">and</span> <span class="pre">upper</span> <span class="pre">bounds</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">uniform</span> <span class="pre">distribution</span> <span class="pre">for</span> <span class="pre">each</span> <span class="pre">dimension</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">point.&quot;</span></em><a class="headerlink" href="#privkit.ppms.UniformNoise.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.UniformNoise.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'UniformNoise'</span></em><a class="headerlink" href="#privkit.ppms.UniformNoise.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.UniformNoise.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;Ricardo</span> <span class="pre">Andrade.</span> <span class="pre">2023</span> <span class="pre">Privacy-Preserving</span> <span class="pre">Face</span> <span class="pre">Detection:</span> <span class="pre">A</span> <span class="pre">Comprehensive</span> <span class="pre">Analysis</span> <span class="pre">of</span> <span class="pre">Face</span> <span class="pre">Anonymization</span> <span class="pre">Techniques.</span> <span class="pre">Master's</span> <span class="pre">Thesis.</span> <span class="pre">Universidade</span> <span class="pre">do</span> <span class="pre">Porto.&quot;</span></em><a class="headerlink" href="#privkit.ppms.UniformNoise.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.UniformNoise.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">facial_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.FacialData" title="privkit.data.facial_data.FacialData"><span class="pre">FacialData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.UniformNoise.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the UniformNoise mechanism to the data given as a parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>facial_data</strong> (<em>privkit.FacialData</em>) – facial data where the UniformNoise should be executed</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obfuscated facial data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.UniformRemapping">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">UniformRemapping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.utils.html#privkit.utils.discrete_utils.GridMap" title="privkit.utils.discrete_utils.GridMap"><span class="pre">GridMap</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.UniformRemapping" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>UniformRemapping class to perform remapping as a privacy-preserving mechanism based on reference [1].</p>
+<p class="rubric">References</p>
+<p>[1] Andrés, M. E., Bordenabe, N. E., Chatzikokolakis, K., &amp; Palamidessi, C. (2013, November).
+Geo-indistinguishability: Differential privacy for location-based systems. In Proceedings of the 2013 ACM SIGSAC
+conference on Computer &amp; communications security (pp. 901-914).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.UniformRemapping.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.ppms.UniformRemapping.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.UniformRemapping.METRIC_ID">
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['quality_loss',</span> <span class="pre">'adv_error']</span></em><a class="headerlink" href="#privkit.ppms.UniformRemapping.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.UniformRemapping.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'uniform_remapping'</span></em><a class="headerlink" href="#privkit.ppms.UniformRemapping.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.UniformRemapping.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Uniform</span> <span class="pre">remapping</span> <span class="pre">consists</span> <span class="pre">of</span> <span class="pre">discretizing</span> <span class="pre">location</span> <span class="pre">data</span> <span class="pre">by</span> <span class="pre">remapping</span> <span class="pre">each</span> <span class="pre">location</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">closest</span> <span class="pre">point</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">discrete</span> <span class="pre">domain.</span> <span class="pre">This</span> <span class="pre">mechanism</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">applied</span> <span class="pre">independently</span> <span class="pre">or</span> <span class="pre">combined</span> <span class="pre">with</span> <span class="pre">other</span> <span class="pre">privacy-preserving</span> <span class="pre">mechanism.'</span></em><a class="headerlink" href="#privkit.ppms.UniformRemapping.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.UniformRemapping.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Uniform</span> <span class="pre">Remapping'</span></em><a class="headerlink" href="#privkit.ppms.UniformRemapping.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.UniformRemapping.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Andrés,</span> <span class="pre">M.</span> <span class="pre">E.,</span> <span class="pre">Bordenabe,</span> <span class="pre">N.</span> <span class="pre">E.,</span> <span class="pre">Chatzikokolakis,</span> <span class="pre">K.,</span> <span class="pre">&amp;</span> <span class="pre">Palamidessi,</span> <span class="pre">C.</span> <span class="pre">(2013,</span> <span class="pre">November).</span> <span class="pre">Geo-indistinguishability:</span> <span class="pre">Differential</span> <span class="pre">privacy</span> <span class="pre">for</span> <span class="pre">location-based</span> <span class="pre">systems.</span> <span class="pre">In</span> <span class="pre">Proceedings</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">2013</span> <span class="pre">ACM</span> <span class="pre">SIGSAC</span> <span class="pre">conference</span> <span class="pre">on</span> <span class="pre">Computer</span> <span class="pre">&amp;</span> <span class="pre">communications</span> <span class="pre">security</span> <span class="pre">(pp.</span> <span class="pre">901-914).'</span></em><a class="headerlink" href="#privkit.ppms.UniformRemapping.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.UniformRemapping.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_processing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">combined_ppm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.UniformRemapping.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the Uniform Remapping mechanism to the data given as parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – location data where the uniform remapping will be executed</p></li>
+<li><p><strong>data_processing</strong> (<em>bool</em>) – boolean to specify if it should be applied as a data processing mechanism. By default, it is False</p></li>
+<li><p><strong>combined_ppm</strong> (<em>bool</em>) – boolean to specify if uniform rempaping is applied as a combined PPM. By default, it is False</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>location data with obfuscated latitude and longitude</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">VAGI</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.VAGI" title="Permalink to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>VA-GI class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Mendes, R., Cunha, M., &amp; Vilela, J. P. (2023, April). Velocity-Aware Geo-Indistinguishability. In Proceedings of
+the Thirteenth ACM Conference on Data and Application Security and Privacy (pp. 141-152).</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.ppms.VAGI.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI.METRIC_ID">
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['quality_loss']</span></em><a class="headerlink" href="#privkit.ppms.VAGI.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'va_gi'</span></em><a class="headerlink" href="#privkit.ppms.VAGI.PPM_ID" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">velocity-aware</span> <span class="pre">geo-indistinguishability</span> <span class="pre">uses</span> <span class="pre">the</span> <span class="pre">Planar</span> <span class="pre">Laplace</span> <span class="pre">mechanism</span> <span class="pre">as</span> <span class="pre">baseline,</span> <span class="pre">but</span> <span class="pre">dynamically</span> <span class="pre">adapts</span> <span class="pre">the</span> <span class="pre">privacy</span> <span class="pre">parameter</span> <span class="pre">epsilon</span> <span class="pre">according</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">user</span> <span class="pre">velocities</span> <span class="pre">as</span> <span class="pre">well</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">reporting</span> <span class="pre">speed,</span> <span class="pre">obtained</span> <span class="pre">by</span> <span class="pre">performing</span> <span class="pre">the</span> <span class="pre">Kernel</span> <span class="pre">Density</span> <span class="pre">Function</span> <span class="pre">on</span> <span class="pre">the</span> <span class="pre">user</span> <span class="pre">and</span> <span class="pre">report</span> <span class="pre">velocities.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.ppms.VAGI.PPM_INFO" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'VA-GI'</span></em><a class="headerlink" href="#privkit.ppms.VAGI.PPM_NAME" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Mendes,</span> <span class="pre">R.,</span> <span class="pre">Cunha,</span> <span class="pre">M.,</span> <span class="pre">&amp;</span> <span class="pre">Vilela,</span> <span class="pre">J.</span> <span class="pre">P.</span> <span class="pre">(2023,</span> <span class="pre">April).</span> <span class="pre">Velocity-Aware</span> <span class="pre">Geo-Indistinguishability.</span> <span class="pre">In</span> <span class="pre">Proceedings</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">Thirteenth</span> <span class="pre">ACM</span> <span class="pre">Conference</span> <span class="pre">on</span> <span class="pre">Data</span> <span class="pre">and</span> <span class="pre">Application</span> <span class="pre">Security</span> <span class="pre">and</span> <span class="pre">Privacy</span> <span class="pre">(pp.</span> <span class="pre">141-152).</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.ppms.VAGI.PPM_REF" title="Permalink to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI.cdf">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kde</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gaussian_kde</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.VAGI.cdf" title="Permalink to this definition">#</a></dt>
+<dd><p>Given a distribution and a value, computes the Cumulative Distribution Function (cdf) of that value in the
+distribution.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kde</strong> (<em>st.gaussian_kde</em>) – user or report velocity pd</p></li>
+<li><p><strong>velocity</strong> (<em>float</em>) – user or report velocity</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>cdf evaluated at the value of the velocity at the distribution kde</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.VAGI.execute" title="Permalink to this definition">#</a></dt>
+<dd><p>Executes the VA-GI mechanism to the data given as parameter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – location data where the planar laplace should be executed</p></li>
+<li><p><strong>train_data</strong> (<em>DataFrame</em>) – data which will be used to compute the velocities’ distribution - if not provided VA-GI performs data division</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>location data with obfuscated latitude and longitude and the quality loss metric and epsilon array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI.fr">
+<span class="sig-name descname"><span class="pre">fr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_vel_pd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gaussian_kde</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.VAGI.fr" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the inverse of the Cumulative Distribution Function of the report velocity distribution evaluated with the
+value of the report velocity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vr</strong> (<em>float</em>) – report velocity</p></li>
+<li><p><strong>report_vel_pd</strong> (<em>st.gaussian_kde</em>) – report velocity pd</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI.fu">
+<span class="sig-name descname"><span class="pre">fu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_vel_pd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">gaussian_kde</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.VAGI.fu" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes Cumulative Distribution Function of the user velocity distribution evaluated with the value of the user
+velocity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vu</strong> (<em>float</em>) – user velocity</p></li>
+<li><p><strong>user_vel_pd</strong> (<em>st.gaussian_kde</em>) – user velocity pd</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.VAGI.get_epsilon">
+<span class="sig-name descname"><span class="pre">get_epsilon</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">x_i:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;],</span> <span class="pre">prev_x_i:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'int'&gt;],</span> <span class="pre">train_user_vel_pd:</span> <span class="pre">~scipy.stats._kde.gaussian_kde,</span> <span class="pre">train_report_vel_pd:</span> <span class="pre">~scipy.stats._kde.gaussian_kde</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.VAGI.get_epsilon" title="Permalink to this definition">#</a></dt>
+<dd><p>Computes the new epsilon at a certain timestamp.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_i</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>int</em><em>]</em>) – current location</p></li>
+<li><p><strong>prev_x_i</strong> (<em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>int</em><em>]</em>) – previous location</p></li>
+<li><p><strong>train_user_vel_pd</strong> (<em>spicy.stats.gaussian_kde</em>) – user velocity pd</p></li>
+<li><p><strong>train_report_vel_pd</strong> (<em>spicy.stats.gaussian_kde</em>) – report velocity pd</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="privkit.datasets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">privkit.datasets package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="privkit.attacks.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">privkit.attacks sub-package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd.METRIC_ID"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd.METRIC_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd.PPM_ID"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd.PPM_REF"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd.estimation_error"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd.estimation_error()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd.execute"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd.execute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd.get_obfuscated_point"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd.get_obfuscated_point()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd.linear_regression"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd.linear_regression()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.AdaptiveGeoInd.transpose"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd.transpose()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.CentroidVoxel"><code class="docutils literal notranslate"><span class="pre">CentroidVoxel</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.CentroidVoxel.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">CentroidVoxel.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.CentroidVoxel.PPM_ID"><code class="docutils literal notranslate"><span class="pre">CentroidVoxel.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.CentroidVoxel.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">CentroidVoxel.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.CentroidVoxel.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">CentroidVoxel.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.CentroidVoxel.PPM_REF"><code class="docutils literal notranslate"><span class="pre">CentroidVoxel.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.CentroidVoxel.execute"><code class="docutils literal notranslate"><span class="pre">CentroidVoxel.execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd.METRIC_ID"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd.METRIC_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd.PPM_ID"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd.PPM_REF"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd.execute"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd.execute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd.get_obfuscated_point"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd.get_obfuscated_point()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces"><code class="docutils literal notranslate"><span class="pre">Merge2Faces</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">Merge2Faces.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces.PPM_ID"><code class="docutils literal notranslate"><span class="pre">Merge2Faces.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">Merge2Faces.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">Merge2Faces.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces.PPM_REF"><code class="docutils literal notranslate"><span class="pre">Merge2Faces.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces.execute"><code class="docutils literal notranslate"><span class="pre">Merge2Faces.execute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces.execute_global_registration"><code class="docutils literal notranslate"><span class="pre">Merge2Faces.execute_global_registration()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces.prepare_dataset"><code class="docutils literal notranslate"><span class="pre">Merge2Faces.prepare_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces.preprocess_point_cloud"><code class="docutils literal notranslate"><span class="pre">Merge2Faces.preprocess_point_cloud()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces.refine_registration"><code class="docutils literal notranslate"><span class="pre">Merge2Faces.refine_registration()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PPM"><code class="docutils literal notranslate"><span class="pre">PPM</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PPM.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">PPM.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PPM.METRIC_ID"><code class="docutils literal notranslate"><span class="pre">PPM.METRIC_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PPM.PPM_ID"><code class="docutils literal notranslate"><span class="pre">PPM.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PPM.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">PPM.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PPM.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">PPM.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PPM.PPM_REF"><code class="docutils literal notranslate"><span class="pre">PPM.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PPM.execute"><code class="docutils literal notranslate"><span class="pre">PPM.execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.METRIC_ID"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.METRIC_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.PPM_ID"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.PPM_REF"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.execute"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.execute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.expected_error"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.expected_error()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.get_obfuscated_point"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.get_obfuscated_point()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.inverse_cumulative_gamma"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.inverse_cumulative_gamma()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.laplace_distribution"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.laplace_distribution()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PlanarLaplace.planar_laplace_distribuition"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace.planar_laplace_distribuition()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PointMeshPoint"><code class="docutils literal notranslate"><span class="pre">PointMeshPoint</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PointMeshPoint.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">PointMeshPoint.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PointMeshPoint.PPM_ID"><code class="docutils literal notranslate"><span class="pre">PointMeshPoint.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PointMeshPoint.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">PointMeshPoint.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PointMeshPoint.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">PointMeshPoint.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PointMeshPoint.PPM_REF"><code class="docutils literal notranslate"><span class="pre">PointMeshPoint.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PointMeshPoint.execute"><code class="docutils literal notranslate"><span class="pre">PointMeshPoint.execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping.METRIC_ID"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping.METRIC_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping.PPM_ID"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping.PPM_REF"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping.apply_remapping_function_to_point"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping.apply_remapping_function_to_point()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping.execute"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping.execute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping.generate_cells_weights"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping.generate_cells_weights()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping.get_cell_remap"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping.get_cell_remap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.PrivacyAwareRemapping.get_remapping_function"><code class="docutils literal notranslate"><span class="pre">PrivacyAwareRemapping.get_remapping_function()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.SmoothKNN"><code class="docutils literal notranslate"><span class="pre">SmoothKNN</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.SmoothKNN.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">SmoothKNN.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.SmoothKNN.PPM_ID"><code class="docutils literal notranslate"><span class="pre">SmoothKNN.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.SmoothKNN.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">SmoothKNN.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.SmoothKNN.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">SmoothKNN.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.SmoothKNN.PPM_REF"><code class="docutils literal notranslate"><span class="pre">SmoothKNN.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.SmoothKNN.execute"><code class="docutils literal notranslate"><span class="pre">SmoothKNN.execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Tapering"><code class="docutils literal notranslate"><span class="pre">Tapering</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Tapering.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">Tapering.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Tapering.PPM_ID"><code class="docutils literal notranslate"><span class="pre">Tapering.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Tapering.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">Tapering.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Tapering.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">Tapering.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Tapering.PPM_REF"><code class="docutils literal notranslate"><span class="pre">Tapering.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Tapering.execute"><code class="docutils literal notranslate"><span class="pre">Tapering.execute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Tapering.tapering_function"><code class="docutils literal notranslate"><span class="pre">Tapering.tapering_function()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformNoise"><code class="docutils literal notranslate"><span class="pre">UniformNoise</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformNoise.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">UniformNoise.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformNoise.PPM_ID"><code class="docutils literal notranslate"><span class="pre">UniformNoise.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformNoise.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">UniformNoise.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformNoise.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">UniformNoise.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformNoise.PPM_REF"><code class="docutils literal notranslate"><span class="pre">UniformNoise.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformNoise.execute"><code class="docutils literal notranslate"><span class="pre">UniformNoise.execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformRemapping"><code class="docutils literal notranslate"><span class="pre">UniformRemapping</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformRemapping.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">UniformRemapping.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformRemapping.METRIC_ID"><code class="docutils literal notranslate"><span class="pre">UniformRemapping.METRIC_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformRemapping.PPM_ID"><code class="docutils literal notranslate"><span class="pre">UniformRemapping.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformRemapping.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">UniformRemapping.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformRemapping.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">UniformRemapping.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformRemapping.PPM_REF"><code class="docutils literal notranslate"><span class="pre">UniformRemapping.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.UniformRemapping.execute"><code class="docutils literal notranslate"><span class="pre">UniformRemapping.execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI"><code class="docutils literal notranslate"><span class="pre">VAGI</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">VAGI.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI.METRIC_ID"><code class="docutils literal notranslate"><span class="pre">VAGI.METRIC_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI.PPM_ID"><code class="docutils literal notranslate"><span class="pre">VAGI.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">VAGI.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">VAGI.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI.PPM_REF"><code class="docutils literal notranslate"><span class="pre">VAGI.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI.cdf"><code class="docutils literal notranslate"><span class="pre">VAGI.cdf()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI.execute"><code class="docutils literal notranslate"><span class="pre">VAGI.execute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI.fr"><code class="docutils literal notranslate"><span class="pre">VAGI.fr()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI.fu"><code class="docutils literal notranslate"><span class="pre">VAGI.fu()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.VAGI.get_epsilon"><code class="docutils literal notranslate"><span class="pre">VAGI.get_epsilon()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="_sources/privkit.ppms.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Privkit.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

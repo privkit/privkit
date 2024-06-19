@@ -1,0 +1,26 @@
+# Python files
+__pycache__/
+
+# sphinx build directory
+doc/_build
+# setup.py dist directory
+dist/
+# Egg metadata
+*.egg-info
+.eggs
+
+# IDE folder
+.idea/
+
+# MAC temporary files
+.DS_Store/
+
+# OSMNX cache files
+cache/
+
+# Privkit input/ output/ examples/ folders
+input/
+output/
+
+# Jupyter Notebook
+.ipynb_checkpoints

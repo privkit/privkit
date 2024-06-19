@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "privkit"
+version = "0.1"
+description = "Privkit is a privacy toolkit that provides methods for privacy analysis. It implements different data types, privacy-preserving mechanisms, attacks, and privacy/utility metrics."
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python",
+    "License :: OSI Approved :: BSD License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/privkit/privkit"
+Issues = "https://github.com/privkit/privkit/issues"
