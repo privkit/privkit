@@ -521,20 +521,20 @@ class LocationData(DataType):
         Returns train data
         :return: train data
         """
-        if hasattr(self, "train_indexes"):
-            return self.data.loc[self.train_indexes]
-        du.warn("Data should be divided first through divide_data method.")
-        return None
+        if not hasattr(self, "train_indexes"):
+            du.warn("Data should be divided first through divide_data method.")
+            self.divide_data()
+        return self.data.loc[self.train_indexes]
 
     def get_test_data(self):
         """
         Returns test data
         :return: test data
         """
-        if hasattr(self, "test_indexes"):
-            return self.data.loc[self.test_indexes]
-        du.warn("Data should be divided first through divide_data method.")
-        return None
+        if not hasattr(self, "test_indexes"):
+            du.warn("Data should be divided first through divide_data method.")
+            self.divide_data()
+        return self.data.loc[self.test_indexes]
 
     # ========================= Statistics methods =========================
 

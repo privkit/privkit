@@ -57,9 +57,6 @@ class PEBA(Attack):
         :return: location data updated with adversary guess
         """
         if {constants.OBF_LATITUDE, constants.OBF_LONGITUDE}.issubset(location_data.data.columns):
-            if not hasattr(location_data, "test_user_indexes"):
-                location_data.divide_data()
-
             if not hasattr(location_data, "grid"):
                 location_data.create_grid(*location_data.get_bounding_box_range(), spacing=2/self.epsilon)
                 location_data.filter_outside_points(*location_data.get_bounding_box_range())

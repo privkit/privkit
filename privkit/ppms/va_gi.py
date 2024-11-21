@@ -68,9 +68,6 @@ class VAGI(PPM):
         test_data = location_data.data
         if train_data is None:
             du.warn('Train_data was not provided, using location_data division.')
-            if not hasattr(location_data, "train_indexes"):
-                location_data.divide_data()
-
             test_data = location_data.get_test_data()
             train_data = location_data.get_train_data()
 
