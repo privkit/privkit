@@ -28,6 +28,7 @@ OMNI_PROF = "omni"
 USER = "user"
 REPORT = "report"
 CHECKED = "checked"
+RE_IDENTIFIED = "re_identified"
 
 # Default locations to save data, datasets, and outputs (results and images)
 input_folder = "./input/"

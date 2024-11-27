@@ -20,13 +20,13 @@ class TopN(Attack):
 
     ATTACK_ID = "topN"
     ATTACK_NAME = "TopN"
-    ATTACK_INFO = "TopN is a mechanism that associates individuals to their Nth most visited locations and tries to" \
+    ATTACK_INFO = "TopN is a mechanism that associates individuals to their Nth most visited locations and tries to " \
                   "re-identify them considering those locations."
     ATTACK_REF = "H. Zang and J. Bolot, “Anonymization of location data does not work: A large-scale measurement " \
                  "study, in Proceedings of the 17th annual international conference on Mobile computing and " \
                  "networking, pp. 145–156, 2011."
     DATA_TYPE_ID = [LocationData.DATA_TYPE_ID]
-    METRIC_ID = ["re-identification"]
+    METRIC_ID = [constants.RE_IDENTIFIED]
 
     def __init__(self, N: int, over_grid: bool = False, over_ppm: bool = False, ordered: bool = True):
         """
@@ -61,6 +61,7 @@ class TopN(Attack):
                 du.warn(
                     f"Obfuscated locations <{constants.OBF_LATITUDE},{constants.OBF_LONGITUDE}> are missing, "
                     f"this attack will be applied considering the original <{constants.LATITUDE},{constants.LONGITUDE}>.")
+                self.over_ppm = False
 
         results = dict()
 
@@ -84,7 +85,8 @@ class TopN(Attack):
                 re_identified = (user_top_real == user_top_obf) and (set_size == 1)
                 results[userID] = re_identified
 
-        return results
+        location_data.data[constants.RE_IDENTIFIED] = location_data.data[constants.UID].map(results)
+        return location_data
 
     def build_top_map(self, location_data: LocationData, latitude_index: str, longitude_index: str):
         """
@@ -98,7 +100,9 @@ class TopN(Attack):
 
         if self.over_grid:
             if not hasattr(location_data, "grid"):
-                raise AttributeError('Grid Map is not defined.')
+                du.warn("Grid-Map is not defined. It will be defined from locations.")
+                location_data.create_grid(*location_data.get_bounding_box_range(), spacing=250)  # Using default values
+                location_data.filter_outside_points(*location_data.get_bounding_box_range())
 
         user_to_top = {}
         data = location_data.data
