@@ -13,7 +13,7 @@ See [https://privkit.fc.up.pt](https://privkit.fc.up.pt) for a complete document
 
 ## Citation
 
-If you use **privkit** in a scientific publication, please consider to cite:
+If you use **privkit** in your work, please consider to cite:
 
 ```
 @inproceedings{cunha2024privkit,
@@ -39,6 +39,18 @@ Then, if needed, you can run the following command to install the dependencies.
 pip install -r requirements.txt
 ```
 
+**Creating a virtual environment**
+
+Note that you can create a virtual environment (pipenv), which is optional but strongly recommended, in order to avoid potential conflicts with other packages. You just need to download the `Pipfile` and `Pipfile.lock` files and run in the same directory:
+
+```
+pipenv install
+```
+Then you can access the virtual environment by executing:
+```
+pipenv shell
+```
+
 ## Examples
 
 The repository [https://github.com/privkit/privkit-tutorials](https://github.com/privkit/privkit-tutorials) contains practical tutorials of Privkit available as Jupyter Notebooks. This repository aims at promoting the reproducibility of results from research papers.
@@ -62,3 +74,7 @@ planar_laplace.execute(location_data)
 ## License
 
 Privkit is open source and licensed under the BSD 3-clause license.
+
+## Acknowledgments
+
+We would like to acknowledge the support of [PRIVATEER](https://www.privateer-project.eu/).

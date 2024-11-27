@@ -13,9 +13,11 @@ osmnx = "*"
 matplotlib = "*"
 open3d = "*"
 deepface = "*"
+tf-keras = "*"
+torch = "*"
 scikit-image = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8"
+python_version = "3"
