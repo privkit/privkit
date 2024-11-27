@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -14,30 +14,33 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e031e9a9"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'privkit.metrics';</script>
     <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -46,6 +49,7 @@
     <link rel="prev" title="privkit.attacks sub-package" href="privkit.attacks.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -53,32 +57,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -86,7 +74,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -94,20 +81,27 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class=" navbar-header-items__start">
     
       <div class="navbar-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -122,7 +116,7 @@
     
     
     <img src="_static/logo_grey_word.svg" class="logo__image only-light" alt="privkit homepage"/>
-    <script>document.write(`<img src="_static/logo_white_word.svg" class="logo__image only-dark" alt="privkit homepage"/>`);</script>
+    <img src="_static/logo_white_word.svg" class="logo__image only-dark pst-js-only" alt="privkit homepage"/>
   
   
 </a></div>
@@ -134,42 +128,36 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="privkit.html">
-                        User Guide
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="privkit.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
-                        Github
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
-                        Tutorials
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+    Github
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
-                        Web Version
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+    Web Version
+  </a>
+</li>
+
   </ul>
 </nav></div>
       
@@ -181,31 +169,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -216,7 +196,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -228,31 +208,31 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -261,45 +241,42 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
-<nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          
+          
+            <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="privkit.html">
-                        User Guide
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="privkit.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
-                        Github
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
-                        Tutorials
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+    Github
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
-                        Web Version
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+    Web Version
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -309,17 +286,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -330,7 +303,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -365,22 +338,20 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
         <div class="header-article-item">
 
-
-
-<nav aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
@@ -391,7 +362,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="privkit.html" class="nav-link">User Guide</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">privkit.metr...</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">privkit.metrics package</span></li>
   </ul>
 </nav>
 </div>
@@ -406,37 +377,37 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="module-privkit.metrics">
-<span id="privkit-metrics-package"></span><h1>privkit.metrics package<a class="headerlink" href="#module-privkit.metrics" title="Permalink to this heading">#</a></h1>
+<span id="privkit-metrics-package"></span><h1>privkit.metrics package<a class="headerlink" href="#module-privkit.metrics" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.metrics.AccuracyFD">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">AccuracyFD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iou_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AccuracyFD" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">AccuracyFD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iou_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AccuracyFD" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.metrics.Metric" title="privkit.metrics.metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.AccuracyFD.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.AccuracyFD.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.AccuracyFD.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.AccuracyFD.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'accuracy_face_detection'</span></em><a class="headerlink" href="#privkit.metrics.AccuracyFD.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'accuracy_face_detection'</span></em><a class="headerlink" href="#privkit.metrics.AccuracyFD.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.AccuracyFD.METRIC_INFO">
-<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">face</span> <span class="pre">detection</span> <span class="pre">accuracy</span> <span class="pre">measures</span> <span class="pre">the</span> <span class="pre">ratio</span> <span class="pre">of</span> <span class="pre">correctly</span> <span class="pre">detected</span> <span class="pre">faces</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">total</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">faces</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">face</span> <span class="pre">detection</span> <span class="pre">model.'</span></em><a class="headerlink" href="#privkit.metrics.AccuracyFD.METRIC_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">face</span> <span class="pre">detection</span> <span class="pre">accuracy</span> <span class="pre">measures</span> <span class="pre">the</span> <span class="pre">ratio</span> <span class="pre">of</span> <span class="pre">correctly</span> <span class="pre">detected</span> <span class="pre">faces</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">total</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">faces</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">face</span> <span class="pre">detection</span> <span class="pre">model.'</span></em><a class="headerlink" href="#privkit.metrics.AccuracyFD.METRIC_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.AccuracyFD.METRIC_NAME">
-<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Face</span> <span class="pre">Detection</span> <span class="pre">Accuracy'</span></em><a class="headerlink" href="#privkit.metrics.AccuracyFD.METRIC_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Face</span> <span class="pre">Detection</span> <span class="pre">Accuracy'</span></em><a class="headerlink" href="#privkit.metrics.AccuracyFD.METRIC_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.AccuracyFD.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AccuracyFD.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AccuracyFD.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the Face Detection Accuracy metric</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -447,7 +418,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.AccuracyFD.get_iou">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_iou</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tensor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AccuracyFD.get_iou" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_iou</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ground_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">torch.tensor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AccuracyFD.get_iou" title="Link to this definition">#</a></dt>
 <dd><p>Returns the IoU value of a bounding box prediction</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -464,7 +435,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.AccuracyFD.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AccuracyFD.plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AccuracyFD.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plots the results of the metric. This is specific to the metric.</p>
 </dd></dl>
 
@@ -472,31 +443,31 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.metrics.AdversaryError">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">AdversaryError</span></span><a class="headerlink" href="#privkit.metrics.AdversaryError" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">AdversaryError</span></span><a class="headerlink" href="#privkit.metrics.AdversaryError" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.metrics.Metric" title="privkit.metrics.metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.AdversaryError.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.metrics.AdversaryError.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.metrics.AdversaryError.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.AdversaryError.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'adv_error'</span></em><a class="headerlink" href="#privkit.metrics.AdversaryError.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'adv_error'</span></em><a class="headerlink" href="#privkit.metrics.AdversaryError.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.AdversaryError.METRIC_INFO">
-<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">adversary</span> <span class="pre">error</span> <span class="pre">measures</span> <span class="pre">the</span> <span class="pre">error</span> <span class="pre">between</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">obtained</span> <span class="pre">by</span> <span class="pre">an</span> <span class="pre">adversary</span> <span class="pre">after</span> <span class="pre">applying</span> <span class="pre">an</span> <span class="pre">attack</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">original</span> <span class="pre">data.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.metrics.AdversaryError.METRIC_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">adversary</span> <span class="pre">error</span> <span class="pre">measures</span> <span class="pre">the</span> <span class="pre">error</span> <span class="pre">between</span> <span class="pre">the</span> <span class="pre">data</span> <span class="pre">obtained</span> <span class="pre">by</span> <span class="pre">an</span> <span class="pre">adversary</span> <span class="pre">after</span> <span class="pre">applying</span> <span class="pre">an</span> <span class="pre">attack</span> <span class="pre">and</span> <span class="pre">the</span> <span class="pre">original</span> <span class="pre">data.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.metrics.AdversaryError.METRIC_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.AdversaryError.METRIC_NAME">
-<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Adversary</span> <span class="pre">Error'</span></em><a class="headerlink" href="#privkit.metrics.AdversaryError.METRIC_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Adversary</span> <span class="pre">Error'</span></em><a class="headerlink" href="#privkit.metrics.AdversaryError.METRIC_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.AdversaryError.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AdversaryError.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AdversaryError.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the adversary error metric.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -510,7 +481,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.AdversaryError.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AdversaryError.plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.AdversaryError.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plot adversary error metric</p>
 </dd></dl>
 
@@ -518,31 +489,31 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.metrics.CMC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">CMC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gallery_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ArcFace'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_backend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'retinaface'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.CMC" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">CMC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gallery_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ArcFace'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_backend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'retinaface'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.CMC" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.metrics.Metric" title="privkit.metrics.metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.CMC.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.CMC.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.CMC.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.CMC.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cmc_curve'</span></em><a class="headerlink" href="#privkit.metrics.CMC.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cmc_curve'</span></em><a class="headerlink" href="#privkit.metrics.CMC.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.CMC.METRIC_INFO">
-<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;CMC</span> <span class="pre">quantifies</span> <span class="pre">the</span> <span class="pre">likelihood</span> <span class="pre">of</span> <span class="pre">successful</span> <span class="pre">identification</span> <span class="pre">by</span> <span class="pre">indicating</span> <span class="pre">the</span> <span class="pre">proportion</span> <span class="pre">of</span> <span class="pre">queries</span> <span class="pre">where</span> <span class="pre">the</span> <span class="pre">correct</span> <span class="pre">match</span> <span class="pre">is</span> <span class="pre">found</span> <span class="pre">within</span> <span class="pre">the</span> <span class="pre">top</span> <span class="pre">N</span> <span class="pre">ranked</span> <span class="pre">results,</span> <span class="pre">providing</span> <span class="pre">insights</span> <span class="pre">into</span> <span class="pre">the</span> <span class="pre">system's</span> <span class="pre">overall</span> <span class="pre">recognition</span> <span class="pre">accuracy</span> <span class="pre">across</span> <span class="pre">different</span> <span class="pre">rank</span> <span class="pre">levels.</span> <span class="pre">It</span> <span class="pre">is</span> <span class="pre">assumed</span> <span class="pre">that</span> <span class="pre">both</span> <span class="pre">probe</span> <span class="pre">and</span> <span class="pre">gallery</span> <span class="pre">images</span> <span class="pre">associated</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">identity</span> <span class="pre">share</span> <span class="pre">identical</span> <span class="pre">names,</span> <span class="pre">and</span> <span class="pre">each</span> <span class="pre">identity</span> <span class="pre">is</span> <span class="pre">represented</span> <span class="pre">by</span> <span class="pre">only</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">image</span> <span class="pre">in</span> <span class="pre">both</span> <span class="pre">the</span> <span class="pre">probe</span> <span class="pre">and</span> <span class="pre">gallery</span> <span class="pre">datasets.</span> <span class="pre">&quot;</span></em><a class="headerlink" href="#privkit.metrics.CMC.METRIC_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;CMC</span> <span class="pre">quantifies</span> <span class="pre">the</span> <span class="pre">likelihood</span> <span class="pre">of</span> <span class="pre">successful</span> <span class="pre">identification</span> <span class="pre">by</span> <span class="pre">indicating</span> <span class="pre">the</span> <span class="pre">proportion</span> <span class="pre">of</span> <span class="pre">queries</span> <span class="pre">where</span> <span class="pre">the</span> <span class="pre">correct</span> <span class="pre">match</span> <span class="pre">is</span> <span class="pre">found</span> <span class="pre">within</span> <span class="pre">the</span> <span class="pre">top</span> <span class="pre">N</span> <span class="pre">ranked</span> <span class="pre">results,</span> <span class="pre">providing</span> <span class="pre">insights</span> <span class="pre">into</span> <span class="pre">the</span> <span class="pre">system's</span> <span class="pre">overall</span> <span class="pre">recognition</span> <span class="pre">accuracy</span> <span class="pre">across</span> <span class="pre">different</span> <span class="pre">rank</span> <span class="pre">levels.</span> <span class="pre">It</span> <span class="pre">is</span> <span class="pre">assumed</span> <span class="pre">that</span> <span class="pre">both</span> <span class="pre">probe</span> <span class="pre">and</span> <span class="pre">gallery</span> <span class="pre">images</span> <span class="pre">associated</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">same</span> <span class="pre">identity</span> <span class="pre">share</span> <span class="pre">identical</span> <span class="pre">names,</span> <span class="pre">and</span> <span class="pre">each</span> <span class="pre">identity</span> <span class="pre">is</span> <span class="pre">represented</span> <span class="pre">by</span> <span class="pre">only</span> <span class="pre">a</span> <span class="pre">single</span> <span class="pre">image</span> <span class="pre">in</span> <span class="pre">both</span> <span class="pre">the</span> <span class="pre">probe</span> <span class="pre">and</span> <span class="pre">gallery</span> <span class="pre">datasets.</span> <span class="pre">&quot;</span></em><a class="headerlink" href="#privkit.metrics.CMC.METRIC_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.CMC.METRIC_NAME">
-<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cumulative</span> <span class="pre">Matching</span> <span class="pre">Characteristics</span> <span class="pre">Curve'</span></em><a class="headerlink" href="#privkit.metrics.CMC.METRIC_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cumulative</span> <span class="pre">Matching</span> <span class="pre">Characteristics</span> <span class="pre">Curve'</span></em><a class="headerlink" href="#privkit.metrics.CMC.METRIC_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.CMC.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.CMC.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.CMC.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the CMC metric</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -553,7 +524,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.CMC.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.CMC.plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.CMC.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plots the results of the metric. This is specific to the metric.</p>
 </dd></dl>
 
@@ -561,31 +532,31 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.metrics.F1ScoreMM">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">F1ScoreMM</span></span><a class="headerlink" href="#privkit.metrics.F1ScoreMM" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">F1ScoreMM</span></span><a class="headerlink" href="#privkit.metrics.F1ScoreMM" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.metrics.Metric" title="privkit.metrics.metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.F1ScoreMM.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.metrics.F1ScoreMM.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.metrics.F1ScoreMM.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.F1ScoreMM.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'f1_score_mm'</span></em><a class="headerlink" href="#privkit.metrics.F1ScoreMM.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'f1_score_mm'</span></em><a class="headerlink" href="#privkit.metrics.F1ScoreMM.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.F1ScoreMM.METRIC_INFO">
-<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'F1</span> <span class="pre">Score</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">defined</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">harmonic</span> <span class="pre">mean</span> <span class="pre">between</span> <span class="pre">precision</span> <span class="pre">and</span> <span class="pre">recall</span> <span class="pre">calculated</span> <span class="pre">as</span> <span class="pre">follows:</span> <span class="pre">F1</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">(precision</span> <span class="pre">*</span> <span class="pre">recall)</span> <span class="pre">/</span> <span class="pre">(precision</span> <span class="pre">+</span> <span class="pre">recall).</span> <span class="pre">In</span> <span class="pre">the</span> <span class="pre">context</span> <span class="pre">of</span> <span class="pre">Map-Matching</span> <span class="pre">(MM),</span> <span class="pre">precision</span> <span class="pre">is</span> <span class="pre">defined</span> <span class="pre">as</span> <span class="pre">precision</span> <span class="pre">=</span> <span class="pre">Length_correct</span> <span class="pre">/</span> <span class="pre">Length_matched</span> <span class="pre">and</span> <span class="pre">Recall</span> <span class="pre">is</span> <span class="pre">defined</span> <span class="pre">as</span> <span class="pre">recall</span> <span class="pre">=</span> <span class="pre">Length_correct</span> <span class="pre">/</span> <span class="pre">Length_truth.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.metrics.F1ScoreMM.METRIC_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'F1</span> <span class="pre">Score</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">defined</span> <span class="pre">as</span> <span class="pre">the</span> <span class="pre">harmonic</span> <span class="pre">mean</span> <span class="pre">between</span> <span class="pre">precision</span> <span class="pre">and</span> <span class="pre">recall</span> <span class="pre">calculated</span> <span class="pre">as</span> <span class="pre">follows:</span> <span class="pre">F1</span> <span class="pre">=</span> <span class="pre">2</span> <span class="pre">*</span> <span class="pre">(precision</span> <span class="pre">*</span> <span class="pre">recall)</span> <span class="pre">/</span> <span class="pre">(precision</span> <span class="pre">+</span> <span class="pre">recall).</span> <span class="pre">In</span> <span class="pre">the</span> <span class="pre">context</span> <span class="pre">of</span> <span class="pre">Map-Matching</span> <span class="pre">(MM),</span> <span class="pre">precision</span> <span class="pre">is</span> <span class="pre">defined</span> <span class="pre">as</span> <span class="pre">precision</span> <span class="pre">=</span> <span class="pre">Length_correct</span> <span class="pre">/</span> <span class="pre">Length_matched</span> <span class="pre">and</span> <span class="pre">Recall</span> <span class="pre">is</span> <span class="pre">defined</span> <span class="pre">as</span> <span class="pre">recall</span> <span class="pre">=</span> <span class="pre">Length_correct</span> <span class="pre">/</span> <span class="pre">Length_truth.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.metrics.F1ScoreMM.METRIC_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.F1ScoreMM.METRIC_NAME">
-<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'F1</span> <span class="pre">Score</span> <span class="pre">MM'</span></em><a class="headerlink" href="#privkit.metrics.F1ScoreMM.METRIC_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'F1</span> <span class="pre">Score</span> <span class="pre">MM'</span></em><a class="headerlink" href="#privkit.metrics.F1ScoreMM.METRIC_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.F1ScoreMM.compute_f1_score">
-<span class="sig-name descname"><span class="pre">compute_f1_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MultiDiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gt_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mm_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_matched</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.F1ScoreMM.compute_f1_score" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">compute_f1_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">networkx.MultiDiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gt_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mm_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_truth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_matched</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.F1ScoreMM.compute_f1_score" title="Link to this definition">#</a></dt>
 <dd><p>Compute the F1 Score metric.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -605,7 +576,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.F1ScoreMM.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MultiDiGraph</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.F1ScoreMM.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">networkx.MultiDiGraph</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.F1ScoreMM.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the F1 Score metric.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -622,7 +593,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.F1ScoreMM.get_length_path">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_length_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MultiDiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nearest_nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.F1ScoreMM.get_length_path" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_length_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">networkx.MultiDiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nearest_nodes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.F1ScoreMM.get_length_path" title="Link to this definition">#</a></dt>
 <dd><p>Compute the length of the path</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -639,7 +610,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.F1ScoreMM.matches">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.F1ScoreMM.matches" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">matches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.F1ScoreMM.matches" title="Link to this definition">#</a></dt>
 <dd><p>Computes where two lists match</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -653,7 +624,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.F1ScoreMM.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.F1ScoreMM.plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.F1ScoreMM.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plot F1 Score metric</p>
 </dd></dl>
 
@@ -661,31 +632,31 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.metrics.FID">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">FID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.FID" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">FID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.FID" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.metrics.Metric" title="privkit.metrics.metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.FID.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.FID.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.FID.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.FID.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'frechet_inception_distance'</span></em><a class="headerlink" href="#privkit.metrics.FID.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'frechet_inception_distance'</span></em><a class="headerlink" href="#privkit.metrics.FID.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.FID.METRIC_INFO">
-<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">FID</span> <span class="pre">measures</span> <span class="pre">the</span> <span class="pre">quality</span> <span class="pre">of</span> <span class="pre">generated</span> <span class="pre">images</span> <span class="pre">quantitatively</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">similarity</span> <span class="pre">between</span> <span class="pre">the</span> <span class="pre">distribution</span> <span class="pre">of</span> <span class="pre">features</span> <span class="pre">extracted</span> <span class="pre">from</span> <span class="pre">real</span> <span class="pre">and</span> <span class="pre">generated</span> <span class="pre">images.</span> <span class="pre">This</span> <span class="pre">implementation</span> <span class="pre">is</span> <span class="pre">based</span> <span class="pre">on</span> <span class="pre">[https://machinelearningmastery.com/how-to-implement-the-frechet-inception-distance-fid-from-scratch/].'</span></em><a class="headerlink" href="#privkit.metrics.FID.METRIC_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">FID</span> <span class="pre">measures</span> <span class="pre">the</span> <span class="pre">quality</span> <span class="pre">of</span> <span class="pre">generated</span> <span class="pre">images</span> <span class="pre">quantitatively</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">similarity</span> <span class="pre">between</span> <span class="pre">the</span> <span class="pre">distribution</span> <span class="pre">of</span> <span class="pre">features</span> <span class="pre">extracted</span> <span class="pre">from</span> <span class="pre">real</span> <span class="pre">and</span> <span class="pre">generated</span> <span class="pre">images.</span> <span class="pre">This</span> <span class="pre">implementation</span> <span class="pre">is</span> <span class="pre">based</span> <span class="pre">on</span> <span class="pre">[https://machinelearningmastery.com/how-to-implement-the-frechet-inception-distance-fid-from-scratch/].'</span></em><a class="headerlink" href="#privkit.metrics.FID.METRIC_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.FID.METRIC_NAME">
-<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Frechét</span> <span class="pre">Inception</span> <span class="pre">Distance'</span></em><a class="headerlink" href="#privkit.metrics.FID.METRIC_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Frechét</span> <span class="pre">Inception</span> <span class="pre">Distance'</span></em><a class="headerlink" href="#privkit.metrics.FID.METRIC_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.FID.calculate_fid">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_fid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">images1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">images2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.FID.calculate_fid" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">calculate_fid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">images1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">images2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.FID.calculate_fid" title="Link to this definition">#</a></dt>
 <dd><p>Returns the FID value between two image collections with the InceptionV3 model</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -702,7 +673,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.FID.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.FID.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.FID.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the FID metric</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -713,13 +684,13 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.FID.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.FID.plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.FID.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plots the results of the metric. This is specific to the metric.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.FID.scale_images">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scale_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">images</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.FID.scale_images" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">scale_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">images</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.FID.scale_images" title="Link to this definition">#</a></dt>
 <dd><p>Returns a list of resized images</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -738,31 +709,31 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.metrics.MatchingScores">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">MatchingScores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gallery_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ArcFace'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_backend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'retinaface'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.MatchingScores" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">MatchingScores</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gallery_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ArcFace'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_backend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'retinaface'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.MatchingScores" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.metrics.Metric" title="privkit.metrics.metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.MatchingScores.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.MatchingScores.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.MatchingScores.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.MatchingScores.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'matching_scores'</span></em><a class="headerlink" href="#privkit.metrics.MatchingScores.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'matching_scores'</span></em><a class="headerlink" href="#privkit.metrics.MatchingScores.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.MatchingScores.METRIC_INFO">
-<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Matching</span> <span class="pre">scores</span> <span class="pre">are</span> <span class="pre">the</span> <span class="pre">numerical</span> <span class="pre">values</span> <span class="pre">assigned</span> <span class="pre">to</span> <span class="pre">pairs</span> <span class="pre">of</span> <span class="pre">facial</span> <span class="pre">images</span> <span class="pre">to</span> <span class="pre">quantify</span> <span class="pre">the</span> <span class="pre">similarity</span> <span class="pre">between</span> <span class="pre">them.'</span></em><a class="headerlink" href="#privkit.metrics.MatchingScores.METRIC_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Matching</span> <span class="pre">scores</span> <span class="pre">are</span> <span class="pre">the</span> <span class="pre">numerical</span> <span class="pre">values</span> <span class="pre">assigned</span> <span class="pre">to</span> <span class="pre">pairs</span> <span class="pre">of</span> <span class="pre">facial</span> <span class="pre">images</span> <span class="pre">to</span> <span class="pre">quantify</span> <span class="pre">the</span> <span class="pre">similarity</span> <span class="pre">between</span> <span class="pre">them.'</span></em><a class="headerlink" href="#privkit.metrics.MatchingScores.METRIC_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.MatchingScores.METRIC_NAME">
-<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Matching</span> <span class="pre">Scores'</span></em><a class="headerlink" href="#privkit.metrics.MatchingScores.METRIC_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Matching</span> <span class="pre">Scores'</span></em><a class="headerlink" href="#privkit.metrics.MatchingScores.METRIC_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.MatchingScores.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.MatchingScores.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.MatchingScores.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the ROC curve and AUC value.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -779,7 +750,7 @@ document.write(`
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.MatchingScores.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.MatchingScores.plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.MatchingScores.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plots the results of the metric. This is specific to the metric.</p>
 </dd></dl>
 
@@ -787,7 +758,7 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.metrics.Metric">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">Metric</span></span><a class="headerlink" href="#privkit.metrics.Metric" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">Metric</span></span><a class="headerlink" href="#privkit.metrics.Metric" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Metric is an abstract class for a generic metric. Defines a series of methods common to all metrics.
 Provides a general method to execute, to plot and to print statistics of the metric.
@@ -795,37 +766,37 @@ Requires the definition of a METRIC_ID, METRIC_NAME, METRIC_INFO, METRIC_REF, an
 this metric can be applied to).</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.metrics.Metric.DATA_TYPE_ID">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#privkit.metrics.Metric.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#privkit.metrics.Metric.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd><p>Identifiers of the data types that the metric is applied to</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.metrics.Metric.METRIC_ID">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.metrics.Metric.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.metrics.Metric.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd><p>Identifier of the metric</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.metrics.Metric.METRIC_INFO">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.metrics.Metric.METRIC_INFO" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.metrics.Metric.METRIC_INFO" title="Link to this definition">#</a></dt>
 <dd><p>Information about the metric and how it works</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.metrics.Metric.METRIC_NAME">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.metrics.Metric.METRIC_NAME" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.metrics.Metric.METRIC_NAME" title="Link to this definition">#</a></dt>
 <dd><p>Name of the metric</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.Metric.execute">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.Metric.execute" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.Metric.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the metric. This is specific to the metric.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.Metric.plot">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.Metric.plot" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.Metric.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plots the results of the metric. This is specific to the metric.</p>
 </dd></dl>
 
@@ -833,31 +804,31 @@ this metric can be applied to).</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.metrics.QualityLoss">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">QualityLoss</span></span><a class="headerlink" href="#privkit.metrics.QualityLoss" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">QualityLoss</span></span><a class="headerlink" href="#privkit.metrics.QualityLoss" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.metrics.Metric" title="privkit.metrics.metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.QualityLoss.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.metrics.QualityLoss.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.metrics.QualityLoss.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.QualityLoss.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'quality_loss'</span></em><a class="headerlink" href="#privkit.metrics.QualityLoss.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'quality_loss'</span></em><a class="headerlink" href="#privkit.metrics.QualityLoss.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.QualityLoss.METRIC_INFO">
-<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Quality</span> <span class="pre">loss</span> <span class="pre">measures</span> <span class="pre">the</span> <span class="pre">loss</span> <span class="pre">of</span> <span class="pre">data</span> <span class="pre">quality,</span> <span class="pre">resulting</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">application</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">privacy-preserving</span> <span class="pre">mechanism.'</span></em><a class="headerlink" href="#privkit.metrics.QualityLoss.METRIC_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Quality</span> <span class="pre">loss</span> <span class="pre">measures</span> <span class="pre">the</span> <span class="pre">loss</span> <span class="pre">of</span> <span class="pre">data</span> <span class="pre">quality,</span> <span class="pre">resulting</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">application</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">privacy-preserving</span> <span class="pre">mechanism.'</span></em><a class="headerlink" href="#privkit.metrics.QualityLoss.METRIC_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.QualityLoss.METRIC_NAME">
-<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Quality</span> <span class="pre">Loss'</span></em><a class="headerlink" href="#privkit.metrics.QualityLoss.METRIC_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Quality</span> <span class="pre">Loss'</span></em><a class="headerlink" href="#privkit.metrics.QualityLoss.METRIC_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.QualityLoss.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.QualityLoss.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.QualityLoss.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the quality loss metric.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -871,7 +842,7 @@ this metric can be applied to).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.QualityLoss.get_quality_loss_point">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_quality_loss_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obf_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obf_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.QualityLoss.get_quality_loss_point" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_quality_loss_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obf_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obf_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.QualityLoss.get_quality_loss_point" title="Link to this definition">#</a></dt>
 <dd><p>Executes the quality loss metric at a given the ground-truth and the obfuscated report.
 :param latitude: original latitude
 :param longitude: original longitude
@@ -882,7 +853,7 @@ this metric can be applied to).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.QualityLoss.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.QualityLoss.plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.QualityLoss.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plot quality loss metric</p>
 </dd></dl>
 
@@ -890,31 +861,31 @@ this metric can be applied to).</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_find">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">ROC_find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_pairs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_find" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">ROC_find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_pairs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_find" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.metrics.Metric" title="privkit.metrics.metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_find.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.ROC_find.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.ROC_find.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_find.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'roc_find'</span></em><a class="headerlink" href="#privkit.metrics.ROC_find.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'roc_find'</span></em><a class="headerlink" href="#privkit.metrics.ROC_find.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_find.METRIC_INFO">
-<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;ROC</span> <span class="pre">curve</span> <span class="pre">visually</span> <span class="pre">represents</span> <span class="pre">the</span> <span class="pre">trade-off</span> <span class="pre">between</span> <span class="pre">a</span> <span class="pre">face</span> <span class="pre">recognition</span> <span class="pre">(for</span> <span class="pre">verification)</span> <span class="pre">binary</span> <span class="pre">classification</span> <span class="pre">model's</span> <span class="pre">ability</span> <span class="pre">to</span> <span class="pre">correctly</span> <span class="pre">identify</span> <span class="pre">positive</span> <span class="pre">instances</span> <span class="pre">(true</span> <span class="pre">matches)</span> <span class="pre">and</span> <span class="pre">its</span> <span class="pre">tendency</span> <span class="pre">to</span> <span class="pre">make</span> <span class="pre">false</span> <span class="pre">positive</span> <span class="pre">errors.</span> <span class="pre">Faster</span> <span class="pre">than</span> <span class="pre">the</span> <span class="pre">ROC_verify</span> <span class="pre">implementation</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">large</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">identities.</span> <span class="pre">&quot;</span></em><a class="headerlink" href="#privkit.metrics.ROC_find.METRIC_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;ROC</span> <span class="pre">curve</span> <span class="pre">visually</span> <span class="pre">represents</span> <span class="pre">the</span> <span class="pre">trade-off</span> <span class="pre">between</span> <span class="pre">a</span> <span class="pre">face</span> <span class="pre">recognition</span> <span class="pre">(for</span> <span class="pre">verification)</span> <span class="pre">binary</span> <span class="pre">classification</span> <span class="pre">model's</span> <span class="pre">ability</span> <span class="pre">to</span> <span class="pre">correctly</span> <span class="pre">identify</span> <span class="pre">positive</span> <span class="pre">instances</span> <span class="pre">(true</span> <span class="pre">matches)</span> <span class="pre">and</span> <span class="pre">its</span> <span class="pre">tendency</span> <span class="pre">to</span> <span class="pre">make</span> <span class="pre">false</span> <span class="pre">positive</span> <span class="pre">errors.</span> <span class="pre">Faster</span> <span class="pre">than</span> <span class="pre">the</span> <span class="pre">ROC_verify</span> <span class="pre">implementation</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">large</span> <span class="pre">number</span> <span class="pre">of</span> <span class="pre">identities.</span> <span class="pre">&quot;</span></em><a class="headerlink" href="#privkit.metrics.ROC_find.METRIC_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_find.METRIC_NAME">
-<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Receiver</span> <span class="pre">Operating</span> <span class="pre">Characteristic</span> <span class="pre">(ROC)</span> <span class="pre">curve'</span></em><a class="headerlink" href="#privkit.metrics.ROC_find.METRIC_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Receiver</span> <span class="pre">Operating</span> <span class="pre">Characteristic</span> <span class="pre">(ROC)</span> <span class="pre">curve'</span></em><a class="headerlink" href="#privkit.metrics.ROC_find.METRIC_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_find.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_find.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_find.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the Receiver Operating Characteristic (ROC) curve and calculates the Area Under the Curve (AUC) value</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -925,7 +896,7 @@ this metric can be applied to).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_find.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_find.plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_find.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plots the results of the metric. This is specific to the metric.</p>
 </dd></dl>
 
@@ -933,31 +904,31 @@ this metric can be applied to).</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_verify">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">ROC_verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_pairs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ArcFace'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_backend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'retinaface'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_verify" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">ROC_verify</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_pairs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.core.frame.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ArcFace'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detector_backend</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'retinaface'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_verify" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.metrics.Metric" title="privkit.metrics.metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_verify.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.ROC_verify.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.ROC_verify.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_verify.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'roc_verify'</span></em><a class="headerlink" href="#privkit.metrics.ROC_verify.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'roc_verify'</span></em><a class="headerlink" href="#privkit.metrics.ROC_verify.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_verify.METRIC_INFO">
-<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;ROC</span> <span class="pre">curve</span> <span class="pre">visually</span> <span class="pre">represents</span> <span class="pre">the</span> <span class="pre">trade-off</span> <span class="pre">between</span> <span class="pre">a</span> <span class="pre">face</span> <span class="pre">recognition</span> <span class="pre">(for</span> <span class="pre">verification)</span> <span class="pre">binary</span> <span class="pre">classification</span> <span class="pre">model's</span> <span class="pre">ability</span> <span class="pre">to</span> <span class="pre">correctly</span> <span class="pre">identify</span> <span class="pre">positive</span> <span class="pre">instances</span> <span class="pre">(true</span> <span class="pre">matches)</span> <span class="pre">and</span> <span class="pre">its</span> <span class="pre">tendency</span> <span class="pre">to</span> <span class="pre">make</span> <span class="pre">false</span> <span class="pre">positive</span> <span class="pre">errors.&quot;</span></em><a class="headerlink" href="#privkit.metrics.ROC_verify.METRIC_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&quot;ROC</span> <span class="pre">curve</span> <span class="pre">visually</span> <span class="pre">represents</span> <span class="pre">the</span> <span class="pre">trade-off</span> <span class="pre">between</span> <span class="pre">a</span> <span class="pre">face</span> <span class="pre">recognition</span> <span class="pre">(for</span> <span class="pre">verification)</span> <span class="pre">binary</span> <span class="pre">classification</span> <span class="pre">model's</span> <span class="pre">ability</span> <span class="pre">to</span> <span class="pre">correctly</span> <span class="pre">identify</span> <span class="pre">positive</span> <span class="pre">instances</span> <span class="pre">(true</span> <span class="pre">matches)</span> <span class="pre">and</span> <span class="pre">its</span> <span class="pre">tendency</span> <span class="pre">to</span> <span class="pre">make</span> <span class="pre">false</span> <span class="pre">positive</span> <span class="pre">errors.&quot;</span></em><a class="headerlink" href="#privkit.metrics.ROC_verify.METRIC_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_verify.METRIC_NAME">
-<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Receiver</span> <span class="pre">Operating</span> <span class="pre">Characteristic</span> <span class="pre">(ROC)</span> <span class="pre">Curve'</span></em><a class="headerlink" href="#privkit.metrics.ROC_verify.METRIC_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Receiver</span> <span class="pre">Operating</span> <span class="pre">Characteristic</span> <span class="pre">(ROC)</span> <span class="pre">Curve'</span></em><a class="headerlink" href="#privkit.metrics.ROC_verify.METRIC_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_verify.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_verify.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_verify.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the Receiver Operating Characteristic (ROC) curve and calculates the Area Under the Curve (AUC) value</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -968,7 +939,7 @@ this metric can be applied to).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.ROC_verify.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_verify.plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.ROC_verify.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plots the results of the metric. This is specific to the metric.</p>
 </dd></dl>
 
@@ -976,31 +947,31 @@ this metric can be applied to).</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.metrics.SSIM">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">SSIM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.SSIM" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.metrics.</span></span><span class="sig-name descname"><span class="pre">SSIM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">probe_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baseline_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.SSIM" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.metrics.Metric" title="privkit.metrics.metric.Metric"><code class="xref py py-class docutils literal notranslate"><span class="pre">Metric</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.SSIM.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.SSIM.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.metrics.SSIM.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.SSIM.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ssim'</span></em><a class="headerlink" href="#privkit.metrics.SSIM.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ssim'</span></em><a class="headerlink" href="#privkit.metrics.SSIM.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.SSIM.METRIC_INFO">
-<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SSIM</span> <span class="pre">quantifies</span> <span class="pre">the</span> <span class="pre">similarity</span> <span class="pre">between</span> <span class="pre">two</span> <span class="pre">images</span> <span class="pre">by</span> <span class="pre">assessing</span> <span class="pre">their</span> <span class="pre">structural</span> <span class="pre">information</span> <span class="pre">and</span> <span class="pre">pixel-wise</span> <span class="pre">content.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.metrics.SSIM.METRIC_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SSIM</span> <span class="pre">quantifies</span> <span class="pre">the</span> <span class="pre">similarity</span> <span class="pre">between</span> <span class="pre">two</span> <span class="pre">images</span> <span class="pre">by</span> <span class="pre">assessing</span> <span class="pre">their</span> <span class="pre">structural</span> <span class="pre">information</span> <span class="pre">and</span> <span class="pre">pixel-wise</span> <span class="pre">content.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.metrics.SSIM.METRIC_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.metrics.SSIM.METRIC_NAME">
-<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Structure</span> <span class="pre">Similarity</span> <span class="pre">Index</span> <span class="pre">(SSIM)'</span></em><a class="headerlink" href="#privkit.metrics.SSIM.METRIC_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Structure</span> <span class="pre">Similarity</span> <span class="pre">Index</span> <span class="pre">(SSIM)'</span></em><a class="headerlink" href="#privkit.metrics.SSIM.METRIC_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.SSIM.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.SSIM.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.SSIM.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the SSIM metric.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -1011,7 +982,7 @@ this metric can be applied to).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.metrics.SSIM.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.SSIM.plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.metrics.SSIM.plot" title="Link to this definition">#</a></dt>
 <dd><p>Plots the results of the metric. This is specific to the metric.</p>
 </dd></dl>
 
@@ -1026,7 +997,7 @@ this metric can be applied to).</p>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1054,14 +1025,17 @@ this metric can be applied to).</p>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
-
-  <div class="page-toc tocsection onthispage">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.metrics.AccuracyFD"><code class="docutils literal notranslate"><span class="pre">AccuracyFD</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.metrics.AccuracyFD.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">AccuracyFD.DATA_TYPE_ID</span></code></a></li>
@@ -1194,8 +1168,8 @@ this metric can be applied to).</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1220,7 +1194,7 @@ this metric can be applied to).</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
@@ -1232,7 +1206,7 @@ this metric can be applied to).</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

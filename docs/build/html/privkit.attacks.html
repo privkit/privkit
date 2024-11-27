@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -14,30 +14,33 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e031e9a9"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'privkit.attacks';</script>
     <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -46,6 +49,7 @@
     <link rel="prev" title="privkit.ppms package" href="privkit.ppms.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -53,32 +57,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -86,7 +74,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -94,20 +81,27 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class=" navbar-header-items__start">
     
       <div class="navbar-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -122,7 +116,7 @@
     
     
     <img src="_static/logo_grey_word.svg" class="logo__image only-light" alt="privkit homepage"/>
-    <script>document.write(`<img src="_static/logo_white_word.svg" class="logo__image only-dark" alt="privkit homepage"/>`);</script>
+    <img src="_static/logo_white_word.svg" class="logo__image only-dark pst-js-only" alt="privkit homepage"/>
   
   
 </a></div>
@@ -134,42 +128,36 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="privkit.html">
-                        User Guide
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="privkit.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
-                        Github
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
-                        Tutorials
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+    Github
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
-                        Web Version
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+    Web Version
+  </a>
+</li>
+
   </ul>
 </nav></div>
       
@@ -181,31 +169,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -216,7 +196,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -228,31 +208,31 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -261,45 +241,42 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
-<nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          
+          
+            <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="privkit.html">
-                        User Guide
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="privkit.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
-                        Github
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
-                        Tutorials
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+    Github
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
-                        Web Version
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+    Web Version
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -309,17 +286,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -330,7 +303,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -365,22 +338,20 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
         <div class="header-article-item">
 
-
-
-<nav aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
@@ -391,7 +362,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="privkit.html" class="nav-link">User Guide</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">privkit.atta...</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">privkit.attacks sub-package</span></li>
   </ul>
 </nav>
 </div>
@@ -406,13 +377,13 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="module-privkit.attacks">
-<span id="privkit-attacks-sub-package"></span><h1>privkit.attacks sub-package<a class="headerlink" href="#module-privkit.attacks" title="Permalink to this heading">#</a></h1>
+<span id="privkit-attacks-sub-package"></span><h1>privkit.attacks sub-package<a class="headerlink" href="#module-privkit.attacks" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.attacks.Attack">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">Attack</span></span><a class="headerlink" href="#privkit.attacks.Attack" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">Attack</span></span><a class="headerlink" href="#privkit.attacks.Attack" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Attack is an abstract class for a generic attack. Defines methods common to all attacks.
 Provides a general function to execute the attack.
@@ -420,43 +391,43 @@ Requires the definition of the ATTACK_ID, ATTACK_NAME, ATTACK_INFO, ATTACK_REF, 
 this attack can be applied to), and METRIC_ID (of the metrics that can be used to assess this attack).</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.attacks.Attack.ATTACK_ID">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.attacks.Attack.ATTACK_ID" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.attacks.Attack.ATTACK_ID" title="Link to this definition">#</a></dt>
 <dd><p>Identifier of the attack</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.attacks.Attack.ATTACK_INFO">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.attacks.Attack.ATTACK_INFO" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.attacks.Attack.ATTACK_INFO" title="Link to this definition">#</a></dt>
 <dd><p>Information about the attack and how it works</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.attacks.Attack.ATTACK_NAME">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.attacks.Attack.ATTACK_NAME" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.attacks.Attack.ATTACK_NAME" title="Link to this definition">#</a></dt>
 <dd><p>Name of the attack</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.attacks.Attack.ATTACK_REF">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.attacks.Attack.ATTACK_REF" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.attacks.Attack.ATTACK_REF" title="Link to this definition">#</a></dt>
 <dd><p>Reference to the work that proposes this attack</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.attacks.Attack.DATA_TYPE_ID">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#privkit.attacks.Attack.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#privkit.attacks.Attack.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd><p>Identifiers of the data types that the attack is applied to</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.attacks.Attack.METRIC_ID">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#privkit.attacks.Attack.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#privkit.attacks.Attack.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd><p>Identifiers of the metrics that can be used to assess the attack</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.Attack.execute">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.Attack.execute" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.Attack.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the attack mechanism. This is specific to the attack</p>
 </dd></dl>
 
@@ -464,7 +435,7 @@ this attack can be applied to), and METRIC_ID (of the metrics that can be used t
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.attacks.HW">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">HW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.HW" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">HW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">epsilon:</span> <span class="pre">float,</span> <span class="pre">mobility_profile:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.HW" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.attacks.Attack" title="privkit.attacks.attack.Attack"><code class="xref py py-class docutils literal notranslate"><span class="pre">Attack</span></code></a></p>
 <p>Class to execute the HW attack.</p>
 <p class="rubric">References</p>
@@ -473,37 +444,37 @@ location privacy: optimal strategy against localization attacks,” in Proceedin
 ACM conference on Computer and communications security, pp. 617–627, 2012.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.HW.ATTACK_ID">
-<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hw'</span></em><a class="headerlink" href="#privkit.attacks.HW.ATTACK_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hw'</span></em><a class="headerlink" href="#privkit.attacks.HW.ATTACK_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.HW.ATTACK_INFO">
-<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HW</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">given</span> <span class="pre">the</span> <span class="pre">matrix</span> <span class="pre">f(z|...),</span> <span class="pre">multiplies</span> <span class="pre">it</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">given</span> <span class="pre">mobility</span> <span class="pre">profileand</span> <span class="pre">then</span> <span class="pre">normalizes</span> <span class="pre">it,</span> <span class="pre">calculating</span> <span class="pre">the</span> <span class="pre">posterior.</span> <span class="pre">Then</span> <span class="pre">computes</span> <span class="pre">the</span> <span class="pre">geometric</span> <span class="pre">median</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">posterior</span> <span class="pre">calculated</span> <span class="pre">returning</span> <span class="pre">the</span> <span class="pre">adversary</span> <span class="pre">estimation.'</span></em><a class="headerlink" href="#privkit.attacks.HW.ATTACK_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HW</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">given</span> <span class="pre">the</span> <span class="pre">matrix</span> <span class="pre">f(z|...),</span> <span class="pre">multiplies</span> <span class="pre">it</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">given</span> <span class="pre">mobility</span> <span class="pre">profile</span> <span class="pre">and</span> <span class="pre">then</span> <span class="pre">normalizes</span> <span class="pre">it,</span> <span class="pre">calculating</span> <span class="pre">the</span> <span class="pre">posterior.</span> <span class="pre">Then</span> <span class="pre">computes</span> <span class="pre">the</span> <span class="pre">geometric</span> <span class="pre">median</span> <span class="pre">with</span> <span class="pre">the</span> <span class="pre">posterior</span> <span class="pre">calculated</span> <span class="pre">returning</span> <span class="pre">the</span> <span class="pre">adversary</span> <span class="pre">estimation.'</span></em><a class="headerlink" href="#privkit.attacks.HW.ATTACK_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.HW.ATTACK_NAME">
-<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HW'</span></em><a class="headerlink" href="#privkit.attacks.HW.ATTACK_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HW'</span></em><a class="headerlink" href="#privkit.attacks.HW.ATTACK_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.HW.ATTACK_REF">
-<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'R.</span> <span class="pre">Shokri,</span> <span class="pre">G.</span> <span class="pre">Theodorakopoulos,</span> <span class="pre">C.</span> <span class="pre">Troncoso,</span> <span class="pre">J.-P.</span> <span class="pre">Hubaux,</span> <span class="pre">and</span> <span class="pre">J.-Y.</span> <span class="pre">Le</span> <span class="pre">Boudec,</span> <span class="pre">“Protecting</span> <span class="pre">location</span> <span class="pre">privacy:</span> <span class="pre">optimal</span> <span class="pre">strategy</span> <span class="pre">against</span> <span class="pre">localization</span> <span class="pre">attacks,”</span> <span class="pre">in</span> <span class="pre">Proceedings</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">2012</span> <span class="pre">ACM</span> <span class="pre">conference</span> <span class="pre">on</span> <span class="pre">Computer</span> <span class="pre">and</span> <span class="pre">communications</span> <span class="pre">security,</span> <span class="pre">pp.</span> <span class="pre">617–627,</span> <span class="pre">2012.'</span></em><a class="headerlink" href="#privkit.attacks.HW.ATTACK_REF" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'R.</span> <span class="pre">Shokri,</span> <span class="pre">G.</span> <span class="pre">Theodorakopoulos,</span> <span class="pre">C.</span> <span class="pre">Troncoso,</span> <span class="pre">J.-P.</span> <span class="pre">Hubaux,</span> <span class="pre">and</span> <span class="pre">J.-Y.</span> <span class="pre">Le</span> <span class="pre">Boudec,</span> <span class="pre">“Protecting</span> <span class="pre">location</span> <span class="pre">privacy:</span> <span class="pre">optimal</span> <span class="pre">strategy</span> <span class="pre">against</span> <span class="pre">localization</span> <span class="pre">attacks,”</span> <span class="pre">in</span> <span class="pre">Proceedings</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">2012</span> <span class="pre">ACM</span> <span class="pre">conference</span> <span class="pre">on</span> <span class="pre">Computer</span> <span class="pre">and</span> <span class="pre">communications</span> <span class="pre">security,</span> <span class="pre">pp.</span> <span class="pre">617–627,</span> <span class="pre">2012.'</span></em><a class="headerlink" href="#privkit.attacks.HW.ATTACK_REF" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.HW.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.HW.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.HW.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.HW.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['adv_error']</span></em><a class="headerlink" href="#privkit.attacks.HW.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['adv_error']</span></em><a class="headerlink" href="#privkit.attacks.HW.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.HW.compute_dist">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compute_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">geo_median_i:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">grid_map_centers:</span> <span class="pre">[[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.HW.compute_dist" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compute_dist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">geo_median_i:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">grid_map_centers:</span> <span class="pre">[[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.HW.compute_dist" title="Link to this definition">#</a></dt>
 <dd><p>Computes distance</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -520,7 +491,7 @@ ACM conference on Computer and communications security, pp. 617–627, 2012.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.HW.compute_geometric_median">
-<span class="sig-name descname"><span class="pre">compute_geometric_median</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">unfiltered_probabilities:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">unfiltered_values:</span> <span class="pre">[[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.HW.compute_geometric_median" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">compute_geometric_median</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">unfiltered_probabilities:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">unfiltered_values:</span> <span class="pre">[[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.HW.compute_geometric_median" title="Link to this definition">#</a></dt>
 <dd><p>Computes the geometric median, which will be the adversary estimation at a certain query</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -537,14 +508,11 @@ ACM conference on Computer and communications security, pp. 617–627, 2012.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.HW.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">location_data:</span> <span class="pre">~privkit.data.location_data.LocationData,</span> <span class="pre">mobility_profile:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.HW.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.HW.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the HW attack</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – data where OptimalHW will be performed</p></li>
-<li><p><strong>mobility_profile</strong> (<em>[</em><em>float</em><em>]</em>) – priori knowledge build with a portion of the dataset</p></li>
-</ul>
+<dd class="field-odd"><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – data where OptimalHW will be performed</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>location data updated with adversary estimation</p>
@@ -554,13 +522,12 @@ ACM conference on Computer and communications security, pp. 617–627, 2012.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.HW.execute_attack">
-<span class="sig-name descname"><span class="pre">execute_attack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">f:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">mobility_profile:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">grid:</span> <span class="pre">~privkit.utils.discrete_utils.GridMap</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.HW.execute_attack" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute_attack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">f:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">grid:</span> <span class="pre">~privkit.utils.discrete_utils.GridMap</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.HW.execute_attack" title="Link to this definition">#</a></dt>
 <dd><p>Executes the HW attack at a point</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> (<em>[</em><em>float</em><em>]</em>) – LPPM function</p></li>
-<li><p><strong>mobility_profile</strong> (<em>[</em><em>float</em><em>]</em>) – priori knowledge build with a portion of the dataset</p></li>
 <li><p><strong>grid</strong> (<em>privkit.GridMap</em>) – map discretization</p></li>
 </ul>
 </dd>
@@ -574,7 +541,7 @@ ACM conference on Computer and communications security, pp. 617–627, 2012.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">MapMatching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MultiDiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_errors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.69</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">13.35</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.MapMatching" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">MapMatching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">networkx.MultiDiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">measurement_errors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">error_range</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.69</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lambda_z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">13.35</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.MapMatching" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.attacks.Attack" title="privkit.attacks.attack.Attack"><code class="xref py py-class docutils literal notranslate"><span class="pre">Attack</span></code></a></p>
 <p>Class to execute a Map-Matching attack based on papers [1,2].</p>
 <p class="rubric">References</p>
@@ -585,37 +552,37 @@ Proceedings of the 17th ACM SIGSPATIAL international conference on advances in g
 Markov and route choice models. IEEE Transactions on Intelligent Transportation Systems, 18(9), 2423-2434.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.ATTACK_ID">
-<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'map_matching'</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.ATTACK_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'map_matching'</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.ATTACK_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.ATTACK_INFO">
-<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Map-Matching</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">allows</span> <span class="pre">to</span> <span class="pre">continuously</span> <span class="pre">identify</span> <span class="pre">the</span> <span class="pre">position</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">vehicle</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">road</span> <span class="pre">network,</span> <span class="pre">given</span> <span class="pre">noisy</span> <span class="pre">location</span> <span class="pre">readings.'</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.ATTACK_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Map-Matching</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">allows</span> <span class="pre">to</span> <span class="pre">continuously</span> <span class="pre">identify</span> <span class="pre">the</span> <span class="pre">position</span> <span class="pre">of</span> <span class="pre">a</span> <span class="pre">vehicle</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">road</span> <span class="pre">network,</span> <span class="pre">given</span> <span class="pre">noisy</span> <span class="pre">location</span> <span class="pre">readings.'</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.ATTACK_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.ATTACK_NAME">
-<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Map-Matching'</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.ATTACK_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Map-Matching'</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.ATTACK_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.ATTACK_REF">
-<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Jagadeesh,</span> <span class="pre">G.</span> <span class="pre">R.,</span> <span class="pre">&amp;</span> <span class="pre">Srikanthan,</span> <span class="pre">T.</span> <span class="pre">(2017).</span> <span class="pre">Online</span> <span class="pre">map-matching</span> <span class="pre">of</span> <span class="pre">noisy</span> <span class="pre">and</span> <span class="pre">sparse</span> <span class="pre">location</span> <span class="pre">data</span> <span class="pre">with</span> <span class="pre">hidden</span> <span class="pre">Markov</span> <span class="pre">and</span> <span class="pre">route</span> <span class="pre">choice</span> <span class="pre">models.</span> <span class="pre">IEEE</span> <span class="pre">Transactions</span> <span class="pre">on</span> <span class="pre">Intelligent</span> <span class="pre">Transportation</span> <span class="pre">Systems,</span> <span class="pre">18(9),</span> <span class="pre">2423-2434.'</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.ATTACK_REF" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Jagadeesh,</span> <span class="pre">G.</span> <span class="pre">R.,</span> <span class="pre">&amp;</span> <span class="pre">Srikanthan,</span> <span class="pre">T.</span> <span class="pre">(2017).</span> <span class="pre">Online</span> <span class="pre">map-matching</span> <span class="pre">of</span> <span class="pre">noisy</span> <span class="pre">and</span> <span class="pre">sparse</span> <span class="pre">location</span> <span class="pre">data</span> <span class="pre">with</span> <span class="pre">hidden</span> <span class="pre">Markov</span> <span class="pre">and</span> <span class="pre">route</span> <span class="pre">choice</span> <span class="pre">models.</span> <span class="pre">IEEE</span> <span class="pre">Transactions</span> <span class="pre">on</span> <span class="pre">Intelligent</span> <span class="pre">Transportation</span> <span class="pre">Systems,</span> <span class="pre">18(9),</span> <span class="pre">2423-2434.'</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.ATTACK_REF" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['adv_error',</span> <span class="pre">'f1_score_mm']</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['adv_error',</span> <span class="pre">'f1_score_mm']</span></em><a class="headerlink" href="#privkit.attacks.MapMatching.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.compute_circuitousness">
-<span class="sig-name descname"><span class="pre">compute_circuitousness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">State</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">State</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_travel_time_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.compute_circuitousness" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">compute_circuitousness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">previous_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">State</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">State</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_travel_time_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.compute_circuitousness" title="Link to this definition">#</a></dt>
 <dd><p>Computes the circuitousness for the optimal path between s_t-1,j and st_k</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -634,7 +601,7 @@ Markov and route choice models. IEEE Transactions on Intelligent Transportation 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.compute_lambdas">
-<span class="sig-name descname"><span class="pre">compute_lambdas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.compute_lambdas" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">compute_lambdas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.compute_lambdas" title="Link to this definition">#</a></dt>
 <dd><p>Computes the circuitousness and temporal implausibility to estimate lambdas parameters</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -648,7 +615,7 @@ Markov and route choice models. IEEE Transactions on Intelligent Transportation 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.compute_temporal_implausibility">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compute_temporal_implausibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">free_flow_travel_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.compute_temporal_implausibility" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">compute_temporal_implausibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">delta_t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">free_flow_travel_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.compute_temporal_implausibility" title="Link to this definition">#</a></dt>
 <dd><p>Computes the temporal implausibility for the optimal path between s_t-1,j and st_k</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -665,7 +632,7 @@ Markov and route choice models. IEEE Transactions on Intelligent Transportation 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.compute_transition_probability">
-<span class="sig-name descname"><span class="pre">compute_transition_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">previous_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">State</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">State</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.compute_transition_probability" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">compute_transition_probability</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">previous_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">State</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">State</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.compute_transition_probability" title="Link to this definition">#</a></dt>
 <dd><p>Computes the transition probability between the previous state and the current state</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -682,7 +649,7 @@ Markov and route choice models. IEEE Transactions on Intelligent Transportation 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_processing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.MapMatching.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_processing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.MapMatching.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the Map-Matching attack. If estimation is True, it executes the estimation of lambdas parameters</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -701,7 +668,7 @@ Markov and route choice models. IEEE Transactions on Intelligent Transportation 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.find_convergence_point">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_convergence_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back_pointers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_of_convergence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">typing.List]</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.find_convergence_point" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_convergence_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back_pointers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_of_convergence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">typing.List]</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.find_convergence_point" title="Link to this definition">#</a></dt>
 <dd><p>Finds a convergence point</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -720,7 +687,7 @@ Markov and route choice models. IEEE Transactions on Intelligent Transportation 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.lambdas_estimation">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lambdas_estimation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimated_lambda_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_lambda_z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.lambdas_estimation" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lambdas_estimation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">estimated_lambda_y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">estimated_lambda_z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.lambdas_estimation" title="Link to this definition">#</a></dt>
 <dd><p>Computes the estimation of the lambdas parameters</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -737,7 +704,7 @@ Markov and route choice models. IEEE Transactions on Intelligent Transportation 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.online_viterbi_decoder">
-<span class="sig-name descname"><span class="pre">online_viterbi_decoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back_pointers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_of_convergence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">typing.List]</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.online_viterbi_decoder" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">online_viterbi_decoder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">states</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back_pointers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_of_convergence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">typing.List]</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.online_viterbi_decoder" title="Link to this definition">#</a></dt>
 <dd><p>Computes the online viterbi decoder</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -757,7 +724,7 @@ Markov and route choice models. IEEE Transactions on Intelligent Transportation 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.sigma_estimation">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sigma_estimation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">typing.List[float]]</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.sigma_estimation" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sigma_estimation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">typing.List[float]]</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.sigma_estimation" title="Link to this definition">#</a></dt>
 <dd><p>Estimates the sigma value given the location data with ground truth and test data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -771,7 +738,7 @@ Markov and route choice models. IEEE Transactions on Intelligent Transportation 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.MapMatching.viterbi">
-<span class="sig-name descname"><span class="pre">viterbi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back_pointers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_probability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_of_convergence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">typing.List]</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.viterbi" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">viterbi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">back_pointers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_probability</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_of_convergence</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_observations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'int'&gt;,</span> <span class="pre">typing.List]</span></span></span><a class="headerlink" href="#privkit.attacks.MapMatching.viterbi" title="Link to this definition">#</a></dt>
 <dd><p>Computes the viterbi algorithm</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -794,7 +761,7 @@ Markov and route choice models. IEEE Transactions on Intelligent Transportation 
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.attacks.OmniHW">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">OmniHW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.OmniHW" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">OmniHW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.OmniHW" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.attacks.Attack" title="privkit.attacks.attack.Attack"><code class="xref py py-class docutils literal notranslate"><span class="pre">Attack</span></code></a></p>
 <p>Class to execute the OmniHW attack.</p>
 <p class="rubric">References</p>
@@ -803,37 +770,37 @@ location privacy: optimal strategy against localization attacks,” in Proceedin
 ACM conference on Computer and communications security, pp. 617–627, 2012.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OmniHW.ATTACK_ID">
-<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'omniHW'</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.ATTACK_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'omniHW'</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.ATTACK_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OmniHW.ATTACK_INFO">
-<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OmniHW</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">uses</span> <span class="pre">the</span> <span class="pre">HW</span> <span class="pre">attack</span> <span class="pre">using</span> <span class="pre">the</span> <span class="pre">mobility</span> <span class="pre">profile</span> <span class="pre">resulting</span> <span class="pre">from</span> <span class="pre">test</span> <span class="pre">data.'</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.ATTACK_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OmniHW</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">uses</span> <span class="pre">the</span> <span class="pre">HW</span> <span class="pre">attack</span> <span class="pre">using</span> <span class="pre">the</span> <span class="pre">mobility</span> <span class="pre">profile</span> <span class="pre">resulting</span> <span class="pre">from</span> <span class="pre">test</span> <span class="pre">data.'</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.ATTACK_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OmniHW.ATTACK_NAME">
-<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OmniHW'</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.ATTACK_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OmniHW'</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.ATTACK_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OmniHW.ATTACK_REF">
-<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'R.</span> <span class="pre">Shokri,</span> <span class="pre">G.</span> <span class="pre">Theodorakopoulos,</span> <span class="pre">C.</span> <span class="pre">Troncoso,</span> <span class="pre">J.-P.</span> <span class="pre">Hubaux,</span> <span class="pre">and</span> <span class="pre">J.-Y.</span> <span class="pre">Le</span> <span class="pre">Boudec,</span> <span class="pre">“Protecting</span> <span class="pre">location</span> <span class="pre">privacy:</span> <span class="pre">optimal</span> <span class="pre">strategy</span> <span class="pre">against</span> <span class="pre">localization</span> <span class="pre">attacks,”</span> <span class="pre">in</span> <span class="pre">Proceedings</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">2012</span> <span class="pre">ACM</span> <span class="pre">conference</span> <span class="pre">on</span> <span class="pre">Computer</span> <span class="pre">and</span> <span class="pre">communications</span> <span class="pre">security,</span> <span class="pre">pp.</span> <span class="pre">617–627,</span> <span class="pre">2012.'</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.ATTACK_REF" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'R.</span> <span class="pre">Shokri,</span> <span class="pre">G.</span> <span class="pre">Theodorakopoulos,</span> <span class="pre">C.</span> <span class="pre">Troncoso,</span> <span class="pre">J.-P.</span> <span class="pre">Hubaux,</span> <span class="pre">and</span> <span class="pre">J.-Y.</span> <span class="pre">Le</span> <span class="pre">Boudec,</span> <span class="pre">“Protecting</span> <span class="pre">location</span> <span class="pre">privacy:</span> <span class="pre">optimal</span> <span class="pre">strategy</span> <span class="pre">against</span> <span class="pre">localization</span> <span class="pre">attacks,”</span> <span class="pre">in</span> <span class="pre">Proceedings</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">2012</span> <span class="pre">ACM</span> <span class="pre">conference</span> <span class="pre">on</span> <span class="pre">Computer</span> <span class="pre">and</span> <span class="pre">communications</span> <span class="pre">security,</span> <span class="pre">pp.</span> <span class="pre">617–627,</span> <span class="pre">2012.'</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.ATTACK_REF" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OmniHW.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OmniHW.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['adv_error']</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['adv_error']</span></em><a class="headerlink" href="#privkit.attacks.OmniHW.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.OmniHW.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.OmniHW.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.OmniHW.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the OmniHW attack</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -849,7 +816,7 @@ ACM conference on Computer and communications security, pp. 617–627, 2012.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.attacks.OptimalHW">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">OptimalHW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.OptimalHW" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">OptimalHW</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.OptimalHW" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.attacks.Attack" title="privkit.attacks.attack.Attack"><code class="xref py py-class docutils literal notranslate"><span class="pre">Attack</span></code></a></p>
 <p>Class to execute the OptimalHW attack.</p>
 <p class="rubric">References</p>
@@ -858,37 +825,37 @@ location privacy: optimal strategy against localization attacks,” in Proceedin
 ACM conference on Computer and communications security, pp. 617–627, 2012.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OptimalHW.ATTACK_ID">
-<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'optHW'</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.ATTACK_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'optHW'</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.ATTACK_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OptimalHW.ATTACK_INFO">
-<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OptHW</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">uses</span> <span class="pre">the</span> <span class="pre">HW</span> <span class="pre">attack</span> <span class="pre">using</span> <span class="pre">the</span> <span class="pre">mobility</span> <span class="pre">profile</span> <span class="pre">resulting</span> <span class="pre">from</span> <span class="pre">train</span> <span class="pre">data.'</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.ATTACK_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OptHW</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">uses</span> <span class="pre">the</span> <span class="pre">HW</span> <span class="pre">attack</span> <span class="pre">using</span> <span class="pre">the</span> <span class="pre">mobility</span> <span class="pre">profile</span> <span class="pre">resulting</span> <span class="pre">from</span> <span class="pre">train</span> <span class="pre">data.'</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.ATTACK_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OptimalHW.ATTACK_NAME">
-<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OptHW'</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.ATTACK_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'OptHW'</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.ATTACK_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OptimalHW.ATTACK_REF">
-<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'R.</span> <span class="pre">Shokri,</span> <span class="pre">G.</span> <span class="pre">Theodorakopoulos,</span> <span class="pre">C.</span> <span class="pre">Troncoso,</span> <span class="pre">J.-P.</span> <span class="pre">Hubaux,</span> <span class="pre">and</span> <span class="pre">J.-Y.</span> <span class="pre">Le</span> <span class="pre">Boudec,</span> <span class="pre">“Protecting</span> <span class="pre">location</span> <span class="pre">privacy:</span> <span class="pre">optimal</span> <span class="pre">strategy</span> <span class="pre">against</span> <span class="pre">localization</span> <span class="pre">attacks,”</span> <span class="pre">in</span> <span class="pre">Proceedings</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">2012</span> <span class="pre">ACM</span> <span class="pre">conference</span> <span class="pre">on</span> <span class="pre">Computer</span> <span class="pre">and</span> <span class="pre">communications</span> <span class="pre">security,</span> <span class="pre">pp.</span> <span class="pre">617–627,</span> <span class="pre">2012.'</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.ATTACK_REF" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'R.</span> <span class="pre">Shokri,</span> <span class="pre">G.</span> <span class="pre">Theodorakopoulos,</span> <span class="pre">C.</span> <span class="pre">Troncoso,</span> <span class="pre">J.-P.</span> <span class="pre">Hubaux,</span> <span class="pre">and</span> <span class="pre">J.-Y.</span> <span class="pre">Le</span> <span class="pre">Boudec,</span> <span class="pre">“Protecting</span> <span class="pre">location</span> <span class="pre">privacy:</span> <span class="pre">optimal</span> <span class="pre">strategy</span> <span class="pre">against</span> <span class="pre">localization</span> <span class="pre">attacks,”</span> <span class="pre">in</span> <span class="pre">Proceedings</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">2012</span> <span class="pre">ACM</span> <span class="pre">conference</span> <span class="pre">on</span> <span class="pre">Computer</span> <span class="pre">and</span> <span class="pre">communications</span> <span class="pre">security,</span> <span class="pre">pp.</span> <span class="pre">617–627,</span> <span class="pre">2012.'</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.ATTACK_REF" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OptimalHW.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.OptimalHW.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['adv_error']</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['adv_error']</span></em><a class="headerlink" href="#privkit.attacks.OptimalHW.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.OptimalHW.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.OptimalHW.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.OptimalHW.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the OptimalHW attack</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -904,7 +871,7 @@ ACM conference on Computer and communications security, pp. 617–627, 2012.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.attacks.PEBA">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">PEBA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Niter_ML_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance_ML</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.005</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.PEBA" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">PEBA</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Niter_ML_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance_ML</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.005</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.PEBA" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.attacks.Attack" title="privkit.attacks.attack.Attack"><code class="xref py py-class docutils literal notranslate"><span class="pre">Attack</span></code></a></p>
 <p>Class to execute the PEBA attack.</p>
 <p class="rubric">References</p>
@@ -912,41 +879,41 @@ ACM conference on Computer and communications security, pp. 617–627, 2012.</p>
 in 2019 IEEE European Symposium on Security and Privacy (EuroS&amp;P), pp. 416–431, IEEE, 2019.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.PEBA.ATTACK_ID">
-<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'peba'</span></em><a class="headerlink" href="#privkit.attacks.PEBA.ATTACK_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'peba'</span></em><a class="headerlink" href="#privkit.attacks.PEBA.ATTACK_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.PEBA.ATTACK_INFO">
-<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PEBA</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">first</span> <span class="pre">computes</span> <span class="pre">the</span> <span class="pre">Maximum</span> <span class="pre">Likelihood</span> <span class="pre">Estimator</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">mobility</span> <span class="pre">profileusing</span> <span class="pre">all</span> <span class="pre">the</span> <span class="pre">f(z|...)</span> <span class="pre">collected</span> <span class="pre">and</span> <span class="pre">then</span> <span class="pre">uses</span> <span class="pre">OptimalHW</span> <span class="pre">to</span> <span class="pre">return</span> <span class="pre">the</span> <span class="pre">adversary</span> <span class="pre">estimation.'</span></em><a class="headerlink" href="#privkit.attacks.PEBA.ATTACK_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PEBA</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">first</span> <span class="pre">computes</span> <span class="pre">the</span> <span class="pre">Maximum</span> <span class="pre">Likelihood</span> <span class="pre">Estimator</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">mobility</span> <span class="pre">profileusing</span> <span class="pre">all</span> <span class="pre">the</span> <span class="pre">f(z|...)</span> <span class="pre">collected</span> <span class="pre">and</span> <span class="pre">then</span> <span class="pre">uses</span> <span class="pre">OptimalHW</span> <span class="pre">to</span> <span class="pre">return</span> <span class="pre">the</span> <span class="pre">adversary</span> <span class="pre">estimation.'</span></em><a class="headerlink" href="#privkit.attacks.PEBA.ATTACK_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.PEBA.ATTACK_NAME">
-<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Profile-Estimation-Based-Attack'</span></em><a class="headerlink" href="#privkit.attacks.PEBA.ATTACK_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Profile-Estimation-Based-Attack'</span></em><a class="headerlink" href="#privkit.attacks.PEBA.ATTACK_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.PEBA.ATTACK_REF">
-<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'S.</span> <span class="pre">Oya,</span> <span class="pre">C.</span> <span class="pre">Troncoso,</span> <span class="pre">and</span> <span class="pre">F.</span> <span class="pre">Pérez-González,</span> <span class="pre">“Rethinking</span> <span class="pre">location</span> <span class="pre">privacy</span> <span class="pre">for</span> <span class="pre">unknown</span> <span class="pre">mobility</span> <span class="pre">behaviors,</span> <span class="pre">in</span> <span class="pre">2019</span> <span class="pre">IEEE</span> <span class="pre">European</span> <span class="pre">Symposium</span> <span class="pre">on</span> <span class="pre">Security</span> <span class="pre">and</span> <span class="pre">Privacy</span> <span class="pre">(EuroS&amp;P),</span> <span class="pre">pp.</span> <span class="pre">416–431,</span> <span class="pre">IEEE,</span> <span class="pre">2019.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.attacks.PEBA.ATTACK_REF" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'S.</span> <span class="pre">Oya,</span> <span class="pre">C.</span> <span class="pre">Troncoso,</span> <span class="pre">and</span> <span class="pre">F.</span> <span class="pre">Pérez-González,</span> <span class="pre">“Rethinking</span> <span class="pre">location</span> <span class="pre">privacy</span> <span class="pre">for</span> <span class="pre">unknown</span> <span class="pre">mobility</span> <span class="pre">behaviors,</span> <span class="pre">in</span> <span class="pre">2019</span> <span class="pre">IEEE</span> <span class="pre">European</span> <span class="pre">Symposium</span> <span class="pre">on</span> <span class="pre">Security</span> <span class="pre">and</span> <span class="pre">Privacy</span> <span class="pre">(EuroS&amp;P),</span> <span class="pre">pp.</span> <span class="pre">416–431,</span> <span class="pre">IEEE,</span> <span class="pre">2019.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.attacks.PEBA.ATTACK_REF" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.PEBA.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.PEBA.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.PEBA.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.PEBA.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['adv_error',</span> <span class="pre">'f1_score_mm']</span></em><a class="headerlink" href="#privkit.attacks.PEBA.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['adv_error',</span> <span class="pre">'f1_score_mm']</span></em><a class="headerlink" href="#privkit.attacks.PEBA.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.PEBA.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.PEBA.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.PEBA.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the PEBA attack</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – data where OptimalHW will be performed</p>
+<dd class="field-odd"><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – data where PEBA will be performed</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>location data updated with adversary guess</p>
@@ -956,7 +923,7 @@ in 2019 IEEE European Symposium on Security and Privacy (EuroS&amp;P), pp. 416�
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.PEBA.execute_attack">
-<span class="sig-name descname"><span class="pre">execute_attack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">f:</span> <span class="pre">[[&lt;class</span> <span class="pre">'float'&gt;]],</span> <span class="pre">mobility_profile:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">grid:</span> <span class="pre">~privkit.utils.discrete_utils.GridMap</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.PEBA.execute_attack" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute_attack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">f:</span> <span class="pre">[[&lt;class</span> <span class="pre">'float'&gt;]],</span> <span class="pre">mobility_profile:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">grid:</span> <span class="pre">~privkit.utils.discrete_utils.GridMap</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.PEBA.execute_attack" title="Link to this definition">#</a></dt>
 <dd><p>Executes the PEBA attack at a point</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -974,7 +941,7 @@ in 2019 IEEE European Symposium on Security and Privacy (EuroS&amp;P), pp. 416�
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.PEBA.get_profile_MLE">
-<span class="sig-name descname"><span class="pre">get_profile_MLE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">f:</span> <span class="pre">[[&lt;class</span> <span class="pre">'float'&gt;]],</span> <span class="pre">mobility_profile:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.PEBA.get_profile_MLE" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_profile_MLE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">f:</span> <span class="pre">[[&lt;class</span> <span class="pre">'float'&gt;]],</span> <span class="pre">mobility_profile:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.PEBA.get_profile_MLE" title="Link to this definition">#</a></dt>
 <dd><p>Computes the Maximum Likelihood Estimator (MLE) of the mobility profile</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -991,7 +958,7 @@ in 2019 IEEE European Symposium on Security and Privacy (EuroS&amp;P), pp. 416�
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.PEBA.update">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">f:</span> <span class="pre">[[&lt;class</span> <span class="pre">'float'&gt;]],</span> <span class="pre">pi_MLE:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.PEBA.update" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">f:</span> <span class="pre">[[&lt;class</span> <span class="pre">'float'&gt;]],</span> <span class="pre">pi_MLE:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.PEBA.update" title="Link to this definition">#</a></dt>
 <dd><p>Updates the Maximum Likelihood Estimator of the mobility profile</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1010,7 +977,7 @@ in 2019 IEEE European Symposium on Security and Privacy (EuroS&amp;P), pp. 416�
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.attacks.TopN">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">TopN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">over_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">over_ppm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ordered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.TopN" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.attacks.</span></span><span class="sig-name descname"><span class="pre">TopN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">N</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">over_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">over_ppm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ordered</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.TopN" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.attacks.Attack" title="privkit.attacks.attack.Attack"><code class="xref py py-class docutils literal notranslate"><span class="pre">Attack</span></code></a></p>
 <p>The Top-N Attack is a re-identification attack, i.e, verifies if a user is re-identifiable considering the top
 locations. It first generates a map that associates users to their top locations, i.e. the N most visited locations.
@@ -1021,37 +988,37 @@ users share the same top.</p>
 Proceedings of the 17th annual international conference on Mobile computing and networking, pp. 145–156, 2011.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.TopN.ATTACK_ID">
-<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'topN'</span></em><a class="headerlink" href="#privkit.attacks.TopN.ATTACK_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'topN'</span></em><a class="headerlink" href="#privkit.attacks.TopN.ATTACK_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.TopN.ATTACK_INFO">
-<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TopN</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">associates</span> <span class="pre">individuals</span> <span class="pre">to</span> <span class="pre">their</span> <span class="pre">Nth</span> <span class="pre">most</span> <span class="pre">visited</span> <span class="pre">locations</span> <span class="pre">and</span> <span class="pre">tries</span> <span class="pre">tore-identify</span> <span class="pre">them</span> <span class="pre">considering</span> <span class="pre">those</span> <span class="pre">locations.'</span></em><a class="headerlink" href="#privkit.attacks.TopN.ATTACK_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TopN</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">mechanism</span> <span class="pre">that</span> <span class="pre">associates</span> <span class="pre">individuals</span> <span class="pre">to</span> <span class="pre">their</span> <span class="pre">Nth</span> <span class="pre">most</span> <span class="pre">visited</span> <span class="pre">locations</span> <span class="pre">and</span> <span class="pre">tries</span> <span class="pre">to</span> <span class="pre">re-identify</span> <span class="pre">them</span> <span class="pre">considering</span> <span class="pre">those</span> <span class="pre">locations.'</span></em><a class="headerlink" href="#privkit.attacks.TopN.ATTACK_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.TopN.ATTACK_NAME">
-<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TopN'</span></em><a class="headerlink" href="#privkit.attacks.TopN.ATTACK_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TopN'</span></em><a class="headerlink" href="#privkit.attacks.TopN.ATTACK_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.TopN.ATTACK_REF">
-<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'H.</span> <span class="pre">Zang</span> <span class="pre">and</span> <span class="pre">J.</span> <span class="pre">Bolot,</span> <span class="pre">“Anonymization</span> <span class="pre">of</span> <span class="pre">location</span> <span class="pre">data</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">work:</span> <span class="pre">A</span> <span class="pre">large-scale</span> <span class="pre">measurement</span> <span class="pre">study,</span> <span class="pre">in</span> <span class="pre">Proceedings</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">17th</span> <span class="pre">annual</span> <span class="pre">international</span> <span class="pre">conference</span> <span class="pre">on</span> <span class="pre">Mobile</span> <span class="pre">computing</span> <span class="pre">and</span> <span class="pre">networking,</span> <span class="pre">pp.</span> <span class="pre">145–156,</span> <span class="pre">2011.'</span></em><a class="headerlink" href="#privkit.attacks.TopN.ATTACK_REF" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">ATTACK_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'H.</span> <span class="pre">Zang</span> <span class="pre">and</span> <span class="pre">J.</span> <span class="pre">Bolot,</span> <span class="pre">“Anonymization</span> <span class="pre">of</span> <span class="pre">location</span> <span class="pre">data</span> <span class="pre">does</span> <span class="pre">not</span> <span class="pre">work:</span> <span class="pre">A</span> <span class="pre">large-scale</span> <span class="pre">measurement</span> <span class="pre">study,</span> <span class="pre">in</span> <span class="pre">Proceedings</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">17th</span> <span class="pre">annual</span> <span class="pre">international</span> <span class="pre">conference</span> <span class="pre">on</span> <span class="pre">Mobile</span> <span class="pre">computing</span> <span class="pre">and</span> <span class="pre">networking,</span> <span class="pre">pp.</span> <span class="pre">145–156,</span> <span class="pre">2011.'</span></em><a class="headerlink" href="#privkit.attacks.TopN.ATTACK_REF" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.TopN.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.TopN.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.attacks.TopN.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.attacks.TopN.METRIC_ID">
-<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['re-identification']</span></em><a class="headerlink" href="#privkit.attacks.TopN.METRIC_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['re_identified']</span></em><a class="headerlink" href="#privkit.attacks.TopN.METRIC_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.TopN.build_top_map">
-<span class="sig-name descname"><span class="pre">build_top_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.TopN.build_top_map" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">build_top_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.TopN.build_top_map" title="Link to this definition">#</a></dt>
 <dd><p>Computes the map that associates users to their top locations</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1069,7 +1036,7 @@ Proceedings of the 17th annual international conference on Mobile computing and 
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.attacks.TopN.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.TopN.execute" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.attacks.TopN.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the TopN attack</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1092,7 +1059,7 @@ Proceedings of the 17th annual international conference on Mobile computing and 
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1120,14 +1087,17 @@ Proceedings of the 17th annual international conference on Mobile computing and 
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
-
-  <div class="page-toc tocsection onthispage">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.attacks.Attack"><code class="docutils literal notranslate"><span class="pre">Attack</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.attacks.Attack.ATTACK_ID"><code class="docutils literal notranslate"><span class="pre">Attack.ATTACK_ID</span></code></a></li>
@@ -1240,8 +1210,8 @@ Proceedings of the 17th annual international conference on Mobile computing and 
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1266,7 +1236,7 @@ Proceedings of the 17th annual international conference on Mobile computing and 
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
@@ -1278,7 +1248,7 @@ Proceedings of the 17th annual international conference on Mobile computing and 
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

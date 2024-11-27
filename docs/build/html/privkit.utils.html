@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -14,30 +14,33 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e031e9a9"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'privkit.utils';</script>
     <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -45,6 +48,7 @@
     <link rel="prev" title="privkit.metrics package" href="privkit.metrics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -52,32 +56,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -85,7 +73,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -93,20 +80,27 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class=" navbar-header-items__start">
     
       <div class="navbar-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -121,7 +115,7 @@
     
     
     <img src="_static/logo_grey_word.svg" class="logo__image only-light" alt="privkit homepage"/>
-    <script>document.write(`<img src="_static/logo_white_word.svg" class="logo__image only-dark" alt="privkit homepage"/>`);</script>
+    <img src="_static/logo_white_word.svg" class="logo__image only-dark pst-js-only" alt="privkit homepage"/>
   
   
 </a></div>
@@ -133,42 +127,36 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="privkit.html">
-                        User Guide
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="privkit.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
-                        Github
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
-                        Tutorials
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+    Github
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
-                        Web Version
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+    Web Version
+  </a>
+</li>
+
   </ul>
 </nav></div>
       
@@ -180,31 +168,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -215,7 +195,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -227,31 +207,31 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -260,45 +240,42 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
-<nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          
+          
+            <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="privkit.html">
-                        User Guide
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="privkit.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
-                        Github
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
-                        Tutorials
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+    Github
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
-                        Web Version
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+    Web Version
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -308,17 +285,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -329,7 +302,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -364,22 +337,20 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
         <div class="header-article-item">
 
-
-
-<nav aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
@@ -390,7 +361,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="privkit.html" class="nav-link">User Guide</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">privkit.util...</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">privkit.utils package</span></li>
   </ul>
 </nav>
 </div>
@@ -405,49 +376,49 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="privkit-utils-package">
-<h1>privkit.utils package<a class="headerlink" href="#privkit-utils-package" title="Permalink to this heading">#</a></h1>
+<h1>privkit.utils package<a class="headerlink" href="#privkit-utils-package" title="Link to this heading">#</a></h1>
 <section id="module-privkit.utils.constants">
-<span id="privkit-utils-constants-module"></span><h2>privkit.utils.constants module<a class="headerlink" href="#module-privkit.utils.constants" title="Permalink to this heading">#</a></h2>
+<span id="privkit-utils-constants-module"></span><h2>privkit.utils.constants module<a class="headerlink" href="#module-privkit.utils.constants" title="Link to this heading">#</a></h2>
 <p>Useful constants</p>
 </section>
 <section id="module-privkit.utils.dev_utils">
-<span id="privkit-utils-dev-utils-module"></span><h2>privkit.utils.dev_utils module<a class="headerlink" href="#module-privkit.utils.dev_utils" title="Permalink to this heading">#</a></h2>
+<span id="privkit-utils-dev-utils-module"></span><h2>privkit.utils.dev_utils module<a class="headerlink" href="#module-privkit.utils.dev_utils" title="Link to this heading">#</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.dev_utils.error">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.dev_utils.</span></span><span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.dev_utils.error" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.dev_utils.</span></span><span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.dev_utils.error" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.dev_utils.log">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.dev_utils.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.dev_utils.log" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.dev_utils.</span></span><span class="sig-name descname"><span class="pre">log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.dev_utils.log" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.dev_utils.warn">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.dev_utils.</span></span><span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.dev_utils.warn" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.dev_utils.</span></span><span class="sig-name descname"><span class="pre">warn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.dev_utils.warn" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </section>
 <section id="module-privkit.utils.discrete_utils">
-<span id="privkit-utils-discrete-utils-module"></span><h2>privkit.utils.discrete_utils module<a class="headerlink" href="#module-privkit.utils.discrete_utils" title="Permalink to this heading">#</a></h2>
+<span id="privkit-utils-discrete-utils-module"></span><h2>privkit.utils.discrete_utils module<a class="headerlink" href="#module-privkit.utils.discrete_utils" title="Link to this heading">#</a></h2>
 <p>Discrete utility classes and methods.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.BoundingBox">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.utils.discrete_utils.</span></span><span class="sig-name descname"><span class="pre">BoundingBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.BoundingBox" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.utils.discrete_utils.</span></span><span class="sig-name descname"><span class="pre">BoundingBox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.BoundingBox" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.BoundingBox.get_bounding_box_array">
-<span class="sig-name descname"><span class="pre">get_bounding_box_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.BoundingBox.get_bounding_box_array" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_bounding_box_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.BoundingBox.get_bounding_box_array" title="Link to this definition">#</a></dt>
 <dd><p>Returns the latitudes and longitudes which bound the bounding box.
 :return: min and max latitude and longitude which bound the bounding box</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.BoundingBox.get_bounding_box_corners">
-<span class="sig-name descname"><span class="pre">get_bounding_box_corners</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.BoundingBox.get_bounding_box_corners" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_bounding_box_corners</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.BoundingBox.get_bounding_box_corners" title="Link to this definition">#</a></dt>
 <dd><p>Returns the bounding corners which bound the bounding box.
 :return: lower left and upper right corners which bound the bounding box.</p>
 </dd></dl>
@@ -456,11 +427,11 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.Cell">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.utils.discrete_utils.</span></span><span class="sig-name descname"><span class="pre">Cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leftmost_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rightmost_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.Cell" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.utils.discrete_utils.</span></span><span class="sig-name descname"><span class="pre">Cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lower_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leftmost_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rightmost_longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.Cell" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.Cell.get_width_height">
-<span class="sig-name descname"><span class="pre">get_width_height</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.Cell.get_width_height" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_width_height</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.Cell.get_width_height" title="Link to this definition">#</a></dt>
 <dd><p>Computes the dimensions of the cell.
 :return: width and height of the cell</p>
 </dd></dl>
@@ -469,11 +440,11 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.GridMap">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.utils.discrete_utils.</span></span><span class="sig-name descname"><span class="pre">GridMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_lat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_lat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_lon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_lon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.utils.discrete_utils.</span></span><span class="sig-name descname"><span class="pre">GridMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_lat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_lat</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_lon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_lon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.GridMap.export_grid">
-<span class="sig-name descname"><span class="pre">export_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.export_grid" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">export_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">output_file_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.export_grid" title="Link to this definition">#</a></dt>
 <dd><p>Exports the grid to the file specified by :output_file_path: in CSV format, where each line is the ordered
 centers of the cells as: &lt;latitude&gt;, &lt;longitude&gt;</p>
 <dl class="field-list simple">
@@ -485,7 +456,7 @@ centers of the cells as: &lt;latitude&gt;, &lt;longitude&gt;</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.GridMap.get_cartesian_cell">
-<span class="sig-name descname"><span class="pre">get_cartesian_cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_cartesian_cell" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_cartesian_cell</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">i</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">j</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_cartesian_cell" title="Link to this definition">#</a></dt>
 <dd><p>Computes the center of the respective grid map cell in cartesian coordinates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -502,7 +473,7 @@ centers of the cells as: &lt;latitude&gt;, &lt;longitude&gt;</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.GridMap.get_cartesian_cells">
-<span class="sig-name descname"><span class="pre">get_cartesian_cells</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_cartesian_cells" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_cartesian_cells</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_cartesian_cells" title="Link to this definition">#</a></dt>
 <dd><p>Builds a matrix of the same size as the grid where each element represents the center of the respective grid map
 cell in cartesian coordinates.</p>
 <dl class="field-list simple">
@@ -514,7 +485,7 @@ cell in cartesian coordinates.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.GridMap.get_cell_with_point_within">
-<span class="sig-name descname"><span class="pre">get_cell_with_point_within</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_cell_with_point_within" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_cell_with_point_within</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_cell_with_point_within" title="Link to this definition">#</a></dt>
 <dd><p>Computes the cell indexes where the given point is contained.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -531,14 +502,14 @@ cell in cartesian coordinates.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.GridMap.get_corners">
-<span class="sig-name descname"><span class="pre">get_corners</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_corners" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_corners</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_corners" title="Link to this definition">#</a></dt>
 <dd><p>Computes min and max latitude and longitude which bound the grid.
 :return: list of min and max latitude and longitude of the grid</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.GridMap.get_locationstamp">
-<span class="sig-name descname"><span class="pre">get_locationstamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_locationstamp" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_locationstamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_locationstamp" title="Link to this definition">#</a></dt>
 <dd><p>Given a point finds in which cell it is contained.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -555,14 +526,14 @@ cell in cartesian coordinates.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.GridMap.get_size">
-<span class="sig-name descname"><span class="pre">get_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_size" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_size</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.get_size" title="Link to this definition">#</a></dt>
 <dd><p>Computes the number of vertical and horizontal cells.
 :return: list containing the number of vertical and horizontal cells</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.discrete_utils.GridMap.point_within_grid">
-<span class="sig-name descname"><span class="pre">point_within_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.point_within_grid" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">point_within_grid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.discrete_utils.GridMap.point_within_grid" title="Link to this definition">#</a></dt>
 <dd><p>Given a point verifies if it is within the grid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -581,23 +552,23 @@ cell in cartesian coordinates.</p>
 
 </section>
 <section id="module-privkit.utils.face_utils">
-<span id="privkit-utils-face-utils-module"></span><h2>privkit.utils.face_utils module<a class="headerlink" href="#module-privkit.utils.face_utils" title="Permalink to this heading">#</a></h2>
+<span id="privkit-utils-face-utils-module"></span><h2>privkit.utils.face_utils module<a class="headerlink" href="#module-privkit.utils.face_utils" title="Link to this heading">#</a></h2>
 <p>Facial utility methods.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.face_utils.block_print">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">block_print</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.block_print" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">block_print</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.block_print" title="Link to this definition">#</a></dt>
 <dd><p>Temporarily redirects standard output to suppress printing</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.face_utils.enable_print">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">enable_print</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.enable_print" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">enable_print</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.enable_print" title="Link to this definition">#</a></dt>
 <dd><p>Restores standard output, allowing printing to the console</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.face_utils.folder_to_img">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">folder_to_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">store_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_face</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">25</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.folder_to_img" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">folder_to_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">store_dir</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_face</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">25</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.folder_to_img" title="Link to this definition">#</a></dt>
 <dd><p>Creates a new folder and stores ‘png’ images resulting from an orthographic projection of point cloud files within a folder</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -615,7 +586,7 @@ cell in cartesian coordinates.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.face_utils.list_files">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">list_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.list_files" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">list_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.list_files" title="Link to this definition">#</a></dt>
 <dd><p>Retrieve a list of file paths with a specified extension within a given directory</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -632,7 +603,7 @@ cell in cartesian coordinates.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.face_utils.list_folders">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">list_folders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.list_folders" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">list_folders</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">directory</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.list_folders" title="Link to this definition">#</a></dt>
 <dd><p>Retrieve a list of folder paths within a given directory</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -646,7 +617,7 @@ cell in cartesian coordinates.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.face_utils.pcd_to_img">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">pcd_to_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pcd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">PointCloud</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">store_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_face</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">25</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.pcd_to_img" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.face_utils.</span></span><span class="sig-name descname"><span class="pre">pcd_to_img</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pcd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">open3d.cpu.pybind.geometry.PointCloud</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xlim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ylim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">store_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_face</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">25</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.face_utils.pcd_to_img" title="Link to this definition">#</a></dt>
 <dd><p>Stores a ‘png’ image resulting from an orthographic projection of a point cloud</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -664,17 +635,17 @@ cell in cartesian coordinates.</p>
 
 </section>
 <section id="module-privkit.utils.geo_utils">
-<span id="privkit-utils-geo-utils-module"></span><h2>privkit.utils.geo_utils module<a class="headerlink" href="#module-privkit.utils.geo_utils" title="Permalink to this heading">#</a></h2>
+<span id="privkit-utils-geo-utils-module"></span><h2>privkit.utils.geo_utils module<a class="headerlink" href="#module-privkit.utils.geo_utils" title="Link to this heading">#</a></h2>
 <p>Geospatial utility methods.</p>
 <dl class="py data">
 <dt class="sig sig-object py" id="privkit.utils.geo_utils.EARTH_RADIUS">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">EARTH_RADIUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6371009</span></em><a class="headerlink" href="#privkit.utils.geo_utils.EARTH_RADIUS" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">EARTH_RADIUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6371009</span></em><a class="headerlink" href="#privkit.utils.geo_utils.EARTH_RADIUS" title="Link to this definition">#</a></dt>
 <dd><p>Earth radius a constant in meters</p>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.geo_utils.cartesian2geodetic">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">cartesian2geodetic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.cartesian2geodetic" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">cartesian2geodetic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.cartesian2geodetic" title="Link to this definition">#</a></dt>
 <dd><p>Converts cartesian to geodetic coordinates</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -692,7 +663,7 @@ cell in cartesian coordinates.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.geo_utils.compute_bearing">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">compute_bearing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.compute_bearing" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">compute_bearing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.compute_bearing" title="Link to this definition">#</a></dt>
 <dd><p>Computes the bearing between two points’ coordinates. Expects coordinates in decimal degrees.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -714,7 +685,7 @@ cell in cartesian coordinates.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.geo_utils.compute_highway_speeds_default">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">compute_highway_speeds_default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MultiDiGraph</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.compute_highway_speeds_default" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">compute_highway_speeds_default</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">networkx.MultiDiGraph</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.compute_highway_speeds_default" title="Link to this definition">#</a></dt>
 <dd><p>Computes highway types and typical speeds from a given graph G.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -728,7 +699,7 @@ cell in cartesian coordinates.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.geo_utils.compute_trace_distance">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">compute_trace_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitudes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitudes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.geo_utils.compute_trace_distance" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">compute_trace_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitudes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitudes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.geo_utils.compute_trace_distance" title="Link to this definition">#</a></dt>
 <dd><p>Computes trace distance in meters given the list of latitudes and longitudes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -745,7 +716,7 @@ cell in cartesian coordinates.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.geo_utils.euclidean_distance">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">euclidean_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.euclidean_distance" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">euclidean_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.euclidean_distance" title="Link to this definition">#</a></dt>
 <dd><p>Computes the Euclidean distance between two points. For accurate
 results, use projected coordinates rather than decimal degrees.</p>
 <dl class="field-list simple">
@@ -768,7 +739,7 @@ results, use projected coordinates rather than decimal degrees.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.geo_utils.geodetic2cartesian">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">geodetic2cartesian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">earth_radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">6371009</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.geodetic2cartesian" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">geodetic2cartesian</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">earth_radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">6371009</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.geodetic2cartesian" title="Link to this definition">#</a></dt>
 <dd><p>Converts geodetic coordinates to cartesian</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -786,7 +757,7 @@ results, use projected coordinates rather than decimal degrees.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.geo_utils.get_dijkstra_length_path">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">get_dijkstra_length_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MultiDiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'length'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">typing.List]</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.get_dijkstra_length_path" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">get_dijkstra_length_path</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">G</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">networkx.MultiDiGraph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_node</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'length'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">typing.List]</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.get_dijkstra_length_path" title="Link to this definition">#</a></dt>
 <dd><p>Computes the dijkstra path and respective length</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -805,7 +776,7 @@ results, use projected coordinates rather than decimal degrees.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.geo_utils.great_circle_distance">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">great_circle_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">earth_radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">6371009</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.great_circle_distance" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">great_circle_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">earth_radius</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">6371009</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.great_circle_distance" title="Link to this definition">#</a></dt>
 <dd><p>Computes the great-circle distance between two points’ coordinates. Expects coordinates in decimal degrees.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -828,7 +799,7 @@ results, use projected coordinates rather than decimal degrees.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.geo_utils.project2crs">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">project2crs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.project2crs" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.geo_utils.</span></span><span class="sig-name descname"><span class="pre">project2crs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.utils.geo_utils.project2crs" title="Link to this definition">#</a></dt>
 <dd><p>Projects a point (latitude, longitude) to a different CRS.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -846,11 +817,11 @@ results, use projected coordinates rather than decimal degrees.</p>
 
 </section>
 <section id="module-privkit.utils.io_utils">
-<span id="privkit-utils-io-utils-module"></span><h2>privkit.utils.io_utils module<a class="headerlink" href="#module-privkit.utils.io_utils" title="Permalink to this heading">#</a></h2>
+<span id="privkit-utils-io-utils-module"></span><h2>privkit.utils.io_utils module<a class="headerlink" href="#module-privkit.utils.io_utils" title="Link to this heading">#</a></h2>
 <p>IO utility methods.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.io_utils.read_dataframe">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.io_utils.</span></span><span class="sig-name descname"><span class="pre">read_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath_or_buffer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.io_utils.read_dataframe" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.io_utils.</span></span><span class="sig-name descname"><span class="pre">read_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath_or_buffer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.io_utils.read_dataframe" title="Link to this definition">#</a></dt>
 <dd><p>Reads data to a pandas dataframe object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -870,7 +841,7 @@ other method. The default value is <cite>True</cite>.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.io_utils.write_dataframe">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.io_utils.</span></span><span class="sig-name descname"><span class="pre">write_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data2save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pkl'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.io_utils.write_dataframe" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.io_utils.</span></span><span class="sig-name descname"><span class="pre">write_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data2save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pkl'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.io_utils.write_dataframe" title="Link to this definition">#</a></dt>
 <dd><p>Writes a dataframe to a file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -886,12 +857,12 @@ other method. The default value is <cite>True</cite>.</p></li>
 
 </section>
 <section id="module-privkit.utils.plot_utils">
-<span id="privkit-utils-plot-utils-module"></span><h2>privkit.utils.plot_utils module<a class="headerlink" href="#module-privkit.utils.plot_utils" title="Permalink to this heading">#</a></h2>
+<span id="privkit-utils-plot-utils-module"></span><h2>privkit.utils.plot_utils module<a class="headerlink" href="#module-privkit.utils.plot_utils" title="Link to this heading">#</a></h2>
 <p>Plot utils</p>
 <p>This module contains methods that are useful to plot data</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.plot_utils.boxplot">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">boxplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.plot_utils.boxplot" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">boxplot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.plot_utils.boxplot" title="Link to this definition">#</a></dt>
 <dd><p>This method produces a boxplot from the given values and labels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -908,7 +879,7 @@ other method. The default value is <cite>True</cite>.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.plot_utils.pie_plot">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">pie_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.plot_utils.pie_plot" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">pie_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.plot_utils.pie_plot" title="Link to this definition">#</a></dt>
 <dd><p>This method produces a pieplot from the given values and labels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -925,7 +896,7 @@ other method. The default value is <cite>True</cite>.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.plot_utils.plot_errorbar">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">plot_errorbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.plot_utils.plot_errorbar" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">plot_errorbar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confidence_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.95</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.plot_utils.plot_errorbar" title="Link to this definition">#</a></dt>
 <dd><p>This method plots an error bar according to x values and y values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -945,7 +916,7 @@ other method. The default value is <cite>True</cite>.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.plot_utils.plot_information">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">plot_information</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.plot_utils.plot_information" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">plot_information</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.plot_utils.plot_information" title="Link to this definition">#</a></dt>
 <dd><p>This method adds title and axis labels to plots</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -961,7 +932,7 @@ other method. The default value is <cite>True</cite>.</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="privkit.utils.plot_utils.plot_xy_data">
-<span class="sig-prename descclassname"><span class="pre">privkit.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">plot_xy_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.plot_utils.plot_xy_data" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">privkit.utils.plot_utils.</span></span><span class="sig-name descname"><span class="pre">plot_xy_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.plot_utils.plot_xy_data" title="Link to this definition">#</a></dt>
 <dd><p>This method plots x values and y values.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -980,14 +951,14 @@ other method. The default value is <cite>True</cite>.</p></li>
 
 </section>
 <section id="module-privkit.utils.training_utils">
-<span id="privkit-utils-training-utils-module"></span><h2>privkit.utils.training_utils module<a class="headerlink" href="#module-privkit.utils.training_utils" title="Permalink to this heading">#</a></h2>
+<span id="privkit-utils-training-utils-module"></span><h2>privkit.utils.training_utils module<a class="headerlink" href="#module-privkit.utils.training_utils" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.utils.training_utils.BuildKnowledge">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.utils.training_utils.</span></span><span class="sig-name descname"><span class="pre">BuildKnowledge</span></span><a class="headerlink" href="#privkit.utils.training_utils.BuildKnowledge" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.utils.training_utils.</span></span><span class="sig-name descname"><span class="pre">BuildKnowledge</span></span><a class="headerlink" href="#privkit.utils.training_utils.BuildKnowledge" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.training_utils.BuildKnowledge.get_mobility_profile">
-<span class="sig-name descname"><span class="pre">get_mobility_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">chosen_profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.BuildKnowledge.get_mobility_profile" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_mobility_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">chosen_profile</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.BuildKnowledge.get_mobility_profile" title="Link to this definition">#</a></dt>
 <dd><p>Computes the mobility profile using the chosen data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1004,7 +975,7 @@ other method. The default value is <cite>True</cite>.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.training_utils.BuildKnowledge.norm_location_histogram">
-<span class="sig-name descname"><span class="pre">norm_location_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data:</span> <span class="pre">[&lt;class</span> <span class="pre">'int'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.BuildKnowledge.norm_location_histogram" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">norm_location_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">data:</span> <span class="pre">[&lt;class</span> <span class="pre">'int'&gt;]</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.BuildKnowledge.norm_location_histogram" title="Link to this definition">#</a></dt>
 <dd><p>Computes the histogram for mobility profile</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1020,11 +991,11 @@ other method. The default value is <cite>True</cite>.</p></li>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.utils.training_utils.Velocities">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.utils.training_utils.</span></span><span class="sig-name descname"><span class="pre">Velocities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_velocity_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_velocity_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.Velocities" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.utils.training_utils.</span></span><span class="sig-name descname"><span class="pre">Velocities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_velocity_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">200</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_velocity_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">200</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.Velocities" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.training_utils.Velocities.get_velocities_pd">
-<span class="sig-name descname"><span class="pre">get_velocities_pd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.Velocities.get_velocities_pd" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">get_velocities_pd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.Velocities.get_velocities_pd" title="Link to this definition">#</a></dt>
 <dd><p>Builds the velocities distributions</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1038,7 +1009,7 @@ other method. The default value is <cite>True</cite>.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.training_utils.Velocities.kernel_distribution">
-<span class="sig-name descname"><span class="pre">kernel_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">velocities:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">type_of_data:</span> <span class="pre">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.Velocities.kernel_distribution" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">kernel_distribution</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">velocities:</span> <span class="pre">[&lt;class</span> <span class="pre">'float'&gt;],</span> <span class="pre">type_of_data:</span> <span class="pre">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.Velocities.kernel_distribution" title="Link to this definition">#</a></dt>
 <dd><p>Computes the Kernel Density Distribution of the user or report velocities</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1055,7 +1026,7 @@ other method. The default value is <cite>True</cite>.</p></li>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.utils.training_utils.Velocities.process_user_data">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_user_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.Velocities.process_user_data" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_user_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.utils.training_utils.Velocities.process_user_data" title="Link to this definition">#</a></dt>
 <dd><p>Computes the time interval and distance between the user data</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1079,7 +1050,7 @@ other method. The default value is <cite>True</cite>.</p></li>
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1098,14 +1069,17 @@ other method. The default value is <cite>True</cite>.</p></li>
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
-
-  <div class="page-toc tocsection onthispage">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-privkit.utils.constants">privkit.utils.constants module</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-privkit.utils.dev_utils">privkit.utils.dev_utils module</a><ul class="nav section-nav flex-column">
@@ -1211,8 +1185,8 @@ other method. The default value is <cite>True</cite>.</p></li>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1237,7 +1211,7 @@ other method. The default value is <cite>True</cite>.</p></li>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
@@ -1249,7 +1223,7 @@ other method. The default value is <cite>True</cite>.</p></li>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

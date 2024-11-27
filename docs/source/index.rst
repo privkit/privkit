@@ -15,3 +15,25 @@ Privkit is a privacy toolkit that provides methods for privacy analysis. It incl
    Github <https://github.com/privkit/privkit>
    Tutorials <https://github.com/privkit/privkit-tutorials>
    Web Version <https://privkit.dcc.fc.up.pt/>
+
+^^^^^^^^
+Citation
+^^^^^^^^
+
+If you use Privkit in your work, please consider to cite:
+
+`Cunha, M., Duarte, G., Andrade, R., Mendes, R., & Vilela, J. P. (2024, June). Privkit: A Toolkit of Privacy-Preserving Mechanisms for Heterogeneous Data Types. In Proceedings of the Fourteenth ACM Conference on Data and Application Security and Privacy (pp. 319-324).` ::
+
+    @inproceedings{cunha2024privkit,
+      title={Privkit: A Toolkit of Privacy-Preserving Mechanisms for Heterogeneous Data Types},
+      author={Cunha, Mariana and Duarte, Guilherme and Andrade, Ricardo and Mendes, Ricardo and Vilela, Jo{\~a}o P},
+      booktitle={Proceedings of the Fourteenth ACM Conference on Data and Application Security and Privacy},
+      pages={319--324},
+      year={2024}
+    }
+
+^^^^^^^^^^^^^^^
+Acknowledgments
+^^^^^^^^^^^^^^^
+
+We would like to acknowledge the support of `PRIVATEER <https://www.privateer-project.eu/>`_.

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
@@ -14,30 +14,33 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=e031e9a9"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'privkit.datasets';</script>
     <link rel="icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -46,6 +49,7 @@
     <link rel="prev" title="privkit.data package" href="privkit.data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -53,32 +57,16 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -86,7 +74,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search the docs ..."
          aria-label="Search the docs ..."
          autocomplete="off"
@@ -94,20 +81,27 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
 <div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
     <span class="fa-solid fa-bars"></span>
-  </label>
+  </button>
   
   
   <div class=" navbar-header-items__start">
     
       <div class="navbar-item">
 
+  
+    
   
 
 <a class="navbar-brand logo" href="index.html">
@@ -122,7 +116,7 @@
     
     
     <img src="_static/logo_grey_word.svg" class="logo__image only-light" alt="privkit homepage"/>
-    <script>document.write(`<img src="_static/logo_white_word.svg" class="logo__image only-dark" alt="privkit homepage"/>`);</script>
+    <img src="_static/logo_white_word.svg" class="logo__image only-dark pst-js-only" alt="privkit homepage"/>
   
   
 </a></div>
@@ -134,42 +128,36 @@
     <div class="me-auto navbar-header-items__center">
       
         <div class="navbar-item">
-<nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="privkit.html">
-                        User Guide
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="privkit.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
-                        Github
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
-                        Tutorials
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+    Github
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
-                        Web Version
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+    Web Version
+  </a>
+</li>
+
   </ul>
 </nav></div>
       
@@ -181,31 +169,23 @@
         <div class="navbar-item navbar-persistent--container">
           
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
         </div>
       
       
         <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
       
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -216,7 +196,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -228,31 +208,31 @@ document.write(`
   
     <div class="navbar-persistent--mobile">
 
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
       <span class="fa-solid fa-outdent"></span>
-    </label>
+    </button>
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -261,45 +241,42 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item">
-<nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          
+          
+            <div class="navbar-item">
+<nav>
   <ul class="bd-navbar-elements navbar-nav">
     
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="privkit.html">
-                        User Guide
-                      </a>
-                    </li>
-                
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="privkit.html">
+    User Guide
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
-                        Github
-                      </a>
-                    </li>
-                
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
-                        Tutorials
-                      </a>
-                    </li>
-                
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit">
+    Github
+  </a>
+</li>
 
-                    <li class="nav-item">
-                      <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
-                        Web Version
-                      </a>
-                    </li>
-                
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://github.com/privkit/privkit-tutorials">
+    Tutorials
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-external" href="https://privkit.dcc.fc.up.pt/">
+    Web Version
+  </a>
+</li>
+
   </ul>
 </nav></div>
+          
         
       </div>
     
@@ -309,17 +286,13 @@ document.write(`
         
           <div class="navbar-item">
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
         
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+          <div class="navbar-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -330,7 +303,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/privkit" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/privkit" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
 </ul></div>
@@ -365,22 +338,20 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
         <div class="header-article-item">
 
-
-
-<nav aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb" class="d-print-none">
   <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
@@ -391,7 +362,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="privkit.html" class="nav-link">User Guide</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">privkit.data...</li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">privkit.datasets package</span></li>
   </ul>
 </nav>
 </div>
@@ -406,38 +377,38 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="module-privkit.datasets">
-<span id="privkit-datasets-package"></span><h1>privkit.datasets package<a class="headerlink" href="#module-privkit.datasets" title="Permalink to this heading">#</a></h1>
+<span id="privkit-datasets-package"></span><h1>privkit.datasets package<a class="headerlink" href="#module-privkit.datasets" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.datasets.CabspottingDataset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.datasets.</span></span><span class="sig-name descname"><span class="pre">CabspottingDataset</span></span><a class="headerlink" href="#privkit.datasets.CabspottingDataset" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.datasets.</span></span><span class="sig-name descname"><span class="pre">CabspottingDataset</span></span><a class="headerlink" href="#privkit.datasets.CabspottingDataset" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.datasets.Dataset" title="privkit.datasets.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a></p>
 <p>Class to handle the Cabspotting dataset.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.CabspottingDataset.DATASET_ID">
-<span class="sig-name descname"><span class="pre">DATASET_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cabspotting'</span></em><a class="headerlink" href="#privkit.datasets.CabspottingDataset.DATASET_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATASET_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'cabspotting'</span></em><a class="headerlink" href="#privkit.datasets.CabspottingDataset.DATASET_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.CabspottingDataset.DATASET_INFO">
-<span class="sig-name descname"><span class="pre">DATASET_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cabspotting</span> <span class="pre">dataset</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">dataset</span> <span class="pre">of</span> <span class="pre">taxi</span> <span class="pre">trajectories</span> <span class="pre">over</span> <span class="pre">the</span> <span class="pre">city</span> <span class="pre">of</span> <span class="pre">San</span> <span class="pre">Francisco,</span> <span class="pre">California,</span> <span class="pre">USA.</span> <span class="pre">The</span> <span class="pre">trajectories</span> <span class="pre">belong</span> <span class="pre">to</span> <span class="pre">536</span> <span class="pre">taxis</span> <span class="pre">and</span> <span class="pre">were</span> <span class="pre">collected</span> <span class="pre">over</span> <span class="pre">a</span> <span class="pre">period</span> <span class="pre">of</span> <span class="pre">30</span> <span class="pre">days,</span> <span class="pre">containing</span> <span class="pre">not</span> <span class="pre">only</span> <span class="pre">the</span> <span class="pre">GPS</span> <span class="pre">position</span> <span class="pre">and</span> <span class="pre">timestamp,</span> <span class="pre">but</span> <span class="pre">also</span> <span class="pre">whether</span> <span class="pre">the</span> <span class="pre">cab</span> <span class="pre">had</span> <span class="pre">a</span> <span class="pre">costumer</span> <span class="pre">at</span> <span class="pre">each</span> <span class="pre">time.'</span></em><a class="headerlink" href="#privkit.datasets.CabspottingDataset.DATASET_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATASET_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cabspotting</span> <span class="pre">dataset</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">dataset</span> <span class="pre">of</span> <span class="pre">taxi</span> <span class="pre">trajectories</span> <span class="pre">over</span> <span class="pre">the</span> <span class="pre">city</span> <span class="pre">of</span> <span class="pre">San</span> <span class="pre">Francisco,</span> <span class="pre">California,</span> <span class="pre">USA.</span> <span class="pre">The</span> <span class="pre">trajectories</span> <span class="pre">belong</span> <span class="pre">to</span> <span class="pre">536</span> <span class="pre">taxis</span> <span class="pre">and</span> <span class="pre">were</span> <span class="pre">collected</span> <span class="pre">over</span> <span class="pre">a</span> <span class="pre">period</span> <span class="pre">of</span> <span class="pre">30</span> <span class="pre">days,</span> <span class="pre">containing</span> <span class="pre">not</span> <span class="pre">only</span> <span class="pre">the</span> <span class="pre">GPS</span> <span class="pre">position</span> <span class="pre">and</span> <span class="pre">timestamp,</span> <span class="pre">but</span> <span class="pre">also</span> <span class="pre">whether</span> <span class="pre">the</span> <span class="pre">cab</span> <span class="pre">had</span> <span class="pre">a</span> <span class="pre">costumer</span> <span class="pre">at</span> <span class="pre">each</span> <span class="pre">time.'</span></em><a class="headerlink" href="#privkit.datasets.CabspottingDataset.DATASET_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.CabspottingDataset.DATASET_NAME">
-<span class="sig-name descname"><span class="pre">DATASET_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cabspotting</span> <span class="pre">Dataset'</span></em><a class="headerlink" href="#privkit.datasets.CabspottingDataset.DATASET_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATASET_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Cabspotting</span> <span class="pre">Dataset'</span></em><a class="headerlink" href="#privkit.datasets.CabspottingDataset.DATASET_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.CabspottingDataset.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.datasets.CabspottingDataset.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.datasets.CabspottingDataset.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.CabspottingDataset.download">
-<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./input/datasets/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.download" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./input/datasets/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.download" title="Link to this definition">#</a></dt>
 <dd><p>Downloads Cabspotting dataset from IEEE Data Port if the authorized URL is provided.
 To proceed with the download through the Privkit, the user is required to login in the website <a class="reference external" href="https://ieee-dataport.org/open-access/crawdad-epflmobility">https://ieee-dataport.org/open-access/crawdad-epflmobility</a>,
 click on the “cabspottingdata.tar.gz” button and copy the url.</p>
@@ -453,7 +424,7 @@ click on the “cabspottingdata.tar.gz” button and copy the url.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.CabspottingDataset.filter_by_occupancy">
-<span class="sig-name descname"><span class="pre">filter_by_occupancy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">occupancy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.filter_by_occupancy" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">filter_by_occupancy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">occupancy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.filter_by_occupancy" title="Link to this definition">#</a></dt>
 <dd><p>Filters trajectories by occupancy.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -464,24 +435,24 @@ click on the “cabspottingdata.tar.gz” button and copy the url.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.CabspottingDataset.load_dataset">
-<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.load_dataset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.load_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Loads cabspotting dataset</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.CabspottingDataset.load_from_files">
-<span class="sig-name descname"><span class="pre">load_from_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.load_from_files" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">load_from_files</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.load_from_files" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.CabspottingDataset.process_dataset">
-<span class="sig-name descname"><span class="pre">process_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.process_dataset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">process_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.process_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Performs dataset processing or returns dataset processing methods. This is specific to the dataset</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.CabspottingDataset.save_dataset">
-<span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.save_dataset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.CabspottingDataset.save_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Saves dataset</p>
 </dd></dl>
 
@@ -489,50 +460,50 @@ click on the “cabspottingdata.tar.gz” button and copy the url.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.datasets.Dataset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.datasets.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><a class="headerlink" href="#privkit.datasets.Dataset" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.datasets.</span></span><span class="sig-name descname"><span class="pre">Dataset</span></span><a class="headerlink" href="#privkit.datasets.Dataset" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract class for a generic dataset. Defines a series of functions common to process different datasets.
 Provides basic functions to load, process, and save data.
 Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TYPE_ID.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.datasets.Dataset.DATASET_ID">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATASET_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.datasets.Dataset.DATASET_ID" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATASET_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.datasets.Dataset.DATASET_ID" title="Link to this definition">#</a></dt>
 <dd><p>Identifier of the dataset</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.datasets.Dataset.DATASET_INFO">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATASET_INFO</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.datasets.Dataset.DATASET_INFO" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATASET_INFO</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.datasets.Dataset.DATASET_INFO" title="Link to this definition">#</a></dt>
 <dd><p>Information of the dataset, specifying the reference for the dataset (if it exists)</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.datasets.Dataset.DATASET_NAME">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATASET_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.datasets.Dataset.DATASET_NAME" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATASET_NAME</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#privkit.datasets.Dataset.DATASET_NAME" title="Link to this definition">#</a></dt>
 <dd><p>Name of the dataset</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="privkit.datasets.Dataset.DATA_TYPE_ID">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#privkit.datasets.Dataset.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#privkit.datasets.Dataset.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd><p>Identifier of the data type of this dataset</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.Dataset.load_dataset">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.Dataset.load_dataset" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.Dataset.load_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Loads dataset. This is specific to the dataset</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.Dataset.process_dataset">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.Dataset.process_dataset" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">process_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.Dataset.process_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Performs dataset processing or returns dataset processing methods. This is specific to the dataset</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.Dataset.save_dataset">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.Dataset.save_dataset" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.Dataset.save_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Saves the dataset to a file. This is specific to the dataset</p>
 </dd></dl>
 
@@ -540,32 +511,32 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.datasets.</span></span><span class="sig-name descname"><span class="pre">GeolifeDataset</span></span><a class="headerlink" href="#privkit.datasets.GeolifeDataset" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.datasets.</span></span><span class="sig-name descname"><span class="pre">GeolifeDataset</span></span><a class="headerlink" href="#privkit.datasets.GeolifeDataset" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.datasets.Dataset" title="privkit.datasets.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a></p>
 <p>Class to handle the Geolife dataset.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.DATASET_ID">
-<span class="sig-name descname"><span class="pre">DATASET_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'geolife'</span></em><a class="headerlink" href="#privkit.datasets.GeolifeDataset.DATASET_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATASET_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'geolife'</span></em><a class="headerlink" href="#privkit.datasets.GeolifeDataset.DATASET_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.DATASET_INFO">
-<span class="sig-name descname"><span class="pre">DATASET_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Geolife</span> <span class="pre">dataset</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">real</span> <span class="pre">mobility</span> <span class="pre">dataset</span> <span class="pre">collected</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">period</span> <span class="pre">of</span> <span class="pre">over</span> <span class="pre">three</span> <span class="pre">year</span> <span class="pre">from</span> <span class="pre">GPS</span> <span class="pre">devices.</span> <span class="pre">The</span> <span class="pre">dataset</span> <span class="pre">contains</span> <span class="pre">data</span> <span class="pre">from</span> <span class="pre">182</span> <span class="pre">users,</span> <span class="pre">17621</span> <span class="pre">trajectories</span> <span class="pre">and</span> <span class="pre">roughly</span> <span class="pre">25</span> <span class="pre">million</span> <span class="pre">reports.'</span></em><a class="headerlink" href="#privkit.datasets.GeolifeDataset.DATASET_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATASET_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Geolife</span> <span class="pre">dataset</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">real</span> <span class="pre">mobility</span> <span class="pre">dataset</span> <span class="pre">collected</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">period</span> <span class="pre">of</span> <span class="pre">over</span> <span class="pre">three</span> <span class="pre">year</span> <span class="pre">from</span> <span class="pre">GPS</span> <span class="pre">devices.</span> <span class="pre">The</span> <span class="pre">dataset</span> <span class="pre">contains</span> <span class="pre">data</span> <span class="pre">from</span> <span class="pre">182</span> <span class="pre">users,</span> <span class="pre">17621</span> <span class="pre">trajectories</span> <span class="pre">and</span> <span class="pre">roughly</span> <span class="pre">25</span> <span class="pre">million</span> <span class="pre">reports.'</span></em><a class="headerlink" href="#privkit.datasets.GeolifeDataset.DATASET_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.DATASET_NAME">
-<span class="sig-name descname"><span class="pre">DATASET_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Geolife</span> <span class="pre">Dataset'</span></em><a class="headerlink" href="#privkit.datasets.GeolifeDataset.DATASET_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATASET_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Geolife</span> <span class="pre">Dataset'</span></em><a class="headerlink" href="#privkit.datasets.GeolifeDataset.DATASET_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.datasets.GeolifeDataset.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['location_data']</span></em><a class="headerlink" href="#privkit.datasets.GeolifeDataset.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.apply_labels">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">apply_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trajectory_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.apply_labels" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">apply_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trajectory_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels_df</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.apply_labels" title="Link to this definition">#</a></dt>
 <dd><p>Applies the labels from the loaded file to the trajectories dataframe</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -579,7 +550,7 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.download">
-<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">savepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./input/datasets/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.download" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">savepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./input/datasets/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.download" title="Link to this definition">#</a></dt>
 <dd><p>Dowloads Geolife dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -590,13 +561,13 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.load_dataset">
-<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.load_dataset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.load_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Loads Geolife dataset</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.load_labels">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.load_labels" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">labels_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.load_labels" title="Link to this definition">#</a></dt>
 <dd><p>Loads the labels from a given file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -610,7 +581,7 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.load_plt">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_plt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plt_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.load_plt" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_plt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plt_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">pandas.DataFrame</span></span></span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.load_plt" title="Link to this definition">#</a></dt>
 <dd><p>Loads the trajectory data given the filename</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -627,13 +598,13 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.process_dataset">
-<span class="sig-name descname"><span class="pre">process_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.process_dataset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">process_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.process_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Performs dataset processing or returns dataset processing methods. This is specific to the dataset</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.save_dataset">
-<span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.save_dataset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.save_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Saves dataset</p>
 </dd></dl>
 
@@ -641,44 +612,44 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
 
 <dl class="py class">
 <dt class="sig sig-object py" id="privkit.datasets.SketchfabDataset">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.datasets.</span></span><span class="sig-name descname"><span class="pre">SketchfabDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.SketchfabDataset" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.datasets.</span></span><span class="sig-name descname"><span class="pre">SketchfabDataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">api_token</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.SketchfabDataset" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#privkit.datasets.Dataset" title="privkit.datasets.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a></p>
 <p>Class to download facial models from the Sketchfab dataset.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.SketchfabDataset.DATASET_ID">
-<span class="sig-name descname"><span class="pre">DATASET_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sketchfab'</span></em><a class="headerlink" href="#privkit.datasets.SketchfabDataset.DATASET_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATASET_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'sketchfab'</span></em><a class="headerlink" href="#privkit.datasets.SketchfabDataset.DATASET_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.SketchfabDataset.DATASET_INFO">
-<span class="sig-name descname"><span class="pre">DATASET_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Sketchfab</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">3D</span> <span class="pre">asset</span> <span class="pre">website</span> <span class="pre">used</span> <span class="pre">to</span> <span class="pre">publish,</span> <span class="pre">share,</span> <span class="pre">discover,</span> <span class="pre">buy</span> <span class="pre">and</span> <span class="pre">sell</span> <span class="pre">3D,</span> <span class="pre">VR</span> <span class="pre">and</span> <span class="pre">AR</span> <span class="pre">content.</span> <span class="pre">The</span> <span class="pre">Sketchfab</span> <span class="pre">dataset</span> <span class="pre">provided</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">Privkit</span> <span class="pre">allows</span> <span class="pre">to</span> <span class="pre">download</span> <span class="pre">models</span> <span class="pre">from</span> <span class="pre">Sketchfab,</span> <span class="pre">but</span> <span class="pre">also</span> <span class="pre">provides</span> <span class="pre">some</span> <span class="pre">model</span> <span class="pre">as</span> <span class="pre">examples.'</span></em><a class="headerlink" href="#privkit.datasets.SketchfabDataset.DATASET_INFO" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATASET_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Sketchfab</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">3D</span> <span class="pre">asset</span> <span class="pre">website</span> <span class="pre">used</span> <span class="pre">to</span> <span class="pre">publish,</span> <span class="pre">share,</span> <span class="pre">discover,</span> <span class="pre">buy</span> <span class="pre">and</span> <span class="pre">sell</span> <span class="pre">3D,</span> <span class="pre">VR</span> <span class="pre">and</span> <span class="pre">AR</span> <span class="pre">content.</span> <span class="pre">The</span> <span class="pre">Sketchfab</span> <span class="pre">dataset</span> <span class="pre">provided</span> <span class="pre">in</span> <span class="pre">the</span> <span class="pre">Privkit</span> <span class="pre">allows</span> <span class="pre">to</span> <span class="pre">download</span> <span class="pre">models</span> <span class="pre">from</span> <span class="pre">Sketchfab,</span> <span class="pre">but</span> <span class="pre">also</span> <span class="pre">provides</span> <span class="pre">some</span> <span class="pre">model</span> <span class="pre">as</span> <span class="pre">examples.'</span></em><a class="headerlink" href="#privkit.datasets.SketchfabDataset.DATASET_INFO" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.SketchfabDataset.DATASET_NAME">
-<span class="sig-name descname"><span class="pre">DATASET_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Sketchfab</span> <span class="pre">Dataset'</span></em><a class="headerlink" href="#privkit.datasets.SketchfabDataset.DATASET_NAME" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATASET_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Sketchfab</span> <span class="pre">Dataset'</span></em><a class="headerlink" href="#privkit.datasets.SketchfabDataset.DATASET_NAME" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.SketchfabDataset.DATA_TYPE_ID">
-<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.datasets.SketchfabDataset.DATA_TYPE_ID" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['facial_data']</span></em><a class="headerlink" href="#privkit.datasets.SketchfabDataset.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.SketchfabDataset.api_token">
-<span class="sig-name descname"><span class="pre">api_token</span></span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.api_token" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">api_token</span></span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.api_token" title="Link to this definition">#</a></dt>
 <dd><p>API token for the Sketchfab website</p>
 </dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="privkit.datasets.SketchfabDataset.data">
-<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.data" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.data" title="Link to this definition">#</a></dt>
 <dd><p>Data is stored as an a FacialData structure</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.SketchfabDataset.download_model">
-<span class="sig-name descname"><span class="pre">download_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./input/datasets/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.download_model" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">download_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">savepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./input/datasets/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.download_model" title="Link to this definition">#</a></dt>
 <dd><p>Downloads the model from the Sketchfab website given the model UID.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -693,19 +664,19 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.SketchfabDataset.load_dataset">
-<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.load_dataset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.load_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Loads an example of facial model from the available.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.SketchfabDataset.process_dataset">
-<span class="sig-name descname"><span class="pre">process_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.process_dataset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">process_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.process_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Performs dataset processing or returns dataset processing methods. This is specific to the dataset</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.SketchfabDataset.save_dataset">
-<span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.save_dataset" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.SketchfabDataset.save_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Saves dataset</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -725,7 +696,7 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -753,14 +724,17 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
-
-  <div class="page-toc tocsection onthispage">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.CabspottingDataset"><code class="docutils literal notranslate"><span class="pre">CabspottingDataset</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.CabspottingDataset.DATASET_ID"><code class="docutils literal notranslate"><span class="pre">CabspottingDataset.DATASET_ID</span></code></a></li>
@@ -837,8 +811,8 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -863,7 +837,7 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.1.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
@@ -875,7 +849,7 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
 </p></div>
       
     </div>

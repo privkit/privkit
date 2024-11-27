@@ -6,7 +6,6 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import sys
-#sys.path.insert(0, os.path.abspath('../privkit/'))
 from pathlib import Path
 
 # go up two levels from /docs/source to the package root
@@ -18,6 +17,24 @@ project = 'Privkit'
 copyright = '2024, Privkit'
 author = 'Privkit'
 release = '0.1'
+
+# -- Mock import -------------------------------------------------------------
+autodoc_mock_imports = [
+    "numpy",
+    "pandas",
+    "networkx",
+    "sklearn",
+    "scipy",
+    "retinaface",
+    "pyproj",
+    "osmnx",
+    "matplotlib",
+    "open3d",
+    "deepface",
+    "skimage",
+    "torch",
+    "keras"
+]
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
