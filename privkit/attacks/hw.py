@@ -25,7 +25,7 @@ class HW(Attack):
 
     ATTACK_ID = "hw"
     ATTACK_NAME = "HW"
-    ATTACK_INFO = "HW is a mechanism that given the matrix f(z|...), multiplies it by the given mobility profile" \
+    ATTACK_INFO = "HW is a mechanism that given the matrix f(z|...), multiplies it by the given mobility profile " \
                   "and then normalizes it, calculating the posterior. Then computes the geometric median with the " \
                   "posterior calculated returning the adversary estimation."
     ATTACK_REF = "R. Shokri, G. Theodorakopoulos, C. Troncoso, J.-P. Hubaux, and J.-Y. Le Boudec, “Protecting " \
@@ -34,22 +34,23 @@ class HW(Attack):
     DATA_TYPE_ID = [LocationData.DATA_TYPE_ID]
     METRIC_ID = [AdversaryError.METRIC_ID]
 
-    def __init__(self, epsilon: float):
+    def __init__(self, epsilon: float, mobility_profile: [float]):
         """
         Initializes the HW attack
 
         :param epsilon: LPPM privacy parameter
+        :param [float] mobility_profile: priori knowledge build with a portion of the dataset
         """
 
         super().__init__()
         self.epsilon = epsilon
+        self.mobility_profile = mobility_profile
 
-    def execute(self, location_data: LocationData, mobility_profile: [float]):
+    def execute(self, location_data: LocationData):
         """
         Executes the HW attack
 
         :param privkit.LocationData location_data: data where OptimalHW will be performed
-        :param [float] mobility_profile: priori knowledge build with a portion of the dataset
         :return: location data updated with adversary estimation
         """
         if {constants.OBF_LATITUDE, constants.OBF_LONGITUDE}.issubset(location_data.data.columns):
@@ -69,7 +70,7 @@ class HW(Attack):
 
                     f_zx = PlanarLaplace(self.epsilon).planar_laplace_distribuition(z_i, location_data.grid)
 
-                    [adv_x, adv_y] = self.execute_attack(f_zx, mobility_profile, location_data.grid)
+                    [adv_x, adv_y] = self.execute_attack(f_zx, location_data.grid)
                     adv_latitude, adv_longitude = gu.cartesian2geodetic(adv_x, adv_y, z)
                     adv_latitude_output.append(adv_latitude)
                     adv_longitude_output.append(adv_longitude)
@@ -82,17 +83,16 @@ class HW(Attack):
 
         return location_data
 
-    def execute_attack(self, f: [float], mobility_profile: [float], grid: GridMap):
+    def execute_attack(self, f: [float], grid: GridMap):
         """
         Executes the HW attack at a point
 
         :param [float] f: LPPM function
-        :param [float] mobility_profile: priori knowledge build with a portion of the dataset
         :param privkit.GridMap grid: map discretization
         :return: adversary estimation
         """
 
-        posterior = f * mobility_profile
+        posterior = f * self.mobility_profile
         posterior = posterior / np.sum(posterior)
         posterior = np.reshape(posterior, (-1, 1))
 
@@ -203,7 +203,7 @@ class OptimalHW(Attack):
         """
 
         mobility_profile = tu.BuildKnowledge().get_mobility_profile(location_data, constants.NORM_PROF)
-        return HW(self.epsilon).execute(location_data, mobility_profile)
+        return HW(self.epsilon, mobility_profile).execute(location_data)
 
 
 class OmniHW(Attack):
@@ -245,4 +245,4 @@ class OmniHW(Attack):
         """
 
         mobility_profile = tu.BuildKnowledge().get_mobility_profile(location_data, constants.OMNI_PROF)
-        return HW(self.epsilon).execute(location_data, mobility_profile)
+        return HW(self.epsilon, mobility_profile).execute(location_data)
