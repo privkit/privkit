@@ -70,7 +70,7 @@ class PrivacyAwareRemapping(PPM):
         """
 
         if not hasattr(location_data, "grid"):
-            du.warn("Grid-Map is not defined. It will be defined from the locations.")
+            du.warn("Grid-Map is not defined. It will be defined from locations.")
             location_data.create_grid(*location_data.get_bounding_box_range(), spacing=2 / self.epsilon)
             location_data.filter_outside_points(*location_data.get_bounding_box_range())
 

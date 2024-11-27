@@ -53,7 +53,7 @@ class PEBA(Attack):
         """
         Executes the PEBA attack
 
-        :param privkit.LocationData location_data: data where OptimalHW will be performed
+        :param privkit.LocationData location_data: data where PEBA will be performed
         :return: location data updated with adversary guess
         """
         if {constants.OBF_LATITUDE, constants.OBF_LONGITUDE}.issubset(location_data.data.columns):
