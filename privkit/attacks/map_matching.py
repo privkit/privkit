@@ -22,7 +22,7 @@ class MapMatching(Attack):
 
     References
     ----------
-    [1] Newson, P., & Krumm, J. (2009, November). Hidden Markov map matching through noise andsparseness. In
+    [1] Newson, P., & Krumm, J. (2009, November). Hidden Markov map matching through noise and sparseness. In
     Proceedings of the 17th ACM SIGSPATIAL international conference on advances in geographic information systems
     (pp. 336-343).
     [2] Jagadeesh, G. R., & Srikanthan, T. (2017). Online map-matching of noisy and sparse location data with hidden
@@ -39,7 +39,7 @@ class MapMatching(Attack):
     METRIC_ID = [AdversaryError.METRIC_ID,
                  F1ScoreMM.METRIC_ID]
 
-    def __init__(self, G: nx.MultiDiGraph, sigma: float = None, measurement_errors: List = None,
+    def __init__(self, G: nx.MultiDiGraph, sigma: float = 382, measurement_errors: List = None,
                  error_range: float = None, scalar: float = 4, lambda_y: float = 0.69, lambda_z: float = 13.35):
         """
         Initializes the Map-Matching attack by defining the road network and the remaining parameters
@@ -54,11 +54,14 @@ class MapMatching(Attack):
         """
         super().__init__()
 
-        Gp = ox.project_graph(G)
-        Gp = ox.add_edge_speeds(Gp)
-        Gp = ox.add_edge_travel_times(Gp)
-        self.Gp = Gp
-        # self.hwy_speeds = gu.compute_highway_speeds_default(Gp)
+        try:
+            Gp = ox.project_graph(G)
+            Gp = ox.add_edge_speeds(Gp, fallback=50)
+            # self.hwy_speeds = gu.compute_highway_speeds_default(Gp)
+            Gp = ox.add_edge_travel_times(Gp)
+            self.Gp = Gp
+        except:
+            raise KeyError(f"Road network is not properly configured.")
 
         self.sigma = sigma or 1.4826 * np.median(measurement_errors)
         self.error_range = error_range or scalar * self.sigma

@@ -162,5 +162,8 @@ def compute_highway_speeds_default(G: nx.MultiDiGraph) -> dict:
     edges = ox.graph_to_gdfs(G, nodes=False, fill_edge_geometry=False)
     hwy_speeds = {}
     for hwy, group in edges.groupby("highway"):
-        hwy_speeds[hwy] = np.mean(group["speed_kph"])
+        if "speed_kph" in group:
+            hwy_speeds[hwy] = np.mean(group["speed_kph"])
+        else:
+            hwy_speeds[hwy] = 50  # default value
     return hwy_speeds

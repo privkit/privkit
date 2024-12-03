@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-numpy = "*"
+numpy = "==1.26.4"
 pandas = "*"
 networkx = "*"
 scikit-learn = "*"
