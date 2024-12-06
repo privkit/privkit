@@ -55,6 +55,9 @@ class MapMatching(Attack):
         super().__init__()
 
         try:
+            for node_id, node_data in G.nodes(data=True):
+                node_data[constants.LATITUDE] = node_data['y']
+                node_data[constants.LONGITUDE] = node_data['x']
             Gp = ox.project_graph(G)
             Gp = ox.add_edge_speeds(Gp, fallback=50)
             # self.hwy_speeds = gu.compute_highway_speeds_default(Gp)
@@ -109,6 +112,7 @@ class MapMatching(Attack):
             num_observations = len(trajectory)
             for latitude, longitude, datetime in zip(trajectory[latitude_column], trajectory[longitude_column],
                                                      trajectory[constants.DATETIME]):
+                du.log(f"{observation_id}/{num_observations}")
                 observation = Observation(observation_id, [latitude, longitude], datetime)
                 observation.get_states(self.Gp, self.sigma, self.error_range)
                 observations[observation_id] = observation
@@ -401,10 +405,10 @@ class Observation:
             end_node_id = edge[1]
 
             if distance <= error_range:
-                start_node = [G_aux.nodes[start_node_id]['lat'], G_aux.nodes[start_node_id]['lon']]
+                start_node = [G_aux.nodes[start_node_id][constants.LATITUDE], G_aux.nodes[start_node_id][constants.LONGITUDE]]
                 dist_start_node = gu.great_circle_distance(self.point[0], self.point[1], start_node[0], start_node[1])
 
-                end_node = [G_aux.nodes[end_node_id]['lat'], G_aux.nodes[end_node_id]['lon']]
+                end_node = [G_aux.nodes[end_node_id][constants.LATITUDE], G_aux.nodes[end_node_id][constants.LONGITUDE]]
                 dist_end_node = gu.great_circle_distance(self.point[0], self.point[1], end_node[0], end_node[1])
 
                 if dist_start_node < dist_end_node:
@@ -434,7 +438,7 @@ class Observation:
         # If there is no state, the nearest node is used
         if len(self.states) == 0:
             nearest_node_id, distance = ox.nearest_nodes(Gp, point_proj[0], point_proj[1], return_dist=True)
-            nearest_node = [Gp.nodes[nearest_node_id]['lat'], Gp.nodes[nearest_node_id]['lon']]
+            nearest_node = [Gp.nodes[nearest_node_id][constants.LATITUDE], Gp.nodes[nearest_node_id][constants.LONGITUDE]]
 
             state = State(state_id, nearest_node, self.datetime, nearest_node_id, distance)
             state.set_emission_probability(sigma)
