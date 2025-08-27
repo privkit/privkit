@@ -71,10 +71,41 @@ planar_laplace = pk.ppms.PlanarLaplace(epsilon=0.01)
 planar_laplace.execute(location_data)
 ```
 
+## Contributing
+
+Check the [contributing guidelines](https://github.com/privkit/privkit/blob/main/CONTRIBUTING.md). 
+
 ## License
 
-Privkit is open source and licensed under the BSD 3-clause license.
+Privkit is open-source and licensed under the BSD 3-clause license.
 
-## Acknowledgments
+## Supported by
 
-We would like to acknowledge the support of [PRIVATEER](https://www.privateer-project.eu/).
+<table>
+    <tr>
+        <td>
+            <picture>
+                <source media="(prefers-color-scheme: dark)" srcset="https://privkit.fc.up.pt/_static/logo_up_light.png">
+                <img alt="University of Porto" src="https://privkit.fc.up.pt/_static/logo_up_dark.png" width="100">
+            </picture>        
+        </td>
+        <td>
+            <picture>
+                <source media="(prefers-color-scheme: dark)" srcset="https://privkit.fc.up.pt/_static/logo_inesctec.png">
+                <img alt="INESC TEC" src="https://privkit.fc.up.pt/_static/logo_inesctec.png" width="100">
+            </picture>
+        </td>
+        <td>
+            <picture>
+                <source media="(prefers-color-scheme: dark)" srcset="https://privkit.fc.up.pt/_static/logo_cisuc.png">
+                <img alt="CISUC" src="https://privkit.fc.up.pt/_static/logo_cisuc.png" width="100">
+            </picture>
+        </td>
+        <td>
+            <picture>
+                <source media="(prefers-color-scheme: dark)" srcset="https://privkit.fc.up.pt/_static/logo_privateer_light.png">
+                <img alt="PRIVATEER" src="https://privkit.fc.up.pt/_static/logo_privateer_dark.png" width="100">
+            </picture>
+        </td>
+    </tr>
+</table>
