@@ -3,6 +3,8 @@ from .planar_laplace import PlanarLaplace
 from .adaptive_geo_ind import AdaptiveGeoInd
 from .centroid_voxel import CentroidVoxel
 from .clustering_geo_ind import ClusteringGeoInd
+from .hash import Hash
+from .laplace import Laplace
 from .merge_two_faces import Merge2Faces
 from .point_mesh_point import PointMeshPoint
 from .privacy_aware_remapping import PrivacyAwareRemapping
@@ -18,6 +20,8 @@ __all__ = [
     "AdaptiveGeoInd",
     "CentroidVoxel",
     "ClusteringGeoInd",
+    "Hash",
+    "Laplace",
     "Merge2Faces",
     "PointMeshPoint",
     "PrivacyAwareRemapping",
