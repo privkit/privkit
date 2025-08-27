@@ -372,12 +372,12 @@ class LocationData(DataType):
             filename = '{}_dt{}'.format(self.id_name, int(min_timedelta))
             self.save_data(filename=filename)
 
-    def _set_timestamps_locationstamps(self, timestamp_interval: int):
+    def set_timestamp(self, timestamp_interval: int):
         """
-        Computes the timestamp and locationstamp of the location data
+        Computes timestamps for location data
         :param int timestamp_interval: time interval
         """
-        du.log(f"Computing the locationstamp and timestamp for an interval of {timestamp_interval}s")
+        du.log(f"Computing timestamps for an interval of {timestamp_interval}s")
 
         if constants.DATETIME not in self.data.columns:
             du.log("There is no datetime column in data.")
@@ -394,12 +394,22 @@ class LocationData(DataType):
             timestamps = (np.ceil(time_deltas / timestamp_interval) + 1).astype(int)
             self.data.loc[trajectories.groups[trajectory_id], constants.TIMESTAMP] = timestamps
 
+        self.data[constants.TIMESTAMP] = self.data[constants.TIMESTAMP].astype(int)
+
+    def set_locationstamp(self):
+        """
+        Computes locationstamp for location data
+        """
+        du.log(f"Computing locationstamp.")
+
+        trajectories = self.get_trajectories()
+
+        for index_print, (trajectory_id, trajectory) in enumerate(trajectories):
             locationstamps = []
             for latitude, longitude in zip(trajectory[constants.LATITUDE], trajectory[constants.LONGITUDE]):
                 locationstamps.append(self.grid.get_locationstamp(latitude, longitude))
             self.data.loc[trajectories.groups[trajectory_id], constants.LOCATIONSTAMP] = locationstamps
 
-        self.data[constants.TIMESTAMP] = self.data[constants.TIMESTAMP].astype(int)
         self.data[constants.LOCATIONSTAMP] = self.data[constants.LOCATIONSTAMP].astype(int)
 
     def create_grid(self, min_lat: float, max_lat: float, min_lon: float, max_lon: float, spacing: float, timestamp: int = None):
@@ -415,8 +425,9 @@ class LocationData(DataType):
         """
         du.log(f"Creating a grid from locations with {spacing}m squared cells.")
         self.grid = GridMap(min_lat, max_lat, min_lon, max_lon, spacing=spacing)
+        self.set_locationstamp()
         if timestamp:
-            self._set_timestamps_locationstamps(timestamp)
+            self.set_timestamp(timestamp)
 
     def compute_timedelta(self, time_unit: str = 's', boxplot: bool = False) -> List:
         """

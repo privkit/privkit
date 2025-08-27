@@ -46,24 +46,21 @@ class VAGI(PPM):
         self.epsilon = epsilon
         self.m = m
 
-    def execute(self, location_data: LocationData, train_data: pd.DataFrame = None):
+    def execute(self, location_data: LocationData, train_data: pd.DataFrame = None, user_velocity_max: float = None, report_velocity_max: float = None):
         """
         Executes the VA-GI mechanism to the data given as parameter.
 
         :param privkit.LocationData location_data: location data where the planar laplace should be executed
         :param DataFrame train_data: data which will be used to compute the velocities' distribution - if not provided VA-GI performs data division
+        :param float user_velocity_max: maximum user velocity to consider
+        :param float report_velocity_max: maximum report velocity to consider
         :return: location data with obfuscated latitude and longitude and the quality loss metric and epsilon array
         """
 
         if constants.TIMESTAMP not in location_data.data:
             du.warn(
-                "There is no available timestamps in data, computing timestamps with a default time interval of 60s")
-            if not hasattr(location_data, "grid"):
-                location_data.create_grid(*location_data.get_bounding_box_range(), spacing=250,
-                                          timestamp=60)  # Using default values
-                location_data.filter_outside_points(*location_data.get_bounding_box_range())
-            else:
-                location_data._set_timestamps_locationstamps(60)
+                "There is no available timestamps in data, computing timestamps with a default time interval of 1s")
+            location_data.set_timestamp(1)
 
         test_data = location_data.data
         if train_data is None:
@@ -71,7 +68,7 @@ class VAGI(PPM):
             test_data = location_data.get_test_data()
             train_data = location_data.get_train_data()
 
-        train_user_vel_pd, train_report_vel_pd = Velocities().get_velocities_pd(train_data)
+        train_user_vel_pd, train_report_vel_pd = Velocities(user_velocity_max, report_velocity_max).get_velocities_pd(train_data)
 
         epsilon_array = np.empty(test_data.index.max() + 1)
         test_user_indexes = list(

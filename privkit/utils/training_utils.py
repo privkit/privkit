@@ -32,7 +32,7 @@ class BuildKnowledge:
         data = None
 
         if constants.LOCATIONSTAMP not in location_data.data.columns:
-            location_data._set_timestamps_locationstamps(timestamp_interval=60)  # Using default values
+            location_data.set_locationstamp()
 
         if chosen_profile == constants.NORM_PROF:
             data = location_data.get_train_data()[constants.LOCATIONSTAMP]
@@ -62,14 +62,13 @@ class BuildKnowledge:
 
 class Velocities:
 
-    def __init__(self, user_velocity_max: int = 200, report_velocity_max: int = 200):
+    def __init__(self, user_velocity_max: float = None, report_velocity_max: float = None):
         """
         Initializes Velocities
 
-        :param int user_velocity_max: maximum user velocity to consider
-        :param int report_velocity_max: maximum report velocity to consider
+        :param float user_velocity_max: maximum user velocity to consider
+        :param float report_velocity_max: maximum report velocity to consider
         """
-
         self.user_velocity_max = user_velocity_max
         self.report_velocity_max = report_velocity_max
 
@@ -155,11 +154,14 @@ class Velocities:
         :param str type_of_data: indicates if it is being considered the user or report velocities
         :returns: velocity pd
         """
-
         if type_of_data == constants.USER:
+            if self.user_velocity_max is None:
+                self.user_velocity_max = np.percentile(velocities, 90)
             velocities = velocities[velocities <= self.user_velocity_max]
 
         elif type_of_data == constants.REPORT:
+            if self.report_velocity_max is None:
+                self.report_velocity_max = np.percentile(velocities, 90)
             velocities = velocities[velocities <= self.report_velocity_max]
 
         velocity_pd = st.gaussian_kde(velocities)
