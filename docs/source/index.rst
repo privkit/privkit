@@ -32,8 +32,24 @@ If you use Privkit in your work, please consider to cite:
       year={2024}
     }
 
-^^^^^^^^^^^^^^^
-Acknowledgments
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^
+Supported by
+^^^^^^^^^^^^
 
-We would like to acknowledge the support of `PRIVATEER <https://www.privateer-project.eu/>`_.
+.. list-table:: 
+   :widths: 25 25 25 25
+   :class: borderless
+   :name: supported-by-logos
+
+   * - .. image:: _static/logo_up_dark.png
+          :alt: University of Porto
+          :width: 100%
+     - .. image:: _static/logo_inesctec.png
+          :alt: INESC TEC
+          :width: 100%
+     - .. image:: _static/logo_cisuc.png
+          :alt: CISUC
+          :width: 90%
+     - .. image:: _static/logo_privateer_dark.png
+          :alt: PRIVATEER
+          :width: 100%

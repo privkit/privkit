@@ -14,9 +14,9 @@ sys.path.insert(0, str(Path().resolve().parent.parent))
 # -- Project information -----------------------------------------------------
 
 project = 'Privkit'
-copyright = '2024, Privkit'
+copyright = '2025, Privkit'
 author = 'Privkit'
-release = '0.1'
+release = '0.5.0'
 
 # -- Mock import -------------------------------------------------------------
 autodoc_mock_imports = [
@@ -71,9 +71,9 @@ html_theme_options = {
     },
     "logo": {
         "alt_text": "privkit homepage",
-        "image_relative": "logos/logo_grey_word.svg",
-        "image_light": "logos/logo_grey_word.svg",
-        "image_dark": "logos/logo_white_word.svg",
+        "image_relative": "_static/logo_grey_word.svg",
+        "image_light": "_static/logo_grey_word.svg",
+        "image_dark": "_static/logo_white_word.svg",
     },
     "navbar_align": "left",
     "navbar_start": ["navbar-logo"],
@@ -89,10 +89,12 @@ html_theme_options = {
     ],
 }
 
-html_favicon = "logos/favicon.svg"
-
-html_static_path = ["logos"]
+html_favicon = "_static/favicon.svg"
 
 html_short_title = "privkit"
 
 html_context = {}
+
+html_css_files = [
+    'custom.css',
+]

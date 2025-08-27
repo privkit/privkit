@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>privkit.ppms package &#8212; Privkit 0.1 documentation</title>
+    <title>privkit.ppms package &#8212; Privkit 0.5.0 documentation</title>
   
   
   
@@ -31,6 +31,7 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=92cf2f9e" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -38,7 +39,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/documentation_options.js?v=1dd76d02"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'privkit.ppms';</script>
@@ -613,6 +614,148 @@ Security (ICCCS) (pp. 1-8). IEEE.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>obfuscated point (latitude, longitude) and distance between original and obfuscation point</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.Hash">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">Hash</span></span><a class="headerlink" href="#privkit.ppms.Hash" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>Hash class to apply the hash mechanism from Python built-in functions</p>
+<p class="rubric">References</p>
+<p><a class="reference external" href="https://docs.python.org/3/library/functions.html#hash">https://docs.python.org/3/library/functions.html#hash</a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Hash.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['tabular_data']</span></em><a class="headerlink" href="#privkit.ppms.Hash.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Hash.METRIC_ID">
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[]</span></em><a class="headerlink" href="#privkit.ppms.Hash.METRIC_ID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Hash.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'hash'</span></em><a class="headerlink" href="#privkit.ppms.Hash.PPM_ID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Hash.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">Hash</span> <span class="pre">mechanism</span> <span class="pre">returns</span> <span class="pre">the</span> <span class="pre">hash</span> <span class="pre">value</span> <span class="pre">of</span> <span class="pre">data.'</span></em><a class="headerlink" href="#privkit.ppms.Hash.PPM_INFO" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Hash.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Hash'</span></em><a class="headerlink" href="#privkit.ppms.Hash.PPM_NAME" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Hash.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://docs.python.org/3/library/functions.html#hash'</span></em><a class="headerlink" href="#privkit.ppms.Hash.PPM_REF" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.Hash.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tabular_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.TabularData" title="privkit.data.tabular_data.TabularData"><span class="pre">TabularData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Hash.execute" title="Link to this definition">#</a></dt>
+<dd><p>Executes the Hash mechanism to the data given as parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tabular_data</strong> (<em>privkit.TabularData</em>) – tabular data where the hash should be executed</p></li>
+<li><p><strong>features</strong> (<em>List</em>) – list of feature(s) to hash. If no feature is selected, try all features.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>tabular data with obfuscated data</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.Hash.get_obfuscated_data">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_obfuscated_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#privkit.ppms.Hash.get_obfuscated_data" title="Link to this definition">#</a></dt>
+<dd><p>Returns obfuscated data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>object</em>) – original data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obfuscated data through hash function</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.ppms.Laplace">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.ppms.</span></span><span class="sig-name descname"><span class="pre">Laplace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensitivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Laplace" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.ppms.PPM" title="privkit.ppms.ppm.PPM"><code class="xref py py-class docutils literal notranslate"><span class="pre">PPM</span></code></a></p>
+<p>Laplace class to apply the mechanism</p>
+<p class="rubric">References</p>
+<p>Dwork, C., McSherry, F., Nissim, K., &amp; Smith, A. (2006). Calibrating noise to sensitivity in private data analysis.
+In Theory of Cryptography: Third Theory of Cryptography Conference, TCC 2006, New York, NY, USA, March 4-7, 2006.
+Proceedings 3 (pp. 265-284). Springer Berlin Heidelberg.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Laplace.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['tabular_data']</span></em><a class="headerlink" href="#privkit.ppms.Laplace.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Laplace.METRIC_ID">
+<span class="sig-name descname"><span class="pre">METRIC_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['quality_loss']</span></em><a class="headerlink" href="#privkit.ppms.Laplace.METRIC_ID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Laplace.PPM_ID">
+<span class="sig-name descname"><span class="pre">PPM_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'laplace'</span></em><a class="headerlink" href="#privkit.ppms.Laplace.PPM_ID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Laplace.PPM_INFO">
+<span class="sig-name descname"><span class="pre">PPM_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'The</span> <span class="pre">Laplace</span> <span class="pre">mechanism</span> <span class="pre">consists</span> <span class="pre">of</span> <span class="pre">adding</span> <span class="pre">Laplacian</span> <span class="pre">noise</span> <span class="pre">to</span> <span class="pre">satisfy</span> <span class="pre">the</span> <span class="pre">Differential</span> <span class="pre">Privacy</span> <span class="pre">notion.</span> <span class="pre">The</span> <span class="pre">noise</span> <span class="pre">is</span> <span class="pre">added</span> <span class="pre">according</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">Laplacian</span> <span class="pre">distribution</span> <span class="pre">and</span> <span class="pre">depends</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">privacy</span> <span class="pre">parameter</span> <span class="pre">epsilon</span> <span class="pre">and</span> <span class="pre">on</span> <span class="pre">a</span> <span class="pre">sensitivity</span> <span class="pre">parameter,</span> <span class="pre">both</span> <span class="pre">defined</span> <span class="pre">by</span> <span class="pre">the</span> <span class="pre">user.'</span></em><a class="headerlink" href="#privkit.ppms.Laplace.PPM_INFO" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Laplace.PPM_NAME">
+<span class="sig-name descname"><span class="pre">PPM_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Laplace'</span></em><a class="headerlink" href="#privkit.ppms.Laplace.PPM_NAME" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.ppms.Laplace.PPM_REF">
+<span class="sig-name descname"><span class="pre">PPM_REF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Dwork,</span> <span class="pre">C.,</span> <span class="pre">McSherry,</span> <span class="pre">F.,</span> <span class="pre">Nissim,</span> <span class="pre">K.,</span> <span class="pre">&amp;</span> <span class="pre">Smith,</span> <span class="pre">A.</span> <span class="pre">(2006).</span> <span class="pre">Calibrating</span> <span class="pre">noise</span> <span class="pre">to</span> <span class="pre">sensitivity</span> <span class="pre">in</span> <span class="pre">private</span> <span class="pre">data</span> <span class="pre">analysis.</span> <span class="pre">In</span> <span class="pre">Theory</span> <span class="pre">of</span> <span class="pre">Cryptography:</span> <span class="pre">Third</span> <span class="pre">Theory</span> <span class="pre">of</span> <span class="pre">Cryptography</span> <span class="pre">Conference,</span> <span class="pre">TCC</span> <span class="pre">2006,</span> <span class="pre">New</span> <span class="pre">York,</span> <span class="pre">NY,</span> <span class="pre">USA,</span> <span class="pre">March</span> <span class="pre">4-7,</span> <span class="pre">2006.</span> <span class="pre">Proceedings</span> <span class="pre">3</span> <span class="pre">(pp.</span> <span class="pre">265-284).</span> <span class="pre">Springer</span> <span class="pre">Berlin</span> <span class="pre">Heidelberg.'</span></em><a class="headerlink" href="#privkit.ppms.Laplace.PPM_REF" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.Laplace.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tabular_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.TabularData" title="privkit.data.tabular_data.TabularData"><span class="pre">TabularData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.Laplace.execute" title="Link to this definition">#</a></dt>
+<dd><p>Executes the Laplace mechanism to the data given as parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tabular_data</strong> (<em>privkit.TabularData</em>) – tabular data where the laplace should be executed</p></li>
+<li><p><strong>features</strong> (<em>List</em>) – feature(s) to apply Laplacian noise. If no feature is selected, try all float features.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>tabular data with obfuscated data and the quality loss metric</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.ppms.Laplace.get_obfuscated_point">
+<span class="sig-name descname"><span class="pre">get_obfuscated_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">[&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">&lt;class</span> <span class="pre">'float'&gt;]</span></span></span><a class="headerlink" href="#privkit.ppms.Laplace.get_obfuscated_point" title="Link to this definition">#</a></dt>
+<dd><p>Returns an obfuscated single point</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>float</em>) – original data</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>obfuscated point and distance between original and obfuscation point</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1368,13 +1511,15 @@ distribution.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.ppms.VAGI.execute">
-<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.VAGI.execute" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData" title="privkit.data.location_data.LocationData"><span class="pre">LocationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">pandas.DataFrame</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_velocity_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">report_velocity_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.ppms.VAGI.execute" title="Link to this definition">#</a></dt>
 <dd><p>Executes the VA-GI mechanism to the data given as parameter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>location_data</strong> (<em>privkit.LocationData</em>) – location data where the planar laplace should be executed</p></li>
 <li><p><strong>train_data</strong> (<em>DataFrame</em>) – data which will be used to compute the velocities’ distribution - if not provided VA-GI performs data division</p></li>
+<li><p><strong>user_velocity_max</strong> (<em>float</em>) – maximum user velocity to consider</p></li>
+<li><p><strong>report_velocity_max</strong> (<em>float</em>) – maximum report velocity to consider</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -1518,6 +1663,28 @@ velocity.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd.PPM_REF"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd.PPM_REF</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd.execute"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd.execute()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.ClusteringGeoInd.get_obfuscated_point"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd.get_obfuscated_point()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Hash"><code class="docutils literal notranslate"><span class="pre">Hash</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Hash.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">Hash.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Hash.METRIC_ID"><code class="docutils literal notranslate"><span class="pre">Hash.METRIC_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Hash.PPM_ID"><code class="docutils literal notranslate"><span class="pre">Hash.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Hash.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">Hash.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Hash.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">Hash.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Hash.PPM_REF"><code class="docutils literal notranslate"><span class="pre">Hash.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Hash.execute"><code class="docutils literal notranslate"><span class="pre">Hash.execute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Hash.get_obfuscated_data"><code class="docutils literal notranslate"><span class="pre">Hash.get_obfuscated_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Laplace"><code class="docutils literal notranslate"><span class="pre">Laplace</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Laplace.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">Laplace.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Laplace.METRIC_ID"><code class="docutils literal notranslate"><span class="pre">Laplace.METRIC_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Laplace.PPM_ID"><code class="docutils literal notranslate"><span class="pre">Laplace.PPM_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Laplace.PPM_INFO"><code class="docutils literal notranslate"><span class="pre">Laplace.PPM_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Laplace.PPM_NAME"><code class="docutils literal notranslate"><span class="pre">Laplace.PPM_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Laplace.PPM_REF"><code class="docutils literal notranslate"><span class="pre">Laplace.PPM_REF</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Laplace.execute"><code class="docutils literal notranslate"><span class="pre">Laplace.execute()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Laplace.get_obfuscated_point"><code class="docutils literal notranslate"><span class="pre">Laplace.get_obfuscated_point()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.ppms.Merge2Faces"><code class="docutils literal notranslate"><span class="pre">Merge2Faces</span></code></a><ul class="nav section-nav flex-column">
@@ -1670,7 +1837,7 @@ velocity.</p>
 
   <p class="copyright">
     
-      © Copyright 2024, Privkit.
+      © Copyright 2025, Privkit.
       <br/>
     
   </p>

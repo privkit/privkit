@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>privkit.datasets package &#8212; Privkit 0.1 documentation</title>
+    <title>privkit.datasets package &#8212; Privkit 0.5.0 documentation</title>
   
   
   
@@ -31,6 +31,7 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=92cf2f9e" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -38,7 +39,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/documentation_options.js?v=1dd76d02"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'privkit.datasets';</script>
@@ -551,7 +552,7 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.download">
 <span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">savepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./input/datasets/'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.download" title="Link to this definition">#</a></dt>
-<dd><p>Dowloads Geolife dataset.</p>
+<dd><p>Downloads Geolife dataset.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>savepath</strong> (<em>str</em>) – path where dataset should be saved. The default is <cite>constants.datasets_folder</cite>.</p>
@@ -605,6 +606,79 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
 <dl class="py method">
 <dt class="sig sig-object py" id="privkit.datasets.GeolifeDataset.save_dataset">
 <span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.GeolifeDataset.save_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Saves dataset</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.datasets.NCSRD_DS_5GDDoS_Dataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.datasets.</span></span><span class="sig-name descname"><span class="pre">NCSRD_DS_5GDDoS_Dataset</span></span><a class="headerlink" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.datasets.Dataset" title="privkit.datasets.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a></p>
+<p>Class to handle the NCSRD-DS-5GDDoS dataset.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATASET_ID">
+<span class="sig-name descname"><span class="pre">DATASET_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NCSRD_DS_5GDDoS'</span></em><a class="headerlink" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATASET_ID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATASET_INFO">
+<span class="sig-name descname"><span class="pre">DATASET_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NCSRD-DS-5GDDoS</span> <span class="pre">dataset</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">real</span> <span class="pre">mobility</span> <span class="pre">dataset</span> <span class="pre">collected</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">period</span> <span class="pre">of</span> <span class="pre">over</span> <span class="pre">three</span> <span class="pre">year</span> <span class="pre">from</span> <span class="pre">GPS</span> <span class="pre">devices.</span> <span class="pre">The</span> <span class="pre">dataset</span> <span class="pre">contains</span> <span class="pre">data</span> <span class="pre">from</span> <span class="pre">182</span> <span class="pre">users,</span> <span class="pre">17621</span> <span class="pre">trajectories</span> <span class="pre">and</span> <span class="pre">roughly</span> <span class="pre">25</span> <span class="pre">million</span> <span class="pre">reports.'</span></em><a class="headerlink" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATASET_INFO" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATASET_NAME">
+<span class="sig-name descname"><span class="pre">DATASET_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'NCSRD-DS-5GDDoS</span> <span class="pre">Dataset'</span></em><a class="headerlink" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATASET_NAME" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['tabular_data']</span></em><a class="headerlink" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.datasets.NCSRD_DS_5GDDoS_Dataset.anonymize_dataset">
+<span class="sig-name descname"><span class="pre">anonymize_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensitivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.anonymize_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Apply anonymization to sensitive fields</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>epsilon</strong> (<em>float</em>) – privacy parameter for the Laplace mechanism. Default value = 0.01.</p></li>
+<li><p><strong>sensitivity</strong> (<em>float</em>) – sensitivity parameter. Default value = 1.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.datasets.NCSRD_DS_5GDDoS_Dataset.download">
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">savepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./input/datasets/'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NCSRD_DS_5GDDoS'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.download" title="Link to this definition">#</a></dt>
+<dd><p>Downloads NCSRD-DS-5GDDoS dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>savepath</strong> (<em>str</em>) – path where dataset should be saved. The default is <cite>constants.datasets_folder</cite>.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – filename from the available files in Zenodo (<a class="reference external" href="https://zenodo.org/records/13900057">https://zenodo.org/records/13900057</a>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.datasets.NCSRD_DS_5GDDoS_Dataset.load_dataset">
+<span class="sig-name descname"><span class="pre">load_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.load_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Loads NCSRD-DS-5GDDoS dataset</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.datasets.NCSRD_DS_5GDDoS_Dataset.process_dataset">
+<span class="sig-name descname"><span class="pre">process_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">anonymize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.process_dataset" title="Link to this definition">#</a></dt>
+<dd><p>Processes dataset</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.datasets.NCSRD_DS_5GDDoS_Dataset.save_dataset">
+<span class="sig-name descname"><span class="pre">save_dataset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.save_dataset" title="Link to this definition">#</a></dt>
 <dd><p>Saves dataset</p>
 </dd></dl>
 
@@ -773,6 +847,18 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.GeolifeDataset.save_dataset"><code class="docutils literal notranslate"><span class="pre">GeolifeDataset.save_dataset()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset"><code class="docutils literal notranslate"><span class="pre">NCSRD_DS_5GDDoS_Dataset</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATASET_ID"><code class="docutils literal notranslate"><span class="pre">NCSRD_DS_5GDDoS_Dataset.DATASET_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATASET_INFO"><code class="docutils literal notranslate"><span class="pre">NCSRD_DS_5GDDoS_Dataset.DATASET_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATASET_NAME"><code class="docutils literal notranslate"><span class="pre">NCSRD_DS_5GDDoS_Dataset.DATASET_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">NCSRD_DS_5GDDoS_Dataset.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.anonymize_dataset"><code class="docutils literal notranslate"><span class="pre">NCSRD_DS_5GDDoS_Dataset.anonymize_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.download"><code class="docutils literal notranslate"><span class="pre">NCSRD_DS_5GDDoS_Dataset.download()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.load_dataset"><code class="docutils literal notranslate"><span class="pre">NCSRD_DS_5GDDoS_Dataset.load_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.process_dataset"><code class="docutils literal notranslate"><span class="pre">NCSRD_DS_5GDDoS_Dataset.process_dataset()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.NCSRD_DS_5GDDoS_Dataset.save_dataset"><code class="docutils literal notranslate"><span class="pre">NCSRD_DS_5GDDoS_Dataset.save_dataset()</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.SketchfabDataset"><code class="docutils literal notranslate"><span class="pre">SketchfabDataset</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.SketchfabDataset.DATASET_ID"><code class="docutils literal notranslate"><span class="pre">SketchfabDataset.DATASET_ID</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.datasets.SketchfabDataset.DATASET_INFO"><code class="docutils literal notranslate"><span class="pre">SketchfabDataset.DATASET_INFO</span></code></a></li>
@@ -823,7 +909,7 @@ Requires the definition of a DATASET_ID, DATASET_NAME, DATASET_INFO, and DATA_TY
 
   <p class="copyright">
     
-      © Copyright 2024, Privkit.
+      © Copyright 2025, Privkit.
       <br/>
     
   </p>

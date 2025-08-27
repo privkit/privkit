@@ -1,7 +1,0 @@
-privkit
-=======
-
-.. toctree::
-   :maxdepth: 4
-
-   privkit

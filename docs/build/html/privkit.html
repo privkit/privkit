@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>User Guide &#8212; Privkit 0.1 documentation</title>
+    <title>User Guide &#8212; Privkit 0.5.0 documentation</title>
   
   
   
@@ -31,6 +31,7 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=92cf2f9e" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -38,7 +39,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/documentation_options.js?v=1dd76d02"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'privkit';</script>
@@ -387,12 +388,14 @@
 <li class="toctree-l2"><a class="reference internal" href="privkit.data.html#privkit.data.DataType"><code class="docutils literal notranslate"><span class="pre">DataType</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="privkit.data.html#privkit.data.FacialData"><code class="docutils literal notranslate"><span class="pre">FacialData</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="privkit.data.html#privkit.data.LocationData"><code class="docutils literal notranslate"><span class="pre">LocationData</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="privkit.data.html#privkit.data.TabularData"><code class="docutils literal notranslate"><span class="pre">TabularData</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="privkit.datasets.html">privkit.datasets package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="privkit.datasets.html#privkit.datasets.CabspottingDataset"><code class="docutils literal notranslate"><span class="pre">CabspottingDataset</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="privkit.datasets.html#privkit.datasets.Dataset"><code class="docutils literal notranslate"><span class="pre">Dataset</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="privkit.datasets.html#privkit.datasets.GeolifeDataset"><code class="docutils literal notranslate"><span class="pre">GeolifeDataset</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="privkit.datasets.html#privkit.datasets.NCSRD_DS_5GDDoS_Dataset"><code class="docutils literal notranslate"><span class="pre">NCSRD_DS_5GDDoS_Dataset</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="privkit.datasets.html#privkit.datasets.SketchfabDataset"><code class="docutils literal notranslate"><span class="pre">SketchfabDataset</span></code></a></li>
 </ul>
 </li>
@@ -400,6 +403,8 @@
 <li class="toctree-l2"><a class="reference internal" href="privkit.ppms.html#privkit.ppms.AdaptiveGeoInd"><code class="docutils literal notranslate"><span class="pre">AdaptiveGeoInd</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="privkit.ppms.html#privkit.ppms.CentroidVoxel"><code class="docutils literal notranslate"><span class="pre">CentroidVoxel</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="privkit.ppms.html#privkit.ppms.ClusteringGeoInd"><code class="docutils literal notranslate"><span class="pre">ClusteringGeoInd</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="privkit.ppms.html#privkit.ppms.Hash"><code class="docutils literal notranslate"><span class="pre">Hash</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="privkit.ppms.html#privkit.ppms.Laplace"><code class="docutils literal notranslate"><span class="pre">Laplace</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="privkit.ppms.html#privkit.ppms.Merge2Faces"><code class="docutils literal notranslate"><span class="pre">Merge2Faces</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="privkit.ppms.html#privkit.ppms.PPM"><code class="docutils literal notranslate"><span class="pre">PPM</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="privkit.ppms.html#privkit.ppms.PlanarLaplace"><code class="docutils literal notranslate"><span class="pre">PlanarLaplace</span></code></a></li>
@@ -537,7 +542,7 @@
 
   <p class="copyright">
     
-      © Copyright 2024, Privkit.
+      © Copyright 2025, Privkit.
       <br/>
     
   </p>

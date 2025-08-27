@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>privkit.data package &#8212; Privkit 0.1 documentation</title>
+    <title>privkit.data package &#8212; Privkit 0.5.0 documentation</title>
   
   
   
@@ -31,6 +31,7 @@
 <link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=92cf2f9e" />
   
   <!-- So that users can add custom icons -->
   <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
@@ -38,7 +39,7 @@
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
 <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
-    <script src="_static/documentation_options.js?v=2709fde1"></script>
+    <script src="_static/documentation_options.js?v=1dd76d02"></script>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'privkit.data';</script>
@@ -956,6 +957,19 @@ within that interval.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.set_locationstamp">
+<span class="sig-name descname"><span class="pre">set_locationstamp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.set_locationstamp" title="Link to this definition">#</a></dt>
+<dd><p>Computes locationstamp for location data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.LocationData.set_timestamp">
+<span class="sig-name descname"><span class="pre">set_timestamp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp_interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.set_timestamp" title="Link to this definition">#</a></dt>
+<dd><p>Computes timestamps for location data
+:param int timestamp_interval: time interval</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="privkit.data.LocationData.subsample_data">
 <span class="sig-name descname"><span class="pre">subsample_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_timedelta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_subsampled_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.LocationData.subsample_data" title="Link to this definition">#</a></dt>
 <dd><p>Subsamples data according to a minimum timedelta between subsequent points</p>
@@ -964,6 +978,115 @@ within that interval.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>min_timedelta</strong> (<em>float</em>) – minimum timedelta between subsequent points</p></li>
 <li><p><strong>save_subsampled_data</strong> (<em>bool</em>) – if <cite>True</cite>, subsampled data is saved to a file</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="privkit.data.TabularData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">privkit.data.</span></span><span class="sig-name descname"><span class="pre">TabularData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.TabularData" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#privkit.data.DataType" title="privkit.data.data_type.DataType"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataType</span></code></a></p>
+<p>TabularData is a privkit.DataType to handle tabular data. Tabular data is stored as a Pandas DataFrame.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.TabularData.DATA_TYPE_ID">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_ID</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'tabular_data'</span></em><a class="headerlink" href="#privkit.data.TabularData.DATA_TYPE_ID" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.TabularData.DATA_TYPE_INFO">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_INFO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tabular</span> <span class="pre">data</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">imported</span> <span class="pre">through</span> <span class="pre">a</span> <span class="pre">Pandas</span> <span class="pre">dataframe</span> <span class="pre">or</span> <span class="pre">a</span> <span class="pre">read</span> <span class="pre">by</span> <span class="pre">a</span> <span class="pre">delimited</span> <span class="pre">file,</span> <span class="pre">a</span> <span class="pre">file-like</span> <span class="pre">object</span> <span class="pre">or</span> <span class="pre">an</span> <span class="pre">object.</span> <span class="pre">'</span></em><a class="headerlink" href="#privkit.data.TabularData.DATA_TYPE_INFO" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.TabularData.DATA_TYPE_NAME">
+<span class="sig-name descname"><span class="pre">DATA_TYPE_NAME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Tabular</span> <span class="pre">Data'</span></em><a class="headerlink" href="#privkit.data.TabularData.DATA_TYPE_NAME" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.TabularData.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#privkit.data.TabularData.data" title="Link to this definition">#</a></dt>
+<dd><p>Tabular data is stored as a pd.DataFrame</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.TabularData.divide_data">
+<span class="sig-name descname"><span class="pre">divide_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">test_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.TabularData.divide_data" title="Link to this definition">#</a></dt>
+<dd><p>Divides data into train and test
+:param test_size: size of test data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.TabularData.get_test_data">
+<span class="sig-name descname"><span class="pre">get_test_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.TabularData.get_test_data" title="Link to this definition">#</a></dt>
+<dd><p>Returns test data
+:return: test data</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.TabularData.get_train_data">
+<span class="sig-name descname"><span class="pre">get_train_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.TabularData.get_train_data" title="Link to this definition">#</a></dt>
+<dd><p>Returns train data
+:return: train data</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.TabularData.id_name">
+<span class="sig-name descname"><span class="pre">id_name</span></span><a class="headerlink" href="#privkit.data.TabularData.id_name" title="Link to this definition">#</a></dt>
+<dd><p>Identifier name of this tabular data instance</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.TabularData.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_to_load</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.TabularData.load_data" title="Link to this definition">#</a></dt>
+<dd><p>Loads tabular data from a pd.DataFrame or a file that can be read by a Pandas read() method.
+The definition of the parameters came from the parameters of Pandas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_to_load</strong> (<em>DataFrame</em><em> or </em><em>str</em><em> or </em><em>Path</em><em> or </em><em>object</em>) – either a Pandas Dataframe, a path to a file (str or Path) or any object that can be read from pandas read() methods.</p></li>
+<li><p><strong>save</strong> (<em>bool</em>) – if <cite>True</cite>, data is saved to a file. The default is <cite>False</cite>.</p></li>
+<li><p><strong>kwargs</strong> – parameters for the Pandas read methods.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="privkit.data.TabularData.original_data">
+<span class="sig-name descname"><span class="pre">original_data</span></span><a class="headerlink" href="#privkit.data.TabularData.original_data" title="Link to this definition">#</a></dt>
+<dd><p>Original tabular data is stored as a pd.DataFrame</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.TabularData.print_data_summary">
+<span class="sig-name descname"><span class="pre">print_data_summary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.TabularData.print_data_summary" title="Link to this definition">#</a></dt>
+<dd><p>Prints data summary</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dataset_name</strong> (<em>str</em>) – dataset name (optional). The default value is <cite>None</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.TabularData.process_data">
+<span class="sig-name descname"><span class="pre">process_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.TabularData.process_data" title="Link to this definition">#</a></dt>
+<dd><p>Performs tabular data processing.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="privkit.data.TabularData.save_data">
+<span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./input/data/'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extension</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'pkl'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#privkit.data.TabularData.save_data" title="Link to this definition">#</a></dt>
+<dd><p>Saves data to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> (<em>str</em>) – path where data should be saved.</p></li>
+<li><p><strong>filename</strong> (<em>str</em>) – name of the file to be saved.</p></li>
+<li><p><strong>extension</strong> (<em>str</em>) – extension of the format of how the file should be saved. The default value is <cite>‘pkl’</cite>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -1081,7 +1204,25 @@ within that interval.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.resample"><code class="docutils literal notranslate"><span class="pre">LocationData.resample()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.resample_by_time"><code class="docutils literal notranslate"><span class="pre">LocationData.resample_by_time()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.save_data"><code class="docutils literal notranslate"><span class="pre">LocationData.save_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.set_locationstamp"><code class="docutils literal notranslate"><span class="pre">LocationData.set_locationstamp()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.set_timestamp"><code class="docutils literal notranslate"><span class="pre">LocationData.set_timestamp()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.LocationData.subsample_data"><code class="docutils literal notranslate"><span class="pre">LocationData.subsample_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData"><code class="docutils literal notranslate"><span class="pre">TabularData</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.DATA_TYPE_ID"><code class="docutils literal notranslate"><span class="pre">TabularData.DATA_TYPE_ID</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.DATA_TYPE_INFO"><code class="docutils literal notranslate"><span class="pre">TabularData.DATA_TYPE_INFO</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.DATA_TYPE_NAME"><code class="docutils literal notranslate"><span class="pre">TabularData.DATA_TYPE_NAME</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.data"><code class="docutils literal notranslate"><span class="pre">TabularData.data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.divide_data"><code class="docutils literal notranslate"><span class="pre">TabularData.divide_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.get_test_data"><code class="docutils literal notranslate"><span class="pre">TabularData.get_test_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.get_train_data"><code class="docutils literal notranslate"><span class="pre">TabularData.get_train_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.id_name"><code class="docutils literal notranslate"><span class="pre">TabularData.id_name</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.load_data"><code class="docutils literal notranslate"><span class="pre">TabularData.load_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.original_data"><code class="docutils literal notranslate"><span class="pre">TabularData.original_data</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.print_data_summary"><code class="docutils literal notranslate"><span class="pre">TabularData.print_data_summary()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.process_data"><code class="docutils literal notranslate"><span class="pre">TabularData.process_data()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#privkit.data.TabularData.save_data"><code class="docutils literal notranslate"><span class="pre">TabularData.save_data()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -1121,7 +1262,7 @@ within that interval.</p>
 
   <p class="copyright">
     
-      © Copyright 2024, Privkit.
+      © Copyright 2025, Privkit.
       <br/>
     
   </p>

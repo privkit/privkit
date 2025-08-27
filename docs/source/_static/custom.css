@@ -1,0 +1,12 @@
+#supported-by-logos {
+    pointer-events: none;
+    vertical-align: middle;
+}
+
+#supported-by-logos img {
+    background-color: transparent;
+}
+
+#supported-by-logos td {
+    text-align: center;
+}
