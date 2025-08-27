@@ -29,7 +29,7 @@ class GeolifeDataset(Dataset):
 
     def download(self, savepath: str = constants.datasets_folder):
         """
-        Dowloads Geolife dataset.
+        Downloads Geolife dataset.
 
         :param str savepath: path where dataset should be saved. The default is `constants.datasets_folder`.
         """
