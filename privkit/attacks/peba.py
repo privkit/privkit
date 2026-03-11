@@ -45,7 +45,6 @@ class PEBA(Attack):
         super().__init__()
 
         self.epsilon = epsilon
-        self.hw = HW(epsilon=self.epsilon)
         self.Niter_ML_max = Niter_ML_max
         self.tolerance_ML = tolerance_ML
 
@@ -110,7 +109,8 @@ class PEBA(Attack):
 
         norm_pi_MLE = 1/np.sqrt(cur_query_index)*mobility_profile + (1 - 1 / np.sqrt(cur_query_index))*pi_MLE
 
-        return self.hw.execute_attack(np.reshape(f[:, cur_query_index-1], (-1, 1)), norm_pi_MLE, grid)
+        hw = HW(epsilon=self.epsilon, mobility_profile=norm_pi_MLE)
+        return hw.execute_attack(np.reshape(f[:, cur_query_index-1], (-1, 1)), grid)
 
     def get_profile_MLE(self, f: [[float]], mobility_profile: [float]):
         """
