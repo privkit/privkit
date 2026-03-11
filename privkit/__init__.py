@@ -12,7 +12,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 name = 'privkit'
 
-__version__ = '0.5.0'
+__version__ = '0.5.1'
 
 from .attacks import *
 from .data import *

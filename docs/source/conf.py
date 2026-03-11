@@ -14,9 +14,9 @@ sys.path.insert(0, str(Path().resolve().parent.parent))
 # -- Project information -----------------------------------------------------
 
 project = 'Privkit'
-copyright = '2025, Privkit'
+copyright = '2026, Privkit'
 author = 'Privkit'
-release = '0.5.0'
+release = '0.5.1'
 
 # -- Mock import -------------------------------------------------------------
 autodoc_mock_imports = [
