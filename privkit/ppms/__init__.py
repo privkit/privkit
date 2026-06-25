@@ -1,6 +1,10 @@
 from .ppm import PPM
 from .planar_laplace import PlanarLaplace
 from .adaptive_geo_ind import AdaptiveGeoInd
+from .gem import GEM
+from .gem_adap_eps import GEM_with_adaptive_epsilon
+from .tppm_hmm import TrajectoryPrivacyProtectionHMM
+from .clustering_prediction import ClusteringPrediction
 from .centroid_voxel import CentroidVoxel
 from .clustering_geo_ind import ClusteringGeoInd
 from .hash import Hash
@@ -18,10 +22,13 @@ __all__ = [
     "PPM",
     "PlanarLaplace",
     "AdaptiveGeoInd",
-    "CentroidVoxel",
-    "ClusteringGeoInd",
+    "GEM_with_adaptive_epsilon",
+    "TrajectoryPrivacyProtectionHMM",
+    "ClusteringPrediction",
     "Hash",
     "Laplace",
+    "CentroidVoxel",
+    "ClusteringGeoInd",
     "Merge2Faces",
     "PointMeshPoint",
     "PrivacyAwareRemapping",
