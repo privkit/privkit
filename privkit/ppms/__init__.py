@@ -4,6 +4,7 @@ from .adaptive_geo_ind import AdaptiveGeoInd
 from .clustering_prediction import ClusteringPrediction
 from .centroid_voxel import CentroidVoxel
 from .clustering_geo_ind import ClusteringGeoInd
+from .hmm_tppm import TrajectoryPrivacyProtectionHMM
 from .hash import Hash
 from .laplace import Laplace
 from .merge_two_faces import Merge2Faces
@@ -19,6 +20,9 @@ __all__ = [
     "PPM",
     "PlanarLaplace",
     "AdaptiveGeoInd",
+    "CentroidVoxel",
+    "ClusteringGeoInd",
+    "TrajectoryPrivacyProtectionHMM",
     "ClusteringPrediction",
     "Hash",
     "Laplace",
